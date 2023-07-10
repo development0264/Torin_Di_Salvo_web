@@ -1,0 +1,39 @@
+<header class="setheight navbar navbar-expand">
+    <div class="container">
+    </div>
+  </header>
+  
+  <body>
+    <div class="d-flex align-items-center justify-content-center" style="height: 100vh;">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <div class="modall">
+                <div id="progressBar" class="progress">
+                  <div class="progress-bar" role="progressbar" [style.width]="progress + '%'" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <div class="content">
+                  <!-- <h1>{{ currentContent }}</h1> -->
+                  <div *ngIf="steps===1">
+                    1
+                  </div>
+                  <div *ngIf="steps===2">2</div>
+                  <div *ngIf="steps===3">3</div>
+                  <div *ngIf="steps===4">4</div>
+                  <div *ngIf="steps===5">5</div>
+                  <div *ngIf="steps===6">6</div>
+                  <div *ngIf="steps===7">7</div>
+                  <div *ngIf="steps===8">8</div> 
+                  <div *ngIf="steps===9">9</div> 
+                </div>
+                <div style="position: absolute; bottom: 0; right: 0;">
+                    <button id="nextButton" class="btn btn-primary" (click)="next()">{{showFinish ? 'Finish' : 'Next'}}</button>
+                  </div>
+              </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  
