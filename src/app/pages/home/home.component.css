@@ -1,0 +1,255 @@
+.offer-alert {
+    background-color: #DDDDDD;
+    border-radius: 18px;
+    margin: 40px 0;
+    padding: 10px 40px;
+}
+
+.offer-alert-title {
+    gap: 20px;
+}
+
+.offer-alert-title p {
+    color: #000;
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 0px;
+}
+
+.close-icon-box {
+    background-color: #8E8E8E;
+    width: 25px;
+    height: 25px;
+    display: block;
+    border-radius: 100px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.offer-alert-btn {
+    background-color: #142B56;
+    border: transparent;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 5px 35px;
+}
+
+.user-detail h1 {
+    color: #000000;
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.user-detail span {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.user-fees h2 {
+    color: #000000;
+    font-weight: 600;
+    font-size: 96px;
+}
+
+.user-fees span {
+    color: #1F7C3E;
+    font-size: 45px;
+}
+
+.total-fees p {
+    color: #000000;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 0px;
+}
+
+.total-fees p:last-child {
+    font-weight: 600;
+    background-color: red;
+}
+
+.total-fees span {
+    color: #1F7C3E;
+    font-weight: 600;
+}
+
+.user-detail .last-update {
+    text-align: center;
+    color: #696969;
+    font-weight: 400;
+    margin-top: 8px;
+    margin-bottom: 0px;
+}
+
+.user-detail .last-update span {
+    font-weight: 600;
+}
+
+.account-balance {
+    margin-bottom: 11px;
+}
+
+.account-balance h2 {
+    color: #000;
+    font-weight: 600;
+    margin-bottom: 0px;
+    font-size: 32px;
+}
+
+.account-balance-box {
+    background-color: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    padding: 10px;
+    border-radius: 18px;
+    padding: 25px;
+}
+
+.balance-check input::-webkit-outer-spin-button,
+.balance-check input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.balance-check input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.balance-check {
+    position: relative;
+}
+
+.balance-check label {
+    color: #6B6B6B;
+    font-weight: 600;
+    position: absolute;
+    z-index: 99;
+    background: #fff;
+    top: -10px;
+    left: 15px;
+    max-width: 90px;
+    width: 100%;
+}
+
+.balance-check input {
+    border: 1px solid #6B6B6B;
+    border-radius: 10px;
+    height: 47px;
+    outline: none;
+    width: 178px;
+    padding-left: 30px;
+    font-weight: 500;
+}
+
+.balance-check input::placeholder {
+    color: #A4A4A4;
+}
+
+.balance-check span {
+    color: #000;
+    font-weight: 600;
+    font-size: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+    position: absolute;
+}
+
+.account-balance-box tbody tr td {
+    padding-bottom: 30px;
+}
+
+.amazon-card .balance-check label {
+    max-width: 110px;
+    width: 100%;
+}
+
+.account-balance-box table thead th {
+    color: #5B5B5B;
+    font-weight: 600;
+}
+
+.amazon-card td:nth-child(3) {
+    color: #A80000;
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.amazon-card td:nth-child(4) {
+    color: #A80000;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.card-payment td:nth-child(3) {
+    color: #000000;
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.card-payment td:nth-child(4) {
+    color: #1F7C3E;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.venmo-card td:last-child {
+    color: #A80000;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+/* Savings Section */
+
+.liabilitie-detail h2{
+    color: #000000;
+    font-weight: 600;
+}
+
+
+
+
+@media (max-width:991px) {
+
+    .user-detail h1,
+    .account-balance h2 {
+        font-size: 30px;
+    }
+
+    .user-fees h2 {
+        font-size: 45px;
+    }
+
+    .user-fees span {
+        font-size: 30px;
+    }
+
+    .user-detail {
+        margin-bottom: 30px;
+    }
+
+    .total-fees p,
+    .user-detail span {
+        font-size: 16px;
+    }
+}
+
+@media (max-width:575px) {
+    .total-fees {
+        display: block !important;
+        margin-bottom: 20px !important;
+    }
+
+    .total-fees p {
+        width: 100%;
+    }
+    .account-balance h2{
+        margin-bottom: 15px;
+    }
+    .account-balance-box table{
+        min-width: 600px;
+    }
+
+
+}

@@ -10,7 +10,6 @@ const routes: Routes = [
     path: 'quick-start',
     loadChildren: () =>  import('./quickstart/quickstart.module').then(m => m.QuickstartModule)
   },
-
 ];
 
 @NgModule({

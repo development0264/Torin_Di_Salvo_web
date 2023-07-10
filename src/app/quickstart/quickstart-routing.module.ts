@@ -4,8 +4,8 @@ import { QuickstartComponent } from './quickstart/quickstart.component';
 
 const routes: Routes = [
   {
-  path: '',
-  component: QuickstartComponent,}
+    path: '',
+    component: QuickstartComponent,}
 ];
 
 @NgModule({
