@@ -1,5 +1,5 @@
 <!-- Offer alert Section -->
-<div class="container-xxl">
+<div class="container-default">
     <div
         class="offer-alert d-flex flex-wrap flex-sm-nowrap align-items-center justify-content-sm-between justify-content-center">
         <div class="offer-alert-title d-flex align-items-center mb-3 mb-sm-0">
@@ -18,14 +18,14 @@
 
 <!-- Balance Section -->
 
-<div class="container-xxl">
+<div class="container-default">
     <div class="row justify-content-between">
         <div class="col-lg-5">
             <div class="user-detail">
                 <h1>Good Evening, Torin!</h1>
                 <span>Days of Free Cash </span>
                 <img src="../../../assets/img/info-circle-second.svg" alt="img">
-                <div class="user-fees d-flex align-items-center">
+                <div class="user-fees d-flex align-items-baseline">
                     <h2>2.04</h2>
                     <span>(+0.56)</span>
                 </div>
@@ -54,82 +54,213 @@
         </div>
         <div class="col-lg-6">
             <div class="account-balance d-sm-flex d-block align-items-center justify-content-between">
-                <div class="d-flex gap-3">
+                <div class="d-flex gap-3 mb-2 mb-sm-0">
                     <h2>Account Balances</h2>
                     <img src="../../../assets/img/info-circle-second.svg" alt="img">
                 </div>
                 <button class="offer-alert-btn">Update</button>
             </div>
             <div class="account-balance-box">
-                <div class="table-responsive">
-                    <table class="w-100">
+                <div class="d-sm-flex justify-content-around">
+                    <div class="account-detail">
+                        <div class="balance-check">
+                            <label>Checking</label>
+                            <span>$</span>
+                            <input type="number">
+                        </div>
+                        <div class="balance-check">
+                            <label>Venmo</label>
+                            <span>$</span>
+                            <input type="number">
+                        </div>
+                        <div class="d-flex gap-3 flex-wrap">
+                            <div class="balance-check amazon-card">
+                                <label>Chase Card</label>
+                                <span>$</span>
+                                <input type="number" placeholder="Pending Amt">
+                            </div>
+                            <div class="balance-check amazon-card">
+                                <span>$</span>
+                                <input type="number" placeholder="Pending Amt">
+                            </div>
+                        </div>
+                        <div class="d-flex gap-3 flex-wrap">
+                            <div class="balance-check amazon-card">
+                                <label>Amazon Card</label>
+                                <span>$</span>
+                                <input type="number" placeholder="Pending Amt">
+                            </div>
+                            <div class="balance-check amazon-card">
+                                <span>$</span>
+                                <input type="number" placeholder="Pending Amt">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-3 mt-4 mt-md-0 justify-content-center">
+                        <div class="balance-detail">
+                            <p>Balance</p>
+                            <p>$6,234.15</p>
+                            <p>$137.15</p>
+                            <p>($2,321.21)</p>
+                            <p>($2,321.21)</p>
+                        </div>
+                        <div class="balance-change-detail">
+                            <p>Change</p>
+                            <p>(+$12.16)</p>
+                            <p>(-$15.12)</p>
+                            <p>(-$242.15)</p>
+                            <p>(-$53.15)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Savings Section -->
+<div class="saving-section">
+    <div class="container-default">
+        <div class="row gx-4">
+            <div class="col-lg-6">
+                <div class="liabilitie-detail d-flex align-items-center justify-content-between mb-2 pe-3">
+                    <div class="d-flex align-items-center gap-2 mb-3 mb-lg-0">
+                        <h3>Assets/Liabilities</h3>
+                        <span type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            <img src="../../../assets/img/add-icon.svg" alt="img">
+                        </span>
+                    </div>
+                    <div class="d-flex justify-content-between gap-3 mb-3 mb-lg-0 w-md-100">
+                        <div class="asset-detail d-flex align-items-center gap-2">
+                            <p>Assets:</p>
+                            <p>$759.72</p>
+                        </div>
+                        <div class="liabilitie-price d-flex align-items-center gap-2">
+                            <p>Liabilities:</p>
+                            <p>($1,626.15)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive liabilitie-table">
+                    <table class="table">
                         <thead>
                             <tr>
-                                <th></th>
-                                <th></th>
-                                <th>Balance</th>
-                                <th>Change</th>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Amount</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="card-payment">
+                            <tr class="paycheck-detail">
+                                <td>n/a</td>
                                 <td>
-                                    <div class="balance-check">
-                                        <label>Checking</label>
-                                        <span>$</span>
-                                        <input type="number">
-                                    </div>
+                                    Prorated paycheck
+                                    <img src="../../../assets/img/info-circle-second.svg" alt="img">
                                 </td>
-                                <td></td>
-                                <td>$6,234.15</td>
-                                <td>(+$12.16)</td>
+                                <td>($1,216.15)</td>
                             </tr>
-                            <tr class="card-payment venmo-card">
+                            <tr class="paycheck-detail">
+                                <td>n/a</td>
                                 <td>
-                                    <div class="balance-check">
-                                        <label>Venmo</label>
-                                        <span>$</span>
-                                        <input type="number">
-                                    </div>
+                                    Prorated rent
+                                    <img src="../../../assets/img/info-circle-second.svg" alt="img">
                                 </td>
-                                <td></td>
-                                <td>$137.15</td>
-                                <td>(+$12.16)</td>
+                                <td>($1,250.00)</td>
                             </tr>
-                            <tr class="amazon-card">
-                                <td>
-                                    <div class="balance-check">
-                                        <label>Chase Card</label>
-                                        <span>$</span>
-                                        <input type="number" placeholder="Pending Amt">
+                            <tr class="paycheck-detail">
+                                <td data-bs-target="#exampleModal" data-bs-toggle="modal">
+                                    Nov 12, 2022
+                                </td>
+                                <td data-bs-target="#exampleModal" data-bs-toggle="modal">Puerto Rico Saver</td>
+                                <td data-bs-target="#exampleModal" data-bs-toggle="modal">
+                                    <div class="paycheck-price">
+                                        ($250.00) <img src="../../../assets/img/right-arrow.svg" alt="img">
                                     </div>
                                 </td>
-                                <td>
-                                    <div class="balance-check">
-                                        <span>$</span>
-                                        <input type="number" placeholder="Posted Amt">
-                                    </div>
-                                </td>
-                                <td>($2,321.21)</td>
-                                <td>(-$242.15)</td>
                             </tr>
-                            <tr class="amazon-card">
-                                <td>
-                                    <div class="balance-check">
-                                        <label>Amazon Card</label>
-                                        <span>$</span>
-                                        <input type="number" placeholder="Pending Amt">
+                            <tr class="">
+                                <td data-bs-target="#airbnbmodal" data-bs-toggle="modal">
+                                    Aug 10, 2022
+                                </td>
+                                <td data-bs-target="#airbnbmodal" data-bs-toggle="modal">AirBnB buy-ins</td>
+                                <td data-bs-target="#airbnbmodal" data-bs-toggle="modal">
+                                    <div class="paycheck-price">
+                                        $545.15<img src="../../../assets/img/right-arrow.svg" alt="img">
                                     </div>
                                 </td>
-                                <td>
-                                    <div class="balance-check">
-                                        <span>$</span>
-                                        <input type="number" placeholder="Posted Amt">
-                                    </div>
-                                </td>
-                                <td>($2,321.21)</td>
-                                <td>(-$53.15)</td>
                             </tr>
+                            <tr class="">
+                                <td>
+                                    Sep 23, 2022
+                                </td>
+                                <td>Amazon items to return</td>
+                                <td>
+                                    <div class="paycheck-price">
+                                        $93.12<img src="../../../assets/img/right-arrow.svg" alt="img">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="">
+                                <td>
+                                    Oct 15, 2022
+                                </td>
+                                <td>Sunday night dinner</td>
+                                <td>
+                                    <div class="paycheck-price">
+                                        $121.45
+                                        <img src="../../../assets/img/right-arrow.svg" alt="img">
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="liabilitie-detail d-flex align-items-center justify-content-between mb-2 pe-3">
+                    <h3>Savings</h3>
+                    <div class="asset-detail d-flex align-items-center gap-2">
+                        <p>Total:</p>
+                        <p>$9,245.15</p>
+                    </div>
+                </div>
+                <div class="table-responsive liabilitie-table saving-table">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Chase Savings Account</td>
+                                <td>
+                                    <div class="paycheck-price">
+                                        $7,251.30
+                                        <img src="../../../assets/img/right-arrow.svg" alt="img">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Bank of Ireland Savings Account</td>
+                                <td>
+                                    <div class="paycheck-price">
+                                        $7,251.30
+                                        <img src="../../../assets/img/right-arrow.svg" alt="img">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Investment</td>
+                                <td>
+                                    <div class="paycheck-price">
+                                        $537.73
+                                        <img src="../../../assets/img/right-arrow.svg" alt="img">
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- <hr/> -->
                         </tbody>
                     </table>
                 </div>
@@ -138,38 +269,214 @@
     </div>
 </div>
 
-<!-- Savings Section -->
 
-<div class="container-xxl">
-    <div class="row">
-        <div class="col-lg-6">
-            <div class="liabilitie-detail">
-                <div class="d-flex">
-
+<!-- Add Liabilities Modal -->
+<div class="create-asset-modal modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Create Asset/Liability</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <form>
+                            <div class="liability-detail">
+                                <label for="">Decription</label>
+                                <input type="text" placeholder="Puerto Rico Saver">
+                            </div>
+                            <div class="liability-detail">
+                                <label for="">Type</label>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>Saver</option>
+                                    <option value="2">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="liability-detail">
+                                        <label for="">Savings Start Date</label>
+                                        <input type="date" placeholder="Puerto Rico Saver">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="liability-detail">
+                                        <label for="">Savings End Date</label>
+                                        <input type="date" placeholder="Puerto Rico Saver">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="liability-detail">
+                                <label for="">Target Savings Amount</label>
+                                <input type="text" placeholder="$1,500.00">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="liability-type">
+                            <h6>Asset/Liability Types</h6>
+                            <p><span>Lump Sum:</span> This is a static amount that is either credited or debited from
+                                your balances at any given time. This is useful to account for money you will eventually
+                                receive or owe, even if the transaction hasn’t happened yet.</p>
+                            <p><span>Saver:</span> This is an accumulating liability that helps you save up for a
+                                financial goal without creating a separate account. You define the time period and total
+                                amount you want to save, and money is debited from your account every paycheck to
+                                achieve your goal. </p>
+                            <p>For more info on how to use Assets/Liabilities, including advanced use cases, check out
+                                our <a href="">blog post</a>. New ways to save are being added all the time, so stay
+                                tuned!</p>
+                        </div>
+                    </div>
                 </div>
-                <h2>Assets/Liabilities</h2>
-                <span type="button"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    <img src="../../../assets/img/add-icon.svg" alt="img">
-                </span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="close-btn" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="save-btn">Save</button>
             </div>
         </div>
     </div>
 </div>
 
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<!-- Puerto Rico Saver Modal -->
+<div class="create-asset-modal modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header flex-wrap">
+                <h5 class="modal-title" id="exampleModalLabel">Puerto Rico Saver
+                    <img src="../../../assets/img/edit-icon.svg" alt="img">
+                </h5>
+                <div class="d-flex create-user-detail gap-sm-4 flex-wrap">
+                    <p><span>Created:</span> Aug 10, 2022</p>
+                    <p><span>Last Updated:</span> Dec 12, 2023</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <form>
+                            <div class="liability-detail">
+                                <label for="">Type</label>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>Saver</option>
+                                    <option value="2">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="liability-detail">
+                                        <label for="">Savings Start Date</label>
+                                        <input type="date" placeholder="Puerto Rico Saver">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="liability-detail">
+                                        <label for="">Savings End Date</label>
+                                        <input type="date" placeholder="Puerto Rico Saver">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="liability-detail">
+                                <label for="">Target Savings Amount</label>
+                                <input type="text" placeholder="$1,500.00">
+                            </div>
+                            <div class="liability-detail">
+                                <label for="">Target Savings Amount</label>
+                                <div class="d-flex align-items-center gap-4 mt-4">
+                                    <p class="mb-0">$250.00</p>
+                                    <div class="range-slider">
+                                        <div class="range-slider-inner"></div>
+                                    </div>
+                                    <p class="mb-0">$1,500.00</p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="liability-type">
+                            <h6>Asset/Liability Types</h6>
+                            <p><span>Lump Sum:</span> This is a static amount that is either credited or debited from
+                                your balances at any given time. This is useful to account for money you will eventually
+                                receive or owe, even if the transaction hasn’t happened yet.</p>
+                            <p><span>Saver:</span> This is an accumulating liability that helps you save up for a
+                                financial goal without creating a separate account. You define the time period and total
+                                amount you want to save, and money is debited from your account every paycheck to
+                                achieve your goal. </p>
+                            <p>For more info on how to use Assets/Liabilities, including advanced use cases, check out
+                                our <a href="">blog post</a>. New ways to save are being added all the time, so stay
+                                tuned!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="close-btn" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="save-btn">Save</button>
+            </div>
         </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Understood</button>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
+
+<!-- AirBnB buy-ins Modal -->
+<div class="create-asset-modal modal fade" id="airbnbmodal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header flex-wrap">
+                <h5 class="modal-title" id="exampleModalLabel">AirBnb Buy-Ins
+                    <img src="../../../assets/img/edit-icon.svg" alt="img">
+                </h5>
+                <div class="d-flex create-user-detail gap-4 flex-wrap">
+                    <p><span>Created:</span> Aug 10, 2022</p>
+                    <p><span>Last Updated:</span> Dec 12, 2023</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-6 mt-2">
+                        <form>
+                            <div class="liability-detail">
+                                <label for="">Type</label>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>Saver</option>
+                                    <option value="2">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+
+                            <div class="liability-detail">
+                                <label for="">Target Savings Amount</label>
+                                <input type="text" placeholder="$1,500.00">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="liability-type">
+                            <h6>Asset/Liability Types</h6>
+                            <p><span>Lump Sum:</span> This is a static amount that is either credited or debited from
+                                your balances at any given time. This is useful to account for money you will eventually
+                                receive or owe, even if the transaction hasn’t happened yet.</p>
+                            <p><span>Saver:</span> This is an accumulating liability that helps you save up for a
+                                financial goal without creating a separate account. You define the time period and total
+                                amount you want to save, and money is debited from your account every paycheck to
+                                achieve your goal. </p>
+                            <p>For more info on how to use Assets/Liabilities, including advanced use cases, check out
+                                our <a href="">blog post</a>. New ways to save are being added all the time, so stay
+                                tuned!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="close-btn" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="save-btn">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -9,3 +9,10 @@ body{
     font-family: 'Inter', sans-serif;
     background-color: #F6F6F6;
 }
+
+.container-default{
+    max-width: 1500px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0px 12px;
+}

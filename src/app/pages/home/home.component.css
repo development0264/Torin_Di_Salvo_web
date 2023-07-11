@@ -1,3 +1,5 @@
+/* Offer alert Section Start */
+
 .offer-alert {
     background-color: #DDDDDD;
     border-radius: 18px;
@@ -34,6 +36,14 @@
     border-radius: 10px;
     padding: 5px 35px;
 }
+/* Offer alert Section End */
+
+/* Balance Section Start */
+
+.user-detail {
+    height: 290px;
+    margin: 80px 0;
+}
 
 .user-detail h1 {
     color: #000000;
@@ -56,6 +66,7 @@
 .user-fees span {
     color: #1F7C3E;
     font-size: 45px;
+    font-weight: 500;
 }
 
 .total-fees p {
@@ -118,6 +129,7 @@
 
 .balance-check {
     position: relative;
+    margin-bottom: 20px;
 }
 
 .balance-check label {
@@ -130,6 +142,10 @@
     left: 15px;
     max-width: 90px;
     width: 100%;
+    text-align: center;
+}
+.balance-check:nth-child(2) label{
+    max-width: 75px;
 }
 
 .balance-check input {
@@ -160,58 +176,314 @@
     padding-bottom: 30px;
 }
 
-.amazon-card .balance-check label {
-    max-width: 110px;
+.amazon-card label {
+    max-width: 110px ;
     width: 100%;
 }
 
-.account-balance-box table thead th {
+.account-balance-box {
     color: #5B5B5B;
     font-weight: 600;
 }
 
-.amazon-card td:nth-child(3) {
-    color: #A80000;
+.balance-detail p:first-child,
+.balance-change-detail p:first-child {
+    color: #5B5B5B;
+    font-size: 16px;
     font-weight: 600;
-    font-size: 22px;
+    margin-top: -16px;
+    margin-bottom: 0px;
+    text-align: start;
 }
 
-.amazon-card td:nth-child(4) {
-    color: #A80000;
-    font-weight: 500;
-    font-size: 18px;
-}
-
-.card-payment td:nth-child(3) {
+.balance-detail p {
     color: #000000;
-    font-weight: 600;
     font-size: 22px;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 35px;
 }
 
-.card-payment td:nth-child(4) {
+.account-detail {
+    margin-top: 16px;
+}
+
+.balance-detail p:nth-child(4),
+.balance-detail p:nth-child(5) {
+    color: #A80000;
+}
+
+.balance-change-detail p {
+    margin-bottom: 35px;
+    margin-top: 43px;
+    text-align: end;
+}
+
+.balance-change-detail p:nth-child(2) {
     color: #1F7C3E;
     font-size: 18px;
     font-weight: 500;
+    margin-top: 15px;
 }
 
-.venmo-card td:last-child {
+.balance-change-detail p {
     color: #A80000;
-    font-weight: 500;
-    font-size: 18px;
 }
 
-/* Savings Section */
+/* Balance Section End */
 
-.liabilitie-detail h2{
+/* Savings Section Start */
+
+.liabilitie-detail h3 {
     color: #000000;
+    font-weight: 600;
+    margin-bottom: 0px;
+    font-size: 26px;
+}
+
+.asset-detail p:first-child,
+.liabilitie-price p:first-child {
+    font-size: 18px;
+    color: #000000;
+    font-weight: 500;
+    margin-bottom: 0px;
+}
+
+.asset-detail p:last-child,
+.liabilitie-price p:last-child {
+    font-size: 22px;
+    color: #000;
+    font-weight: 600;
+    margin-bottom: 0px;
+}
+
+.liabilitie-price p:last-child {
+    color: #A80000;
+}
+
+.liabilitie-table {
+    border: 1px solid #DDDDDD;
+    border-radius: 18px;
+    height: 100%;
+}
+
+.liabilitie-table table thead {
+    background-color: #d3d3d324;
+}
+
+.liabilitie-table table thead tr {
+    border-bottom: 1px solid #9393933d;
+}
+
+.liabilitie-table table thead tr th {
+    color: #676767;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.liabilitie-table table tbody tr:nth-child(3) td,
+.liabilitie-table table tbody tr:nth-child(4) td {
+    cursor: pointer;
+}
+
+.liabilitie-table table thead tr th:first-child,
+.liabilitie-table table tbody tr td:first-child {
+    padding-left: 20px;
+}
+
+.liabilitie-table table tbody tr td {
+    color: #000;
+    font-weight: 500;
+}
+
+.liabilitie-table table tbody tr td:last-child,
+.saving-table table thead tr th:last-child {
+    text-align: center;
+}
+
+.paycheck-price {
+    display: flex;
+    max-width: 105px;
+    margin-left: auto;
+    width: 100%;
+    justify-content: space-between;
+    margin-right: 10px;
+}
+
+.paycheck-detail td:last-child {
+    color: #A80000 !important;
+}
+
+.saving-section {
+    margin-top: 50px;
+}
+
+.create-asset-modal .modal-content {
+    border: 1px solid #707070;
+    border-radius: 8px;
+}
+
+.create-asset-modal .modal-header {
+    padding: 19px 38px;
+    border-bottom-color: #B6B6B6;
+}
+
+.create-asset-modal .modal-dialog {
+    max-width: 1200px;
+    width: 100%;
+}
+
+.create-asset-modal .modal-header h5 {
+    font-size: 24px;
+    color: #000;
     font-weight: 600;
 }
 
+.liability-detail {
+    margin-bottom: 20px;
+}
 
+.liability-detail label {
+    color: #344054;
+    font-weight: 500;
+    margin-bottom: 6px;
+    display: block;
+}
 
+.liability-detail input {
+    box-shadow: 0px 1px 2px 0px #1018280D;
+    border: 1px solid #D0D5DD !important;
+    outline: none;
+    border-radius: 8px;
+    padding: 12px 16px;
+    width: 100%;
+}
+
+.liability-detail input::placeholder {
+    color: #000000;
+    font-weight: 400;
+}
+
+.liability-detail select {
+    padding: 12px 16px;
+    border-radius: 8px;
+}
+
+.liability-detail .form-select:focus {
+    box-shadow: none;
+    border-color: #D0D5DD;
+}
+
+.save-btn {
+    background-color: #409FFF;
+    border-radius: 3px;
+    padding: 10px 35px;
+    font-weight: 500;
+    font-size: 18px;
+    color: #fff;
+    border: none;
+}
+
+.close-btn {
+    color: #000000;
+    font-size: 18px;
+    font-weight: 500;
+    background-color: #CCCCCC;
+    border-radius: 3px;
+    border: none;
+    padding: 10px 35px;
+}
+
+.create-asset-modal .modal-footer {
+    border-top-color: #B6B6B6;
+}
+
+.liability-type {
+    padding-left: 70px;
+    margin: 60px 0;
+}
+
+.liability-type h6 {
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.liability-type p span {
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.liability-type p {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.liability-type p:last-child {
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.liability-type p a {
+    color: #2B38AD;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.create-asset-modal .modal-body {
+    padding-left: 50px;
+}
+
+.create-user-detail p {
+    font-weight: 400;
+    color: #000000;
+    margin-bottom: 0px;
+}
+
+.create-user-detail p span {
+    font-weight: 400;
+}
+
+.create-user-detail p {
+    font-weight: 600;
+}
+
+.range-slider {
+    max-width: 304px;
+    width: 100%;
+    border: 5px solid #F9F5FF;
+    border-radius: 10px;
+    position: relative;
+}
+
+.range-slider-inner {
+    max-width: 80px;
+    width: 100%;
+    border: 5px solid #142B56;
+    position: absolute;
+    top: -5px;
+    left: -3px;
+    border-radius: 10px;
+}
+/* Savings Section End */
+
+@media (min-width:1920px) {
+    .saving-section .row {
+        --bs-gutter-x: 60px;
+    }
+}
+
+@media (max-width:1300px) {
+    .liabilitie-detail {
+        flex-wrap: wrap;
+        display: block !important;
+    }
+}
 
 @media (max-width:991px) {
 
+    .offer-alert{
+        margin: 30px 0;
+    }
     .user-detail h1,
     .account-balance h2 {
         font-size: 30px;
@@ -233,6 +505,43 @@
     .user-detail span {
         font-size: 16px;
     }
+
+    .liabilitie-table {
+        height: auto;
+        margin-bottom: 30px;
+    }
+
+    .liabilitie-detail h3 {
+        font-size: 22px;
+    }
+
+    .asset-detail p:last-child,
+    .liabilitie-price p:last-child {
+        font-size: 20px;
+    }
+
+    .liabilitie-table table thead tr th {
+        font-size: 18px;
+    }
+
+    .create-asset-modal .modal-dialog {
+        max-width: 100%;
+        padding: 0 20px;
+        margin: 0 auto;
+    }
+
+    .create-asset-modal .modal-body {
+        padding-left: 16px;
+    }
+
+    .liability-type {
+        padding-left: 0px;
+        margin: 30px 0;
+    }
+
+    .user-detail {
+        margin: 0px;
+    }
 }
 
 @media (max-width:575px) {
@@ -244,12 +553,29 @@
     .total-fees p {
         width: 100%;
     }
-    .account-balance h2{
-        margin-bottom: 15px;
-    }
-    .account-balance-box table{
+
+
+    .account-balance-box table {
         min-width: 600px;
     }
 
+    .balance-check {
+        width: 100%;
+    }
 
+    .balance-check input {
+        width: 100%;
+    }
+
+    .account-balance {
+        margin-top: 50px;
+    }
+
+    .account-balance-box {
+        padding: 20px;
+    }
+
+    .liabilitie-table table {
+        min-width: 550px;
+    }
 }
