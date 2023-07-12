@@ -5,6 +5,10 @@ import { PagesComponent } from './pages/pages.component';
 import { BudgetComponent } from './budget/budget.component';
 import { BalanceSheetComponent } from './balance-sheet/balance-sheet.component';
 import { PerformanceComponent } from './performance/performance.component';
+import { SettingsComponent } from './settings/settings.component';
+import { ProfileComponent } from './settings/profile/profile.component';
+import { SecurityComponent } from './settings/security/security.component';
+import { AccountsComponent } from './settings/accounts/accounts.component';
 
 const routes: Routes = [
   {
@@ -26,6 +30,24 @@ const routes: Routes = [
       {
         path: 'performance',
         component: PerformanceComponent
+      },
+      {
+        path: 'settings',
+        component: SettingsComponent,
+        children:[
+          {
+            path: 'profile',
+            component: ProfileComponent
+          },
+          {
+            path: 'Accounts',
+            component: AccountsComponent
+          },
+          {
+            path: 'Security',
+            component: SecurityComponent
+          },
+        ]
       },
 
     ]

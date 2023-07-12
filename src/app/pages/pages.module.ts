@@ -8,6 +8,11 @@ import { HomeComponent } from './home/home.component';
 import { BudgetComponent } from './budget/budget.component';
 import { BalanceSheetComponent } from './balance-sheet/balance-sheet.component';
 import { PerformanceComponent } from './performance/performance.component';
+import { SettingsComponent } from './settings/settings.component';
+import { SettingsNavbarComponent } from './settings-navbar/settings-navbar.component';
+import { ProfileComponent } from './settings/profile/profile.component';
+import { AccountsComponent } from './settings/accounts/accounts.component';
+import { SecurityComponent } from './settings/security/security.component';
 
 
 @NgModule({
@@ -17,7 +22,12 @@ import { PerformanceComponent } from './performance/performance.component';
     HomeComponent,
     BudgetComponent,
     BalanceSheetComponent,
-    PerformanceComponent
+    PerformanceComponent,
+    SettingsComponent,
+    SettingsNavbarComponent,
+    ProfileComponent,
+    AccountsComponent,
+    SecurityComponent
   ],
   imports: [
     CommonModule,
