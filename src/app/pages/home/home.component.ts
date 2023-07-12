@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Chart } from 'chart.js';
+import { Chart,ChartOptions } from 'chart.js';
 
 @Component({
   selector: 'app-home',
@@ -7,29 +7,48 @@ import { Chart } from 'chart.js';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  ngAfterViewInit() {
-    const canvas = document.getElementById('lineChart') as HTMLCanvasElement;
-    const ctx = canvas.getContext('2d');
+  Linechart: Chart;
 
-    new Chart(ctx, {
+  ngOnInit() {
+    this.Linechart = new Chart('linechart', {
       type: 'line',
       data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+        labels: ["Nov 25","dec 30","Feb 7","Mar 14","Apr 19","May 23"],
         datasets: [{
-          label: 'Sample Line Chart',
-          data: [10, 20, 30, 40, 50, 60],
-          borderColor: 'blue',
-          fill: false
+          label: 'Number of Item in months',
+          data: [0,2,3,2.9,7,7.2,7.4,7.7,8,8.4,8.5],
+          fill: false,
+          borderColor: 'white', // Set line color to white
+          borderWidth: 1,
+          pointRadius: 0 
         }]
       },
       options: {
-        responsive: true,
-        scales: {
-          y: {
-            beginAtZero: true
+        plugins: {
+          legend: {
+            display: false // Hide the legend
           }
-        }
-      }
+        },
+        scales: {
+          x: {
+            grid: {
+            display: false // Set x-axis grid color to white
+            },
+            ticks: {
+              color: 'white' // Set x-axis tick color to white
+            }
+          },
+          y: {
+            beginAtZero: true,// Hide the y-axis labels
+            display: false, 
+            ticks: {
+              display: false // Hide the y-axis tick marks
+            }
+          },
+        },
+        responsive: true
+      } as ChartOptions
     });
   }
+  
 }

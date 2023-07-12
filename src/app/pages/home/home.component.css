@@ -465,6 +465,9 @@
     border-radius: 10px;
 }
 /* Savings Section End */
+.saving-chart{
+    margin-top: 100px;
+}
 
 @media (min-width:1920px) {
     .saving-section .row {
