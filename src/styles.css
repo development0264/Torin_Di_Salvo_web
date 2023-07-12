@@ -16,3 +16,9 @@ body{
     margin: 0 auto;
     padding: 0px 12px;
 }
+
+@media (max-width:1550px) {
+    .container-default{
+        max-width: 1300px;
+    }
+}
