@@ -1,7 +1,7 @@
 <div class="container-default">
-    <div class="row justify-content-between">
-        <div class="col-lg-7">
-            <div class="nav-tab-main">
+    <div class="">
+        <div class="">
+            <div class="nav-tab-main">            
                 <ul class="nav nav-pills" id="pills-tab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
@@ -18,203 +18,283 @@
                             data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
                             aria-selected="false">Daily</button>
                     </li>
-                </ul>
+                </ul>  
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                         aria-labelledby="pills-home-tab">
-                        <div class="income-box">
-                            <div class="income-detail d-flex align-items-center justify-content-between">
-                                <div class="d-flex align-items-center gap-2">
-                                    <h3>Income</h3>
-                                    <img src="../../../assets/img/income-info.svg" alt="img">
+                        <div class="row justify-content-between">
+                            <div class="col-lg-7">                                
+                                <div class="income-box">
+                                    <div class="income-detail d-flex align-items-center justify-content-between">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <h3>Income</h3>
+                                            <img src="../../../assets/img/income-info.svg" alt="img">
+                                        </div>
+                                        <img src="../../../assets/img/plus-circle.svg" alt="img" class="income-plus">
+                                    </div>
+                                    <div class="income-price">
+                                        <ul class="list-unstyled mb-0">
+                                            <div
+                                                class="income-price-detail d-flex align-items-center justify-content-between py-2">
+                                                <li>
+                                                    <h6>Accenture Paycheck</h6>
+                                                </li>
+                                                <li>
+                                                    <p>$120,000.00</p>
+                                                </li>
+                                            </div>
+                                            <div
+                                                class="income-price-detail d-flex align-items-center justify-content-between py-2">
+                                                <li>
+                                                    <h6>Accenture Bonus</h6>
+                                                </li>
+                                                <li>
+                                                    <p>$10,000.00</p>
+                                                </li>
+                                            </div>
+                                            <div
+                                                class="total-price d-flex justify-content-sm-end justify-content-between align-items-center">
+                                                <p>Total Income:</p>
+                                                <h6>$130,000.00</h6>
+                                            </div>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <img src="../../../assets/img/plus-circle.svg" alt="img" class="income-plus">
-                            </div>
-                            <div class="income-price">
-                                <ul class="list-unstyled mb-0">
-                                    <div class="income-price-detail d-flex align-items-center justify-content-between py-2">
-                                        <li><h6>Accenture Paycheck</h6></li>
-                                        <li><p>$120,000.00</p></li>
+                                <div class="income-box">
+                                    <div class="income-detail d-flex align-items-center justify-content-between">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <h3>Pre-Tax Expenses</h3>
+                                            <img src="../../../assets/img/income-info.svg" alt="img">
+                                        </div>
+                                        <img src="../../../assets/img/plus-circle.svg" alt="img" class="income-plus">
                                     </div>
-                                    <div class="income-price-detail d-flex align-items-center justify-content-between py-2">
-                                        <li><h6>Accenture Bonus</h6></li>
-                                        <li><p>$10,000.00</p></li>
+                                    <div class="income-price">
+                                        <ul class="list-unstyled mb-0">
+                                            <div
+                                                class="income-price-detail d-flex align-items-center justify-content-between py-2">
+                                                <li>
+                                                    <h6>401k</h6>
+                                                </li>
+                                                <li>
+                                                    <p>$XX.XX</p>
+                                                </li>
+                                            </div>
+                                            <div
+                                                class="income-price-detail d-flex align-items-center justify-content-between py-2">
+                                                <li>
+                                                    <h6>Medical Insurance</h6>
+                                                </li>
+                                                <li>
+                                                    <p>$XX.XX</p>
+                                                </li>
+                                            </div>
+                                            <div
+                                                class="income-price-detail d-flex align-items-center justify-content-between py-2">
+                                                <li>
+                                                    <h6>Dental Insurance</h6>
+                                                </li>
+                                                <li>
+                                                    <p>$XX.XX</p>
+                                                </li>
+                                            </div>
+                                            <div
+                                                class="total-price d-flex justify-content-sm-end justify-content-between align-items-center">
+                                                <p>Total Pre-Tax Deductions:</p>
+                                                <h6>$XX.XX</h6>
+                                            </div>
+                                        </ul>
                                     </div>
-                                    <div class="total-price d-flex justify-content-end align-items-center">
-                                        <p>Total Income:</p>
-                                        <h6>$130,000.00</h6>
-                                    </div>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="income-box">
-                            <div class="income-detail d-flex align-items-center justify-content-between">
-                                <div class="d-flex align-items-center gap-2">
-                                    <h3>Pre-Tax Expenses</h3>
-                                    <img src="../../../assets/img/income-info.svg" alt="img">
                                 </div>
-                                <img src="../../../assets/img/plus-circle.svg" alt="img" class="income-plus">
-                            </div>
-                            <div class="income-price">
-                                <ul class="list-unstyled mb-0">                                  
-                                    <div class="income-price-detail d-flex align-items-center justify-content-between py-2">
-                                        <li><h6>401k</h6></li>
-                                        <li><p>$XX.XX</p></li>
+                                <div class="income-box">
+                                    <div class="income-detail d-flex align-items-center justify-content-between">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <h3>Taxes</h3>
+                                            <img src="../../../assets/img/income-info.svg" alt="img">
+                                        </div>
+                                        <img src="../../../assets/img/plus-circle.svg" alt="img" class="income-plus">
                                     </div>
-                                    <div class="income-price-detail d-flex align-items-center justify-content-between py-2">
-                                        <li><h6>Medical Insurance</h6></li>
-                                        <li><p>$XX.XX</p></li>
+                                    <div class="income-price">
+                                        <ul class="list-unstyled mb-0">
+                                            <div
+                                                class="income-price-detail d-flex align-items-center justify-content-between py-2">
+                                                <li>
+                                                    <h6>Federal</h6>
+                                                </li>
+                                                <li>
+                                                    <p>$XX.XX</p>
+                                                </li>
+                                            </div>
+                                            <div
+                                                class="income-price-detail d-flex align-items-center justify-content-between py-2">
+                                                <li>
+                                                    <h6>State</h6>
+                                                </li>
+                                                <li>
+                                                    <p>$XX.XX</p>
+                                                </li>
+                                            </div>
+                                            <div
+                                                class="income-price-detail d-flex align-items-center justify-content-between py-2">
+                                                <li>
+                                                    <h6>City</h6>
+                                                </li>
+                                                <li>
+                                                    <p>$XX.XX</p>
+                                                </li>
+                                            </div>
+                                            <div
+                                                class="total-price d-flex justify-content-sm-end justify-content-between align-items-center">
+                                                <p>Total Taxes:</p>
+                                                <h6>$XX.XX</h6>
+                                            </div>
+                                        </ul>
                                     </div>
-                                    <div class="income-price-detail d-flex align-items-center justify-content-between py-2">
-                                        <li><h6>Dental Insurance</h6></li>
-                                        <li><p>$XX.XX</p></li>
-                                    </div>
-                                    <div class="total-price d-flex justify-content-end align-items-center">
-                                        <p>Total Pre-Tax Deductions:</p>
-                                        <h6>$XX.XX</h6>
-                                    </div>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="income-box">
-                            <div class="income-detail d-flex align-items-center justify-content-between">
-                                <div class="d-flex align-items-center gap-2">
-                                    <h3>Taxes</h3>
-                                    <img src="../../../assets/img/income-info.svg" alt="img">
                                 </div>
-                                <img src="../../../assets/img/plus-circle.svg" alt="img" class="income-plus">
-                            </div>
-                            <div class="income-price">
-                                <ul class="list-unstyled mb-0">
-                                    <div class="income-price-detail d-flex align-items-center justify-content-between py-2">
-                                        <li><h6>Federal</h6></li>
-                                        <li><p>$XX.XX</p></li>
+                                <div class="income-box">
+                                    <div class="income-detail d-flex align-items-center justify-content-between">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <h3>Savings</h3>
+                                            <img src="../../../assets/img/income-info.svg" alt="img">
+                                        </div>
+                                        <img src="../../../assets/img/plus-circle.svg" alt="img" class="income-plus">
                                     </div>
-                                    <div class="income-price-detail d-flex align-items-center justify-content-between py-2">
-                                        <li><h6>State</h6></li>
-                                        <li><p>$XX.XX</p></li>
+                                    <div class="income-price">
+                                        <ul class="list-unstyled mb-0">
+                                            <div
+                                                class="income-price-detail d-flex align-items-center justify-content-between py-2">
+                                                <li>
+                                                    <h6>Emergency Fund</h6>
+                                                </li>
+                                                <li>
+                                                    <p>$XX.XX</p>
+                                                </li>
+                                            </div>
+                                            <div
+                                                class="income-price-detail d-flex align-items-center justify-content-between py-2">
+                                                <li>
+                                                    <h6>Investment</h6>
+                                                </li>
+                                                <li>
+                                                    <p>$XX.XX</p>
+                                                </li>
+                                            </div>
+                                            <div
+                                                class="total-price d-flex justify-content-sm-end justify-content-between align-items-center">
+                                                <p>Total Savings:</p>
+                                                <h6>$XX.XX</h6>
+                                            </div>
+                                        </ul>
                                     </div>
-                                    <div class="income-price-detail d-flex align-items-center justify-content-between py-2">
-                                        <li><h6>City</h6></li>
-                                        <li><p>$XX.XX</p></li>
-                                    </div>
-                                    <div class="total-price d-flex justify-content-end align-items-center">
-                                        <p>Total Taxes:</p>
-                                        <h6>$XX.XX</h6>
-                                    </div>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="income-box">
-                            <div class="income-detail d-flex align-items-center justify-content-between">
-                                <div class="d-flex align-items-center gap-2">
-                                    <h3>Savings</h3>
-                                    <img src="../../../assets/img/income-info.svg" alt="img">
                                 </div>
-                                <img src="../../../assets/img/plus-circle.svg" alt="img" class="income-plus">
-                            </div>
-                            <div class="income-price">
-                                <ul class="list-unstyled mb-0">
-                                    <div class="income-price-detail d-flex align-items-center justify-content-between py-2">
-                                        <li><h6>Emergency Fund</h6></li>
-                                        <li><p>$XX.XX</p></li>
+                                <div class="income-box">
+                                    <div class="income-detail d-flex align-items-center justify-content-between">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <h3>Budgeted Expenses</h3>
+                                            <img src="../../../assets/img/income-info.svg" alt="img">
+                                        </div>
+                                        <img src="../../../assets/img/plus-circle.svg" alt="img" class="income-plus">
                                     </div>
-                                    <div class="income-price-detail d-flex align-items-center justify-content-between py-2">
-                                        <li><h6>Investment</h6></li>
-                                        <li><p>$XX.XX</p></li>
+                                    <div class="income-price">
+                                        <ul class="list-unstyled mb-0">
+                                            <div
+                                                class="income-price-detail d-flex align-items-center justify-content-between py-2">
+                                                <li>
+                                                    <h6>Rent</h6>
+                                                </li>
+                                                <li class="d-flex">
+                                                    <p>Paid on the 3rd</p>
+                                                    <p>$XX.XX</p>
+                                                </li>
+                                            </div>
+                                            <div
+                                                class="income-price-detail d-flex align-items-center justify-content-between py-2">
+                                                <li>
+                                                    <h6>Gym</h6>
+                                                </li>
+                                                <li class="d-flex">
+                                                    <p>Paid on the 15th</p>
+                                                    <p>$XX.XX</p>
+                                                </li>
+                                            </div>
+                                            <div
+                                                class="income-price-detail d-flex align-items-center justify-content-between py-2">
+                                                <li>
+                                                    <h6>Rent the Runway</h6>
+                                                </li>
+                                                <li class="d-flex">
+                                                    <p>Paid on the 2th</p>
+                                                    <p>$XX.XX</p>
+                                                </li>
+                                            </div>
+                                            <div
+                                                class="income-price-detail d-flex align-items-center justify-content-between py-2">
+                                                <li>
+                                                    <h6>Donation</h6>
+                                                </li>
+                                                <li class="d-flex">
+                                                    <p>Paid on the 30th</p>
+                                                    <p>$XX.XX</p>
+                                                </li>
+                                            </div>
+                                            <div
+                                                class="total-price d-flex justify-content-sm-end justify-content-between align-items-center">
+                                                <p>Total Budgeted Expenses:</p>
+                                                <h6>$XX.XX</h6>
+                                            </div>
+                                        </ul>
                                     </div>
-                                    <div class="total-price d-flex justify-content-end align-items-center">
-                                        <p>Total Savings:</p>
-                                        <h6>$XX.XX</h6>
-                                    </div>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="income-box">
-                            <div class="income-detail d-flex align-items-center justify-content-between">
-                                <div class="d-flex align-items-center gap-2">
-                                    <h3>Budgeted Expenses</h3>
-                                    <img src="../../../assets/img/income-info.svg" alt="img">
                                 </div>
-                                <img src="../../../assets/img/plus-circle.svg" alt="img" class="income-plus">
-                            </div>
-                            <div class="income-price">
-                                <ul class="list-unstyled mb-0">
-                                    <div class="income-price-detail d-flex align-items-center justify-content-between py-2">
-                                        <li><h6>Rent</h6></li>
-                                        <li class="d-flex">
-                                            <p>Paid on the 3rd</p>
-                                            <p>$XX.XX</p>
-                                        </li>
+                                <div class="income-box">
+                                    <div class="income-detail d-flex align-items-center justify-content-between">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <h3>Savers</h3>
+                                            <img src="../../../assets/img/income-info.svg" alt="img">
+                                        </div>
+                                        <img src="../../../assets/img/plus-circle.svg" alt="img" class="income-plus">
                                     </div>
-                                    <div class="income-price-detail d-flex align-items-center justify-content-between py-2">
-                                        <li><h6>Gym</h6></li>
-                                        <li class="d-flex">
-                                            <p>Paid on the 15th</p>
-                                            <p>$XX.XX</p>
-                                        </li>
+                                    <div class="income-price">
+                                        <ul class="list-unstyled mb-0">
+                                            <div
+                                                class="income-price-detail d-flex align-items-center justify-content-between py-2">
+                                                <li>
+                                                    <h6>Puerto Rico Trip</h6>
+                                                </li>
+                                                <li>
+                                                    <p>$XX.XX</p>
+                                                </li>
+                                            </div>
+                                            <div
+                                                class="total-price d-flex justify-content-sm-end justify-content-between align-items-center">
+                                                <p>Total Going to Savers:</p>
+                                                <h6>$XX.XX</h6>
+                                            </div>
+                                        </ul>
                                     </div>
-                                    <div class="income-price-detail d-flex align-items-center justify-content-between py-2">
-                                        <li><h6>Rent the Runway</h6></li>
-                                        <li class="d-flex">
-                                            <p>Paid on the 2th</p>
-                                            <p>$XX.XX</p>
-                                        </li>
-                                    </div>
-                                    <div class="income-price-detail d-flex align-items-center justify-content-between py-2">
-                                        <li><h6>Donation</h6></li>
-                                        <li class="d-flex"> 
-                                            <p>Paid on the 30th</p>
-                                            <p>$XX.XX</p>
-                                        </li>
-                                    </div>
-                                    <div class="total-price d-flex justify-content-end align-items-center">
-                                        <p>Total Budgeted Expenses:</p>
-                                        <h6>$XX.XX</h6>
-                                    </div>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="income-box">
-                            <div class="income-detail d-flex align-items-center justify-content-between">
-                                <div class="d-flex align-items-center gap-2">
-                                    <h3>Savers</h3>
-                                    <img src="../../../assets/img/income-info.svg" alt="img">
                                 </div>
-                                <img src="../../../assets/img/plus-circle.svg" alt="img" class="income-plus">
                             </div>
-                            <div class="income-price">
-                                <ul class="list-unstyled mb-0">
-                                    <div class="income-price-detail d-flex align-items-center justify-content-between py-2">
-                                        <li><h6>Puerto Rico Trip</h6></li>
-                                        <li><p>$XX.XX</p></li>
-                                    </div>                                    
-                                    <div class="total-price d-flex justify-content-end align-items-center">
-                                        <p>Total Going to Savers:</p>
-                                        <h6>$XX.XX</h6>
+                            <div class="col-lg-4">
+                                <div class="chart-box">
+                                    <div class="summary-box">
+                                        <h3>Summary</h3>                                        
                                     </div>
-                                </ul>
+                                    <div class="summary-box">
+                                        <h3>Breakdown</h3>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">2
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+             
+                        2
                     </div>
-                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">3
+                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                        3
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-4">
-            <div class="chart-box">
-                <div class="summary-box">
-                    <h3>Summary</h3>  
-                                      
-                </div>
-                <div class="summary-box">
-                    <h3>Breakdown</h3>                    
-                </div>
-            </div>
-        </div>
+
     </div>
 
 </div>

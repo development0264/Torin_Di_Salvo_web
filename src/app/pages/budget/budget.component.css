@@ -1,80 +1,95 @@
-.nav-tab-main{
-    margin-top: 50px;
-}
-.nav-tab-main .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+
+
+.nav-tab-main .nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
     background-color: #142B56;
     border-radius: 20px;
     color: #fff;
 }
-.nav-tab-main .nav{
-    background-color: #fff;    
+
+.nav-tab-main .nav {
+    background-color: #fff;
     border-radius: 20px;
     max-width: 250px;
     width: 100%;
-    margin-left: auto;
+    margin: 30px auto;
     margin-bottom: 30px;
 }
-.nav-tab-main .nav-pills .nav-link{
-    color: #464646; 
+
+.nav-tab-main .nav-pills .nav-link {
+    color: #464646;
     font-weight: 500;
     border-radius: 20px;
 }
-.chart-box{
+
+.chart-box {
     background-color: #E8E8E8;
     padding: 20px;
     height: 100%;
 }
-.income-box{
+
+.income-box {
     margin-bottom: 30px;
 }
-.income-box .income-detail h3{
+
+.income-box .income-detail h3 {
     color: #000000;
     font-weight: 600;
     font-size: 32px;
     margin-bottom: 0px;
 }
-.income-box .income-detail{
+
+.income-box .income-detail {
     border-bottom: 2px solid #142B56;
     padding-bottom: 11px;
 }
-.income-box .income-detail .income-plus{
+
+.income-box .income-detail .income-plus {
     cursor: pointer;
 }
-.income-box .income-price .income-price-detail{
+
+.income-box .income-price .income-price-detail {
     border-bottom: 1px solid #DDDDDD;
 }
-.income-box .income-price .income-price-detail h6{
+
+.income-box .income-price .income-price-detail h6 {
     color: #15538B;
     font-weight: 500;
     font-size: 18px;
     margin-bottom: 0px;
 }
-.income-box .income-price .income-price-detail li:last-child{
+
+.income-box .income-price .income-price-detail li:last-child {
     gap: 50px;
     align-items: center;
 }
-.income-box .income-price .income-price-detail li:last-child p:first-child{
+
+.income-box .income-price .income-price-detail li:last-child p:first-child {
     color: #787878;
     font-size: 14px;
     font-weight: 500;
 }
-.income-box .income-price .income-price-detail p{
+
+.income-box .income-price .income-price-detail p {
     margin-bottom: 0px;
     color: #000000;
     font-weight: 500;
     font-size: 18px;
 }
-.income-box .income-price .total-price{
+
+.income-box .income-price .total-price {
     gap: 30px;
     margin-top: 20px;
 }
-.income-box .income-price .total-price p{
+
+.income-box .income-price .total-price p {
     color: #4E4E4E;
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 0px;
 }
-.income-box .income-price .total-price h6{
+
+.income-box .income-price .total-price h6 {
     margin-bottom: 0px;
     font-size: 18px;
     font-weight: 700;
@@ -83,14 +98,56 @@
     width: 100%;
     text-align: end;
 }
-.summary-box{
+
+.summary-box {
     background-color: #fff;
     padding: 20px;
     border: 1px solid #CCCCCC;
     margin-bottom: 25px;
 }
-.summary-box h3{
+
+.summary-box h3 {
     color: #000000;
     font-size: 26px;
     font-weight: 600;
+    margin-bottom: 0px;
+}
+
+
+@media (max-width:991px) {
+
+    .income-box .income-detail h3,
+    .summary-box h3 {
+        font-size: 25px;
+    }
+    .income-box .income-price .income-price-detail h6,
+    .income-box .income-price .total-price p,.income-box .income-price .total-price h6{
+        font-size: 16px;
+    }
+    .income-box .income-price .total-price {
+        margin-top: 10px;
+    }
+}
+
+
+@media (max-width:575px) {
+
+    .income-box .income-detail h3,
+    .summary-box h3 {
+        font-size: 20px;
+    }
+
+    .income-box .income-price .total-price h6 {
+        max-width: inherit;
+        width: unset;
+    }
+
+    .income-box .income-price .income-price-detail li:last-child {
+        gap: 25px;
+    }
+
+    .summary-box {
+        padding: 10px;
+    }
+ 
 }

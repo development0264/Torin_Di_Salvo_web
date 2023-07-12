@@ -1,0 +1,13 @@
+.accounts-detail{
+    margin-top: 26px;
+}
+.accounts-detail h2{
+    color: #191D23;
+    font-size: 30px;
+    font-weight: 700;
+}
+.accounts-detail p{
+    color: #64748B;
+    font-size: 18px;
+    font-weight: 400;
+}

@@ -467,6 +467,47 @@
 /* Savings Section End */
 .saving-chart{
     margin-top: 100px;
+    margin-bottom: 60px;
+}
+.metric-detail{
+    margin-bottom: 30px;
+}
+.metric-detail:last-child{
+    margin-bottom: 0px;
+}
+
+.metric-detail li:first-child{
+    color: #000000;
+    font-size: 18px;        
+}
+.metric-detail li:first-child img{
+    margin-left: 5px;
+}
+
+.metric-detail li:last-child{
+    color: #1F7C3E;
+    font-size:20px;
+    font-weight: 700;
+}
+
+.saving-chart .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+    border-radius: 100px;
+    background-color: #0582CA;
+}
+.saving-chart .nav-pills{
+    justify-content: space-between;
+}
+.saving-chart .nav-pills .nav-link{
+    border-radius: 100px;
+    height: 50px;
+    width: 50px;
+    padding: 0px;
+}
+.saving-chart .nav{
+    background-color: #fff;
+    max-width: 400px;
+    margin-left: auto;
+    border-radius: 100px;
 }
 
 @media (min-width:1920px) {
@@ -478,7 +519,6 @@
 @media (max-width:1300px) {
     .liabilitie-detail {
         flex-wrap: wrap;
-        display: block !important;
     }
 }
 
@@ -545,6 +585,21 @@
     .user-detail {
         margin: 0px;
     }
+    .offer-alert{
+        padding: 10px 20px;
+    }
+    .saving-chart{
+        margin: 30px 0px;    
+    }
+    .metric-detail{
+        margin-bottom: 10px;
+    }
+    .metric-detail li:last-child{
+        font-size: 18px;
+    }
+    .metric-detail li:first-child{
+        font-size: 16px;
+    }
 }
 
 @media (max-width:575px) {
@@ -556,8 +611,6 @@
     .total-fees p {
         width: 100%;
     }
-
-
     .account-balance-box table {
         min-width: 600px;
     }
@@ -580,5 +633,10 @@
 
     .liabilitie-table table {
         min-width: 550px;
+    }    
+    .saving-chart .nav-pills .nav-link{
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
     }
 }
