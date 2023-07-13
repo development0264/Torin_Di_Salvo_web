@@ -493,6 +493,7 @@
 .saving-chart .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
     border-radius: 100px;
     background-color: #0582CA;
+    color: #fff;
 }
 .saving-chart .nav-pills{
     justify-content: space-between;
@@ -502,6 +503,7 @@
     height: 50px;
     width: 50px;
     padding: 0px;
+    color: #000000;
 }
 .saving-chart .nav{
     background-color: #fff;

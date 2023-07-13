@@ -18,8 +18,8 @@ export class HomeComponent {
           label: 'Number of Item in months',
           data: [0,2,3,2.9,7,7.2,7.4,7.7,8,8.4,8.5],
           fill: false,
-          borderColor: 'white', // Set line color to white
-          borderWidth: 1,
+          borderColor: ' rgb(79 121 155)', // Set line color to white
+          borderWidth: 2,
           pointRadius: 0 
         }]
       },
@@ -35,7 +35,7 @@ export class HomeComponent {
             display: false // Set x-axis grid color to white
             },
             ticks: {
-              color: 'white' // Set x-axis tick color to white
+              color: ' rgb(106 119 147)' // Set x-axis tick color to white
             }
           },
           y: {
