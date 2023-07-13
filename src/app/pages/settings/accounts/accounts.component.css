@@ -1,13 +1,151 @@
-.accounts-detail{
-    margin-top: 26px;
+.accounts-detail {
+    margin: 26px 0px;
+
 }
-.accounts-detail h2{
+
+.accounts-detail h2 {
     color: #191D23;
     font-size: 30px;
     font-weight: 700;
 }
-.accounts-detail p{
+
+.accounts-detail p {
     color: #64748B;
     font-size: 18px;
     font-weight: 400;
+    margin-bottom: 0px;
+}
+
+.add-btn {
+    background-color: #2A7DA7;
+    border-radius: 4px;
+    padding: 10px 15px;
+    color: #fff;
+    border: none;
+    font-weight: 600;
+}
+
+.add-btn img {
+    margin-right: 10px;
+}
+
+.account-table {
+    height: 500px;
+    overflow-y: auto;
+}
+
+.account-table::-webkit-scrollbar {
+    width: 3px;        
+}
+
+.account-table::-webkit-scrollbar-track {
+    background: #fff;
+    border-radius: 50px;
+    height: 50px;
+}
+
+.account-table::-webkit-scrollbar-thumb {
+    background: #B8C0CC;
+    border-radius: 50px;
+    --webkit-height: 20px;
+}
+
+.account-table table thead {
+    background-color: #E7EAEE;
+}
+
+.account-table table thead tr th {
+    color: #64748B;
+    font-size: 14px;
+    padding: 19px 8px;
+    border-bottom: 0px;
+    font-weight: 600;
+}
+
+.account-table table thead tr th:first-child {
+    width: 410px;
+}
+
+.account-table table thead tr th:nth-child(2) {
+    width: 320px;   
+}
+
+.account-table table thead tr th:nth-child(2) {
+    width: 320px;
+}
+
+.account-table table thead tr th:nth-child(3) {
+    width: 240px;
+}
+
+.account-table table thead tr th:nth-child(4) {
+    width: 250px;
+}
+
+.account-table table tbody tr td:nth-child(1){
+    line-height: 40px;
+}
+.account-table table tbody tr td:nth-child(3){
+    line-height: 40px;
+}
+
+.account-table table tbody tr td:nth-child(4){
+    line-height: 40px;
+}
+
+
+
+
+.account-table table tbody tr td {
+    color: #191D23;
+    font-weight: 400;
+}
+
+.account-table table tbody tr td .form-select {
+    border: none;
+    color: #191D23;
+    font-weight: 400;
+    width: unset;
+    background-image: url(../../../../assets/img/down-arrow.svg);
+    padding-left: 0px;
+}
+
+.form-select:focus {
+    box-shadow: none;
+}
+
+.delete-btn {
+    background-color: #E7EAEE;
+    border: none;
+    color: #64748B;
+    padding: 8px 32px;
+    border-radius: 4px;
+}
+
+.save-btn {
+    background-color: #2A7DA7;
+    color: #FFFFFF;
+}
+.account-section{
+    margin-bottom: 150px;
+}
+
+@media (max-width:1500px) {
+    .account-table table thead tr th:first-child {
+        width: 320px;
+    }
+
+    .account-table table thead tr th:nth-child(2) {
+        width: 280px;
+    }
+
+    .account-table table thead tr th:nth-child(2) {
+        width: 220px;
+    }
+}
+
+@media (max-width:991px) {
+    .account-table table{
+        min-width: 800px;
+    }
 }

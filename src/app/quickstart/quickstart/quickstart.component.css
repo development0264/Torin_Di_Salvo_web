@@ -1,9 +1,136 @@
-.setheight{
-    height: 50px;
+.quick-start-nav {
     background-color: #142B56;
 }
-.modall{
-    height: 490px;
-    width: 663px;
 
+.profile-dropdown .dropdown {
+    border: 2px solid #fff;
+    padding: 4px 22px;
+    border-radius: 20px;
+}
+
+.profile-dropdown .dropdown a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.profile-dropdown .dropdown-menu {
+    box-shadow: 0px 4px 6px -2px #10182808;
+    border-radius: 12px;
+    left: auto;
+    right: 0px;
+    /* padding: 0 16px; */
+}
+
+.profile-dropdown .dropdown-menu hr {
+    border: 1px solid #F2F4F7;
+    opacity: 1;
+    margin: 0px;
+}
+
+.profile-dropdown .dropdown-menu .dropdown-item {
+    color: #344054;
+    background-color: transparent;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.profile-dropdown .dropdown-menu .dropdown-item img {
+    margin-right: 12px;
+}
+
+.navbar-main .navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.profile-dropdown .dropdown-toggle::after {
+    display: none;
+}
+
+
+.quick-start-box {
+    background-color: #142B56;
+    padding: 25px;
+    height: auto;
+    text-align: center;
+}
+
+.quick-start-box h3 {
+    color: #fff;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.quick-start-box p {
+    color: #fff;
+    font-weight: 400;
+}
+
+.quick-start-box hr {
+    border: 1px solid #FFFFFF;
+    opacity: 1;
+    max-width: 180px;
+    width: 100%;
+    margin: 18px auto;
+}
+
+.quick-start-box p span {
+    display: block;
+    font-weight: 600;
+}
+
+.quick-start-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 80px);
+}
+
+.quick-start-detail {
+    background-color: #fff;
+    padding: 66px 42px;
+    height: 100%;
+}
+
+.quick-start-question{
+    margin-bottom: 25px;
+}
+.quick-start-question label {
+    color: #000000;
+    display: block;
+    margin-bottom: 17px;
+    font-size: 26px;
+}
+.quick-start-question input{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #B6B6B6;
+    width: 300px;
+}
+.quick-start-question input::placeholder{
+    color: #B6B6B6;
+}
+.quick-start-question .form-select{
+    border: none;
+    border-bottom: 1px solid #B6B6B6;
+    width: 300px;
+    border-radius: 0px;
+    color: #B6B6B6;
+    padding-left: 0px;
+}
+.quick-start-question .form-select:focus{
+    box-shadow: none;
+}
+.next-btn{
+    background-color: #409FFF;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 4px 35px;
+}
+.next-btn img{
+    padding-left: 10px;
 }

@@ -1,6 +1,168 @@
-<div class="container-default">
-    <div class="accounts-detail">
-        <h2>Accounts</h2>
-        <p>Add, remove, and edit your accounts.</p>
+<div class="account-section">
+    <div class="container-default">
+        <div class="accounts-detail d-flex flex-wrap align-items-center justify-content-between">
+            <div>
+                <h2>Accounts</h2>
+                <p>Add, remove, and edit your accounts.</p>
+            </div>
+            <button class="add-btn">
+                <img src="../../../../assets/img/plus-icon.svg" alt="img">
+                Add
+            </button>
+        </div>
+    </div>
+
+    <div class="container-default">
+        <div class="table-responsive account-table">
+            <table class="table mb-0">
+                <thead>
+                    <tr>
+                        <th>Account Name</th>
+                        <th>Account Type</th>
+                        <th>Balance</th>
+                        <th>Last Updated</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white">
+                    <tr>
+                        <td>Checking</td>
+                        <td>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Regular</option>
+                                <option value="1">Saving</option>
+                                <option value="2">Salary</option>
+                                <option value="3">Credit Card</option>
+                            </select>
+                        </td>
+                        <td>$6,234.15</td>
+                        <td>Jun 8, 2023</td>
+                        <td>
+                            <Button class="delete-btn save-btn me-2">Save</Button>
+                            <Button class="delete-btn">Delete</Button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Venmo</td>
+                        <td>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Regular</option>
+                                <option value="1">Saving</option>
+                                <option value="2">Salary</option>
+                                <option value="3">Credit Card</option>
+                            </select>
+                        </td>
+                        <td>$137.15</td>
+                        <td>Jun 8, 2023</td>
+                        <td>
+                            <Button class="delete-btn save-btn me-2">Save</Button>
+                            <Button class="delete-btn">Delete</Button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Chase Card</td>
+                        <td>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Credit Card</option>
+                                <option value="1">Saving</option>
+                                <option value="2">Salary</option>
+                                <option value="3">Regular</option>
+                            </select>
+                        </td>
+                        <td>($2,321.21)</td>
+                        <td>Jun 8, 2023</td>
+                        <td class="d-flex">
+                            <Button class="delete-btn save-btn me-2">Save</Button>
+                            <Button class="delete-btn">Delete</Button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Amazon Card</td>
+                        <td>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Credit Card</option>
+                                <option value="1">Saving</option>
+                                <option value="2">Salary</option>
+                                <option value="3">Regular</option>
+                            </select>
+                        </td>
+                        <td>($2,321.21)</td>
+                        <td>Jun 8, 2023</td>
+                        <td>
+                            <Button class="delete-btn save-btn me-2">Save</Button>
+                            <Button class="delete-btn">Delete</Button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Amazon Card</td>
+                        <td>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Credit Card</option>
+                                <option value="1">Saving</option>
+                                <option value="2">Salary</option>
+                                <option value="3">Regular</option>
+                            </select>
+                        </td>
+                        <td>($2,321.21)</td>
+                        <td>Jun 8, 2023</td>
+                        <td>
+                            <Button class="delete-btn save-btn me-2">Save</Button>
+                            <Button class="delete-btn">Delete</Button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Chase Savings Account</td>
+                        <td>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Savings</option>
+                                <option value="1">Credit Card</option>
+                                <option value="2">Salary</option>
+                                <option value="3">Regular</option>
+                            </select>
+                        </td>
+                        <td>$7,251.30</td>
+                        <td>Jun 8, 2023</td>
+                        <td>
+                            <Button class="delete-btn save-btn me-2">Save</Button>
+                            <Button class="delete-btn">Delete</Button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Bank of Ireland Savings Account</td>
+                        <td>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Savings</option>
+                                <option value="1">Credit Card</option>
+                                <option value="2">Salary</option>
+                                <option value="3">Regular</option>
+                            </select>
+                        </td>
+                        <td>$1,456.12</td>
+                        <td>Jun 8, 2023</td>
+                        <td>
+                            <Button class="delete-btn save-btn me-2">Save</Button>
+                            <Button class="delete-btn">Delete</Button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Investment Account</td>
+                        <td>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Savings</option>
+                                <option value="1">Credit Card</option>
+                                <option value="2">Salary</option>
+                                <option value="3">Regular</option>
+                            </select>
+                        </td>
+                        <td>$537.73</td>
+                        <td>Jun 8, 2023</td>
+                        <td>
+                            <Button class="delete-btn save-btn me-2">Save</Button>
+                            <Button class="delete-btn">Delete</Button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
