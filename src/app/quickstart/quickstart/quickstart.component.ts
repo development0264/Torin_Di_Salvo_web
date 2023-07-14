@@ -1,23 +1,47 @@
-import { Component } from '@angular/core';
-
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Options } from '@angular-slider/ngx-slider';
 @Component({
   selector: 'app-quickstart',
   templateUrl: './quickstart.component.html',
   styleUrls: ['./quickstart.component.css']
 })
 export class QuickstartComponent {
-  
+  @ViewChild('slider') sliderElement: ElementRef;
+
+  public rangeSliderOptions: Options = {
+    floor: 250,
+    ceil: 1500,
+    step: 10,
+    showSelectionBar: true,
+    translate: (value: number): string => {
+      const percentage = ((value - 250) / (1500 - 250)) * 100;
+      return `${percentage.toFixed(2)}%`;
+    },
+    
+    getSelectionBarColor: (value: number): string => {
+      if (value >= 250 && value <= 1500) {
+        return '#3b82f6'; // Blue color for selected range
+      }
+      return '#eaeaea'; // Default color for unselected range
+    }
+  };
+  public rangeSliderValue: number = 250;
+
+  formatValue(value: number): string {
+    const percentage = ((value - 250) / (1500 - 250)) * 100;
+    return `${percentage.toFixed(2)}%`;
+  }
   progress: number = 1;
   currentContent: string = "Step 1";
-  steps:any=1;
-  maxsteps:any=9
+  steps: any = 1;
+  maxsteps: any = 9
   showFinish: boolean;
 
- 
+
   next() {
     this.steps++;
-    if(this.maxsteps===this.steps){
-      this.showFinish=true
+    if (this.maxsteps === this.steps) {
+      this.showFinish = true
     }
     if (this.progress < 100) {
       // this.progress += 25;
@@ -25,7 +49,7 @@ export class QuickstartComponent {
       this.updateContent();
     }
   }
-  back(){
+  back() {
     this.steps--;
   }
   finish() {

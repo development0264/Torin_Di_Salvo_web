@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { QuickstartRoutingModule } from './quickstart-routing.module';
 import { QuickstartComponent } from './quickstart/quickstart.component';
 
@@ -13,7 +13,10 @@ import { QuickstartComponent } from './quickstart/quickstart.component';
   imports: [
     CommonModule,
     QuickstartRoutingModule,
+    NgxSliderModule
 
   ]
 })
-export class QuickstartModule { }
+export class QuickstartModule {
+  
+ }

@@ -51,7 +51,7 @@
     <div class="quick-start-main">
       <div class="container-default">
         <div class="row justify-content-center">
-          <div class="col-lg-4">
+          <div class="col-lg-4 pe-lg-0 ps-inherit">
             <div class="quick-start-box">
               <img src="../../../assets/img/quick-start.png" alt="img">
               <h3>Quick Start</h3>
@@ -64,14 +64,16 @@
                 never sell or release your data. </p>
             </div>
           </div>
-
-          <div class="col-lg-6">
+          <div class="col-lg-6 ps-lg-0 ps-inherit">
             <div class="quick-start-detail">
               <div *ngIf="steps===1">
                 <form action="">
                   <div class="quick-start-question">
-                    <label for="">What is your annual paycheck income?</label>                 
-                    <input type="number" placeholder="$ Annual Salary">
+                    <label for="">What is your annual paycheck income?</label>
+                    <div class="position-relative">
+                      <span class="position-absolute">$</span>
+                      <input type="number" placeholder="Annual Salary">
+                    </div>
                   </div>
                   <div class="quick-start-question">
                     <label for="">How often do you receive your paycheck?</label>
@@ -115,9 +117,15 @@
                 <form action="">
                   <div class="quick-start-question">
                     <label for="">What are your other sources of income?</label>
-                    <div class="d-flex align-items-center gap-5">
-                      <input type="number" placeholder="$ Income Type">
-                      <input type="number" placeholder="$ Income Amount">
+                    <div class="d-flex align-items-center flex-wrap justify-content-between">
+                      <div class="position-relative">
+                        <span class="position-absolute">$</span>
+                        <input type="number" placeholder="Income Type">
+                      </div>
+                      <div class="position-relative">
+                        <span class="position-absolute">$</span>
+                        <input type="number" placeholder="Income Amount">
+                      </div>
                     </div>
                     <div class="text-center mt-4 add-income">
                       <img src="../../../assets/img/plus-icome.svg" alt="img">
@@ -133,7 +141,7 @@
                       budget you have consumed. They include checking accounts, credit card accounts, venmo, paypal,
                       etc. Don’t worry if you an unsure whether to include a certain account, you can always edit this
                       later!</p>
-                    <div class="d-flex account-type">
+                    <div class="d-flex account-type flex-wrap">
                       <select class="form-select" aria-label="Default select example">
                         <option selected>Account Type</option>
                         <option value="1">One</option>
@@ -152,8 +160,11 @@
                 <form action="">
                   <div class="quick-start-question">
                     <label for="">What accounts do you use to hold your savings?</label>
-                    <p>These are accounts that contain money that you don’t use for day to day transactions. They generally include savings accounts, investment accounts, piggy banks, etc. We generally do not recommend including retirement accounts in this section. Don’t worry, you can update this later! </p>
-                    <div class="d-flex account-type">
+                    <p>These are accounts that contain money that you don’t use for day to day transactions. They
+                      generally include savings accounts, investment accounts, piggy banks, etc. We generally do not
+                      recommend including retirement accounts in this section. Don’t worry, you can update this later!
+                    </p>
+                    <div class="d-flex account-type flex-wrap">
                       <select class="form-select" aria-label="Default select example">
                         <option selected>Account Type</option>
                         <option value="1">One</option>
@@ -172,8 +183,11 @@
                 <form action="">
                   <div class="quick-start-question">
                     <label for="">What pre-tax deductions do you normally take?</label>
-                    <p>These are accounts that contain money that you don’t use for day to day transactions. They generally include savings accounts, investment accounts, piggy banks, etc. We generally do not recommend including retirement accounts in this section. Don’t worry, you can update this later! </p>
-                    <div class="d-flex account-type">
+                    <p>These are accounts that contain money that you don’t use for day to day transactions. They
+                      generally include savings accounts, investment accounts, piggy banks, etc. We generally do not
+                      recommend including retirement accounts in this section. Don’t worry, you can update this later!
+                    </p>
+                    <div class="d-flex account-type flex-wrap">
                       <select class="form-select" aria-label="Default select example">
                         <option selected>Deduction</option>
                         <option value="1">One</option>
@@ -198,30 +212,117 @@
                         Standard Deduction
                       </label>
                     </div>
-
-                    <div class="form-check d-flex align-items-end">
-                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                      <label class="form-check-label" for="flexRadioDefault2">
+                    <div class="form-check d-flex align-items-end flex-wrap">
+                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                        checked>
+                      <label class="form-check-label me-5" for="flexRadioDefault2">
                         Itemized Deduction
                       </label>
-                      <div class="account-type">                      
-                        <input type="number" placeholder="$ Deduction Amount">
+                      <div class="account-type position-relative">
+                        <span class="position-absolute">$</span>
+                        <input type="number" placeholder="Deduction Amount">
                       </div>
                     </div>
-                   
-                    <div class="text-center mt-4 add-income">
-                      <img src="../../../assets/img/plus-icome.svg" alt="img">
+                    <div class="income-table-main">
+                      <div class="d-flex justify-content-between income-table">
+                        <p>Expected Taxable Income:</p>
+                        <p>$XX,XXX.XX</p>
+                      </div>
+                      <div class="d-flex justify-content-between income-table">
+                        <p>Expected Taxes Owed:</p>
+                        <p>$XX,XXX.XX</p>
+                      </div>
+                      <div class="d-flex justify-content-between income-table">
+                        <p>Expected Tax Rate</p>
+                        <p>$XX,XX%</p>
+                      </div>
                     </div>
                   </div>
                 </form>
               </div>
-              <div *ngIf="steps===8">8</div>
-              <div *ngIf="steps===9">9</div>
-              <div class="text-end">
-               <button (click)="back()" *ngIf="steps>=3" class="back-btn">
-                 <img src="../../../assets/img/back-arrow.svg" alt="img"/>
-                back
-              </button>
+              <div *ngIf="steps===8">
+                <form action="">
+                  <div class="quick-start-question">
+                    <label for="">What other expenses do you budget for?</label>
+                    <div class="">
+                      <div class="rent-price d-flex align-items-center justify-content-between mb-4">
+                        <div class="rent-budget">
+                          <p>Rent</p>
+                        </div>
+                        <div class="rent-budget position-relative">
+                          <span>$</span>
+                          <input type="text" name="" id="" placeholder="Amount">
+                        </div>
+                        <div class="rent-budget d-flex align-items-end gap-2">
+                          <input type="text" name="" id="">
+                          <img src="../../../assets/img/info-circle-second.svg" alt="img">
+                        </div>
+                      </div>
+                      <div class="rent-price d-flex align-items-center justify-content-between">
+                        <div class="rent-budget position-relative">
+                          <input type="text" name="" id="" placeholder="Expense" class="ps-0">
+                        </div>
+                        <div class="rent-budget position-relative">
+                          <span>$</span>
+                          <input type="text" name="" id="" placeholder="Amount">
+                        </div>
+                        <div class="rent-budget">
+                          <input type="text" name="" id="">
+                        </div>
+                      </div>
+                      <div class="text-center mt-4 add-income">
+                        <img src="../../../assets/img/plus-icome.svg" alt="img">
+                      </div>
+                    </div>
+                  </div>
+                </form>
+
+              </div>
+              <div *ngIf="steps===9">
+                <form action="">
+                  <div class="quick-start-question">
+                    <label for="">How much would you like to save?</label>
+                    <p>Now that you have input your constraints, you need to decide how much you want to save vs. spend.
+                      The consensus view is that you should aim to save 30% or more of your income to set yourself up
+                      for future success. Our experience also says that you will need a daily spending amount of $60-80
+                      in the NYC area. If that doesn’t work with your budget, it’s ok! Make sure you’re saving
+                      something, even if just 1%, and work to improve that number as you make progress on your financial
+                      journey. For more on this, check out our <a href="">blog post</a>. Remember, you can change this
+                      at any time!</p>
+                  </div>
+                  <div class="d-flex align-items-center gap-4 mt-5">
+                    <div class="daily-saving">
+                      <h5>Savings</h5>
+                      <div class="daily-saving-detail d-flex align-items-center justify-content-between mb-1">
+                        <p>Daily:</p>
+                        <p>$XX.XX</p>
+                      </div>
+                      <div class="daily-saving-detail d-flex align-items-center justify-content-between">
+                        <p>Monthly:</p>
+                        <p>$X,XXX.XX</p>
+                      </div>
+                    </div>
+                    <ngx-slider [(value)]="rangeSliderValue" [options]="rangeSliderOptions"
+                      customDisplayWith="formatValue"></ngx-slider>
+                    <div class="daily-saving">
+                      <h5>Spending</h5>
+                      <div class="daily-saving-detail d-flex align-items-center justify-content-between mb-1">
+                        <p>Daily:</p>
+                        <p>$XX.XX</p>
+                      </div>
+                      <div class="daily-saving-detail d-flex align-items-center justify-content-between">
+                        <p>Monthly:</p>
+                        <p>$X,XXX.XX</p>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="text-end back-next-btn">
+                <button (click)="back()" *ngIf="steps>=3" class="back-btn">
+                  <img src="../../../assets/img/back-arrow.svg" alt="img" />
+                  back
+                </button>
                 <button id="nextButton" class="next-btn" (click)="next()">{{showFinish ? 'Finish' :
                   'Next'}}
                   <img src="../../../assets/img/start-right-arrow.svg" alt="img">
@@ -234,7 +335,5 @@
     </div>
   </div>
   <div>
-
   </div>
-
 </body>

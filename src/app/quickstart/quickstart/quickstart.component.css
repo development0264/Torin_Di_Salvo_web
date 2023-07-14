@@ -109,6 +109,7 @@
     background-color: #fff;
     padding: 66px 42px;
     height: 100%;
+    position: relative;
 }
 
 .quick-start-question {
@@ -122,11 +123,19 @@
     font-size: 26px;
 }
 
+.quick-start-question p a {
+    color: #3759D3;
+    text-decoration: none;
+}
+
 .quick-start-question input {
     border: none;
     outline: none;
     border-bottom: 1px solid #B6B6B6;
-    width: 300px;
+    max-width: 300px;
+    width: 100%;
+    padding-bottom: 7px;
+    padding-left: 15px;
 }
 
 .quick-start-question input::placeholder {
@@ -136,7 +145,8 @@
 .quick-start-question .form-select {
     border: none;
     border-bottom: 1px solid #B6B6B6;
-    width: 300px;
+    max-width: 300px;
+    width: 100%;
     border-radius: 0px;
     color: #B6B6B6;
     padding-left: 0px;
@@ -146,7 +156,15 @@
     box-shadow: none;
 }
 
-.next-btn,.back-btn {
+.back-next-btn {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+
+}
+
+.back-next-btn .next-btn,
+.back-btn {
     background-color: #409FFF;
     color: #fff;
     border: none;
@@ -155,15 +173,18 @@
     font-weight: 500;
     padding: 4px 34px;
 }
-.back-btn{
+
+.back-next-btn .back-btn {
     background-color: #CCCCCC;
     margin-right: 8px;
     color: #000000;
 }
-.back-btn img{
+
+.back-next-btn .back-btn img {
     margin-right: 10px;
 }
-.next-btn img {
+
+.back-next-btn .next-btn img {
     padding-left: 10px;
 }
 
@@ -176,6 +197,26 @@
 .quick-start-question p {
     color: #B6B6B6;
     font-size: 12px;
+}
+
+.income-table-main {
+    max-width: 350px;
+    width: 100%;
+    margin: 60px auto;
+}
+
+.income-table-main .income-table {
+    gap: 50px;
+}
+
+.income-table-main .income-table p {
+    color: #000;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.income-table-main .income-table p:last-child {
+    font-weight: 600;
 }
 
 input::-webkit-outer-spin-button,
@@ -193,22 +234,24 @@ input::-webkit-inner-spin-button {
 }
 
 .account-type select {
-    width: 216px !important;
+    width: 265px !important;
 }
 
 .account-type input {
     width: 265px;
 }
-.quick-start-question .form-check{
+
+.quick-start-question .form-check {
     margin-bottom: 15px;
 }
+
 .quick-start-question .form-check input {
     width: 22px;
     height: 22px;
     border: 1px solid #73716E;
 }
 
-.quick-start-question .form-check label{
+.quick-start-question .form-check label {
     font-size: 16px !important;
     color: #B6B6B6;
     margin-left: 10px;
@@ -218,7 +261,8 @@ input::-webkit-inner-spin-button {
 .quick-start-question .form-check-input:checked {
     background-color: #73716E;
 }
-.quick-start-question .form-check-input:focus{
+
+.quick-start-question .form-check-input:focus {
     box-shadow: none;
 }
 
@@ -226,46 +270,117 @@ input::-webkit-inner-spin-button {
     background-image: url(../../../assets/img/right-icon.svg);
 }
 
-/* Firefox */
-input[type=number] {
-    -moz-appearance: textfield;
+.form-check .account-type input {
+    width: 220px;
+    border: none;
+    border-bottom: 1px solid #B6B6B6;
+    padding-bottom: 7px;
+    color: #B6B6B6;
 }
 
+.form-check .account-type span {
+    color: #B6B6B6;
+}
 
-input[type=date]::-webkit-datetime-edit-text {
-    -webkit-appearance: none;
+.rent-price p {
+    color: #000;
+    font-size: 16px;
+    margin-bottom: 0px;
+}
+
+.rent-price span,
+.quick-start-question span {
+    color: #B6B6B6;
+}
+
+.rent-price input {
+    width: 100%;
+    padding-left: 15px;
+}
+
+.rent-price .rent-budget {
+    max-width: 195px;
+    width: 100%;
+}
+
+.rent-budget span {
+    position: absolute;
+}
+
+ngx-slider ::ng-deep span.ngx-slider-span.ngx-slider-bubble.ngx-slider-limit.ngx-slider-floor {
+    display: none !important;
+}
+
+ngx-slider ::ng-deep span.ngx-slider-span.ngx-slider-bubble.ngx-slider-limit.ngx-slider-ceil {
     display: none;
 }
 
-input[type=date]::-webkit-datetime-edit-month-field {
-    -webkit-appearance: none;
-    display: none;
+ngx-slider ::ng-deep span.ngx-slider-span.ngx-slider-bar.ngx-slider-selection {
+    background-color: #142B56 !important;
+    border-radius: 10px;
+    height: 15px;
 }
 
-input[type=date]::-webkit-datetime-edit-day-field {
-    -webkit-appearance: none;
-    display: none;
+ngx-slider ::ng-deep span.ngx-slider-span.ngx-slider-bar {
+    background-color: #F9F5FF;
+    border-radius: 10px;
+    height: 15px !important;
 }
 
-input[type=date]::-webkit-datetime-edit-year-field {
-    -webkit-appearance: none;
-    display: none;
+ngx-slider ::ng-deep span.ngx-slider-span.ngx-slider-pointer.ngx-slider-pointer-min {
+    border: 1px solid #142B56 !important;
+    background-color: #FFFFFF;
 }
 
-input[type=date]:required:invalid::-webkit-datetime-edit {
-    color: transparent;
+ngx-slider ::ng-deep span.ngx-slider-span.ngx-slider-pointer.ngx-slider-pointer-min.ngx-slider-active::after {
+    background-color: transparent;
 }
 
-input[type=date]:focus::-webkit-datetime-edit {
-    color: transparent !important;
+ngx-slider ::ng-deep span.ngx-slider-span.ngx-slider-bubble.ngx-slider-model-value {
+    width: 70px;
+    height: 55px;
+    text-align: center;
+    line-height: 55px;
+    color: #344054;
+    border-radius: 8px;
+    box-shadow: 0px 12px 16px -2px #10182814;
+    top: 15px;
 }
 
-input[type="date"]::-webkit-inner-spin-button,
-input[type="date"]::-webkit-calendar-picker-indicator {
-    display: none;
-    -webkit-appearance: none;
+.daily-saving {
+    max-width: 160px;
+    width: 100%;
+    text-align: center;
 }
 
+.daily-saving h5 {
+    color: #000;
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.daily-saving-detail p:first-child {
+    color: #000;
+    font-size: 12px;
+    margin-bottom: 0px;
+}
+
+.daily-saving-detail p:last-child {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 0px;
+}
+
+@media (max-width:1600px) {
+    .rent-price .rent-budget {
+        max-width: 165px;
+        width: 100%;
+    }
+    .quick-start-detail{
+        padding: 50px 30px;
+    }
+}
 
 @media (max-width:991px) {
     .quick-start-main {
@@ -285,4 +400,19 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     .quick-start-box h3 {
         font-size: 30px;
     }
+
+    .income-table-main {
+        margin: 40px auto 40px 0px;
+    }
+}
+
+@media (max-width:575px) {
+    .quick-start-detail {
+        padding: 20px;
+        height: 500px;
+    }
+    .quick-start-question input{
+        max-width: 100%;
+    }
+    
 }
