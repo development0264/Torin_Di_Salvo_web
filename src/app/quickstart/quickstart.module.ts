@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+
 import { QuickstartRoutingModule } from './quickstart-routing.module';
 import { QuickstartComponent } from './quickstart/quickstart.component';
 
@@ -11,7 +12,8 @@ import { QuickstartComponent } from './quickstart/quickstart.component';
   ],
   imports: [
     CommonModule,
-    QuickstartRoutingModule
+    QuickstartRoutingModule,
+
   ]
 })
 export class QuickstartModule { }

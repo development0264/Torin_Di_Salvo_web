@@ -40,14 +40,12 @@
 
 .account-table::-webkit-scrollbar-track {
     background: #fff;
-    border-radius: 50px;
-    height: 50px;
+    border-radius: 50px;    
 }
 
 .account-table::-webkit-scrollbar-thumb {
     background: #B8C0CC;
-    border-radius: 50px;
-    --webkit-height: 20px;
+    border-radius: 50px;    
 }
 
 .account-table table thead {

@@ -6,11 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./quickstart.component.css']
 })
 export class QuickstartComponent {
-  progress: number = 0;
+  
+  progress: number = 1;
   currentContent: string = "Step 1";
   steps:any=1;
   maxsteps:any=9
   showFinish: boolean;
+
+ 
   next() {
     this.steps++;
     if(this.maxsteps===this.steps){
@@ -22,7 +25,9 @@ export class QuickstartComponent {
       this.updateContent();
     }
   }
-
+  back(){
+    this.steps--;
+  }
   finish() {
     // Perform any action or navigate to another page after finishing
   }
