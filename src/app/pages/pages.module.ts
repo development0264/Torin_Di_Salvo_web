@@ -13,8 +13,9 @@ import { SettingsNavbarComponent } from './settings-navbar/settings-navbar.compo
 import { ProfileComponent } from './settings/profile/profile.component';
 import { AccountsComponent } from './settings/accounts/accounts.component';
 import { SecurityComponent } from './settings/security/security.component';
-
-
+import { NgChartsModule } from 'ng2-charts';
+import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
 @NgModule({
   declarations: [
     PagesComponent,
@@ -31,7 +32,11 @@ import { SecurityComponent } from './settings/security/security.component';
   ],
   imports: [
     CommonModule,
-    PagesRoutingModule
+    PagesRoutingModule,
+    NgChartsModule,
+    CanvasJSAngularChartsModule,
+    NgxSliderModule
+    
   ]
 })
 export class PagesModule { }

@@ -465,7 +465,7 @@
                                 <label for="">Target Savings Amount</label>
                                 <input type="text" placeholder="$1,500.00">
                             </div>
-                            <div class="liability-detail">
+                            <!-- <div class="liability-detail">
                                 <label for="">Target Savings Amount</label>
                                 <div class="d-flex align-items-center gap-4 mt-4">
                                     <p class="mb-0">$250.00</p>
@@ -474,8 +474,24 @@
                                     </div>
                                     <p class="mb-0">$1,500.00</p>
                                 </div>
-                            </div>
+                            </div> -->
+                            <div class="liability-detail">
+                                <label for="">Target Savings Amount</label>
+                                <div class="d-flex align-items-end gap-4 mt-4">
+                                  <p class="mb-0">$250.00</p>
+                                  <!-- <ngx-slider [(value)]="rangeSliderValue" [options]="rangeSliderOptions"></ngx-slider> -->
+                                  <ngx-slider [(value)]="rangeSliderValue" [options]="rangeSliderOptions" customDisplayWith="formatValue"></ngx-slider>
+
+                                  <p class="mb-0">$1,500.00</p>
+                                </div>
+                              </div>
+                              
+                            
+                            
+                            
+                            
                         </form>
+                       
                     </div>
                     <div class="col-lg-5">
                         <div class="liability-type">

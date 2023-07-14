@@ -10,6 +10,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-slider/ngx-slider": "^2.0.4",
     "@angular/animations": "^15.2.0",
     "@angular/common": "^15.2.0",
     "@angular/compiler": "^15.2.0",
@@ -18,8 +19,22 @@
     "@angular/platform-browser": "^15.2.0",
     "@angular/platform-browser-dynamic": "^15.2.0",
     "@angular/router": "^15.2.0",
+    "@canvasjs/angular-charts": "^1.0.3",
+    "@canvasjs/charts": "^3.7.12",
+    "@progress/kendo-angular-charts": "^13.1.0",
+    "@progress/kendo-angular-common": "^13.1.0",
+    "@progress/kendo-angular-intl": "^13.1.0",
+    "@progress/kendo-drawing": "^1.17.5",
+    "apexcharts": "^3.41.0",
     "chart.js": "^4.3.0",
+    "chartjs-chart-financial": "^0.1.1",
+    "chartjs-plugin-datalabels": "^2.2.0",
     "ng2-charts": "^4.1.1",
+    "ngx-apexcharts": "^0.3.2",
+    "ngx-slider": "0.0.5",
+    "nouislider": "^15.7.1",
+    "plotly.js": "^2.24.3",
+    "plotly.js-dist-min": "^2.24.3",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
@@ -35,6 +50,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
-    "typescript": "~4.9.4"
+    "typescript": "~4.9.4",
+    "@canvasjs/angular-charts": "^1.0.3"
   }
 }
