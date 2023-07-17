@@ -1,350 +1,4 @@
-<!-- <div class="quick-start-nav">
-  <header class="navbar navbar-expand">
-    <div class="container-default">
-      <div class="d-flex align-items-center justify-content-between">
-        <a class="navbar-brand" href="#">
-          <img src="../../../assets/img/navbar-logo.svg" alt="logo">
-        </a>
-        <div class="profile-dropdown">
-          <div class="dropdown">
-            <a class=" dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              <img src="../../../assets/img/profile.svg" alt="img">
-              Torin
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <div class="d-flex align-items-center p-3">
-                <img src="../../../assets/img/user-profile.png" alt="img">
-                <div class="user-detail">
-                  <p>Torin DiSalvo</p>
-                  <span>torindisalvo@gmail.com</span>
-                </div>
-              </div>
-              <hr />
-              <li><a class="dropdown-item" href="javascript:void(0);">
-                  <img src="../../../assets/img/settings.svg" alt="img">
-                  Settings
-                </a></li>
-              <li><a class="dropdown-item" href="javascript:void(0);">
-                  <img src="../../../assets/img/blog.svg" alt="img">
-                  Blog</a></li>
-              <li><a class="dropdown-item" href="javascript:void(0);">
-                  <img src="../../../assets/img/slack.svg" alt="img">
-                  Discord Community</a></li>
-              <li><a class="dropdown-item" href="javascript:void(0);">
-                  <img src="../../../assets/img/help.svg" alt="img">
-                  Help</a></li>
-              <hr />
-              <li><a class="dropdown-item" href="javascript:void(0);">
-                  <img src="../../../assets/img/log-out.svg" alt="img">
-                  Log out</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-</div>
 
-<body>
-  <div class="">
-    <div class="quick-start-main">
-      <div class="container-default">
-        <div class="row justify-content-center">
-          <div class="col-lg-4 pe-lg-0 ps-inherit">
-            <div class="quick-start-box">
-              <img src="../../../assets/img/quick-start.png" alt="img">
-              <h3>Quick Start</h3>
-              <p>We will take you through a couple of questions to quickly set up your financial budget, the key to
-                better
-                financial planning. Don’t worry, you can edit all of this at a later time as well. </p>
-              <hr />
-              <p><span>Privacy Notice</span>
-                At Compound, we believe your data is sacred. Your financial information is encrypted, and we promise to
-                never sell or release your data. </p>
-            </div>
-          </div>
-          
-                    <div class="col-lg-6 ps-lg-0 ps-inherit">
-            <div class="progress">
-              <div class="progress-bar" [ngStyle]="{ width: progress + '%' }"></div>
-            </div>
-            <div class="quick-start-detail">
-    
-              <div *ngIf="steps===1">
-                <form action="">
-                  <div class="quick-start-question">
-                    <label for="">What is your annual paycheck income?</label>
-                    <div class="position-relative">
-                      <span class="position-absolute">$</span>
-                      <input type="number" placeholder="Annual Salary">
-                    </div>
-                  </div>
-                  <div class="quick-start-question">
-                    <label for="">How often do you receive your paycheck?</label>
-                    <select class="form-select" aria-label="Default select example">
-                      <option selected>Paycheck Frequency</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                    </select>
-                  </div>
-                  <div class="quick-start-question">
-                    <label for="">What days do you normally receive your paycheck?</label>
-              
-                    <input #datepicker1 type="text" placeholder="1st Paycheck Date" class="start-date">
-                    <input #datepicker2 type="text" placeholder="2st Paycheck Date" class="start-date">
-                  </div>
-                </form>
-              </div>
-              <div *ngIf="steps===2">
-                <form action="">
-                  <div class="quick-start-question">
-                    <label for="">Do you receive any annual bonuses?</label>
-                    <select class="form-select" aria-label="Default select example">
-                      <option selected>Bonus Options</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                    </select>
-                  </div>
-                  <div class="quick-start-question">
-                    <label for="">What is the approximate timing and amount of your bonuses?</label>
-                    <p>Financial planning is always a challenge when variable bonuses are involved. Give your best
-                      guess, and you can always update it later. We recommend being conservative, which will lead to
-                      extra unexpected savings.</p>
-                    <input type="text" #datepicker3 placeholder="Bonus Date" class="start-date">
-                    <input type="number" placeholder="Bonus Amount" class="start-date">
-
-                  </div>
-                </form>
-              </div>
-              <div *ngIf="steps===3">
-                <form action="">
-                  <div class="quick-start-question">
-                    <label for="">What are your other sources of income?</label>
-                    <div class="d-flex align-items-center flex-wrap justify-content-between">
-                      <div class="position-relative">
-                        <span class="position-absolute">$</span>
-                        <input type="number" placeholder="Income Type">
-                      </div>
-                      <div class="position-relative">
-                        <span class="position-absolute">$</span>
-                        <input type="number" placeholder="Income Amount">
-                      </div>
-                    </div>
-                    <div class="text-center mt-4 add-income">
-                      <img src="../../../assets/img/plus-icome.svg" alt="img">
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <div *ngIf="steps===4">
-                <form action="">
-                  <div class="quick-start-question">
-                    <label for="">What accounts do you use regularly use for day to day transactions?</label>
-                    <p>These are accounts that hold a balance and you will track to understand how much of your monthly
-                      budget you have consumed. They include checking accounts, credit card accounts, venmo, paypal,
-                      etc. Don’t worry if you an unsure whether to include a certain account, you can always edit this
-                      later!</p>
-                    <div class="d-flex account-type flex-wrap">
-                      <select class="form-select" aria-label="Default select example">
-                        <option selected>Account Type</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                      </select>
-                      <input type="number" placeholder="Account Name">
-                    </div>
-                    <div class="text-center mt-4 add-income">
-                      <img src="../../../assets/img/plus-icome.svg" alt="img">
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <div *ngIf="steps===5">
-                <form action="">
-                  <div class="quick-start-question">
-                    <label for="">What accounts do you use to hold your savings?</label>
-                    <p>These are accounts that contain money that you don’t use for day to day transactions. They
-                      generally include savings accounts, investment accounts, piggy banks, etc. We generally do not
-                      recommend including retirement accounts in this section. Don’t worry, you can update this later!
-                    </p>
-                    <div class="d-flex account-type flex-wrap">
-                      <select class="form-select" aria-label="Default select example">
-                        <option selected>Account Type</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                      </select>
-                      <input type="number" placeholder="Account Name">
-                    </div>
-                    <div class="text-center mt-4 add-income">
-                      <img src="../../../assets/img/plus-icome.svg" alt="img">
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <div *ngIf="steps===6">
-                <form action="">
-                  <div class="quick-start-question">
-                    <label for="">What pre-tax deductions do you normally take?</label>
-                    <p>These are accounts that contain money that you don’t use for day to day transactions. They
-                      generally include savings accounts, investment accounts, piggy banks, etc. We generally do not
-                      recommend including retirement accounts in this section. Don’t worry, you can update this later!
-                    </p>
-                    <div class="d-flex account-type flex-wrap">
-                      <select class="form-select" aria-label="Default select example">
-                        <option selected>Deduction</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                      </select>
-                      <input type="number" placeholder="$ Amount per paycheck">
-                    </div>
-                    <div class="text-center mt-4 add-income">
-                      <img src="../../../assets/img/plus-icome.svg" alt="img">
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <div *ngIf="steps===7">
-                <form action="">
-                  <div class="quick-start-question">
-                    <label for="">How do you normally file your taxes?</label>
-                    <div class="form-check d-flex align-items-end">
-                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                      <label class="form-check-label" for="flexRadioDefault1">
-                        Standard Deduction
-                      </label>
-                    </div>
-                    <div class="form-check d-flex align-items-end flex-wrap">
-                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
-                        checked>
-                      <label class="form-check-label me-5" for="flexRadioDefault2">
-                        Itemized Deduction
-                      </label>
-                      <div class="account-type position-relative">
-                        <span class="position-absolute">$</span>
-                        <input type="number" placeholder="Deduction Amount">
-                      </div>
-                    </div>
-                    <div class="income-table-main">
-                      <div class="d-flex justify-content-between income-table">
-                        <p>Expected Taxable Income:</p>
-                        <p>$XX,XXX.XX</p>
-                      </div>
-                      <div class="d-flex justify-content-between income-table">
-                        <p>Expected Taxes Owed:</p>
-                        <p>$XX,XXX.XX</p>
-                      </div>
-                      <div class="d-flex justify-content-between income-table">
-                        <p>Expected Tax Rate</p>
-                        <p>$XX,XX%</p>
-                      </div>
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <div *ngIf="steps===8">
-                <form action="">
-                  <div class="quick-start-question">
-                    <label for="">What other expenses do you budget for?</label>
-                    <div class="">
-                      <div class="rent-price d-flex align-items-center justify-content-between mb-4">
-                        <div class="rent-budget">
-                          <p>Rent</p>
-                        </div>
-                        <div class="rent-budget position-relative">
-                          <span>$</span>
-                          <input type="text" name="" id="" placeholder="Amount">
-                        </div>
-                        <div class="rent-budget d-flex align-items-end gap-2">
-                          <input type="text" name="" id="">
-                          <img src="../../../assets/img/info-circle-second.svg" alt="img">
-                        </div>
-                      </div>
-                      <div class="rent-price d-flex align-items-center justify-content-between">
-                        <div class="rent-budget position-relative">
-                          <input type="text" name="" id="" placeholder="Expense" class="ps-0">
-                        </div>
-                        <div class="rent-budget position-relative">
-                          <span>$</span>
-                          <input type="text" name="" id="" placeholder="Amount">
-                        </div>
-                        <div class="rent-budget">
-                          <input type="text" name="" id="">
-                        </div>
-                      </div>
-                      <div class="text-center mt-4 add-income">
-                        <img src="../../../assets/img/plus-icome.svg" alt="img">
-                      </div>
-                    </div>
-                  </div>
-                </form>
-
-              </div>
-              <div *ngIf="steps===9">
-                <form action="">
-                  <div class="quick-start-question">
-                    <label for="">How much would you like to save?</label>
-                    <p>Now that you have input your constraints, you need to decide how much you want to save vs. spend.
-                      The consensus view is that you should aim to save 30% or more of your income to set yourself up
-                      for future success. Our experience also says that you will need a daily spending amount of $60-80
-                      in the NYC area. If that doesn’t work with your budget, it’s ok! Make sure you’re saving
-                      something, even if just 1%, and work to improve that number as you make progress on your financial
-                      journey. For more on this, check out our <a href="">blog post</a>. Remember, you can change this
-                      at any time!</p>
-                  </div>
-                  <div class="d-flex align-items-center gap-4 mt-5">
-                    <div class="daily-saving">
-                      <h5>Savings</h5>
-                      <div class="daily-saving-detail d-flex align-items-center justify-content-between mb-1">
-                        <p>Daily:</p>
-                        <p>$XX.XX</p>
-                      </div>
-                      <div class="daily-saving-detail d-flex align-items-center justify-content-between">
-                        <p>Monthly:</p>
-                        <p>$X,XXX.XX</p>
-                      </div>
-                    </div>
-                    <ngx-slider [(value)]="rangeSliderValue" [options]="rangeSliderOptions"
-                      customDisplayWith="formatValue"></ngx-slider>
-                    <div class="daily-saving">
-                      <h5>Spending</h5>
-                      <div class="daily-saving-detail d-flex align-items-center justify-content-between mb-1">
-                        <p>Daily:</p>
-                        <p>$XX.XX</p>
-                      </div>
-                      <div class="daily-saving-detail d-flex align-items-center justify-content-between">
-                        <p>Monthly:</p>
-                        <p>$X,XXX.XX</p>
-                      </div>
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <div *ngIf="steps===8">8</div>
-              <div *ngIf="steps===9">9</div>
-              <div class="text-end">
-               <button (click)="back()" *ngIf="steps>=3" class="back-btn">
-                 <img src="../../../assets/img/back-arrow.svg" alt="img"/>
-                back
-              </button>
-                <button id="nextButton" class="next-btn" (click)="next()">{{showFinish ? 'Finish' :
-                  'Next'}}
-                  <img src="../../../assets/img/start-right-arrow.svg" alt="img">
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div>
-  </div>
-</body> -->
 <div class="quick-start-nav">
   <header class="navbar navbar-expand">
     <div class="container-default">
@@ -416,6 +70,9 @@
               <div class="progress-bar" [ngStyle]="{ width: progress + '%' }"></div>
             </div>
             <div class="quick-start-detail">
+              <div class="stepper-counter">
+                <p>{{steps}}/{{maxsteps}}</p>
+              </div>
               <div *ngIf="steps===1">
                 <form action="">
                   <div class="quick-start-question">
@@ -467,8 +124,11 @@
                 </form>
               </div>
               <div *ngIf="steps===3">
-                <form action="">
-                  <div class="quick-start-question">
+                <div>
+
+               
+                <form [formGroup]="srcIncomeForm">
+                  <!-- <div class="quick-start-question">
                     <label for="">What are your other sources of income?</label>
                     <div class="d-flex align-items-center flex-wrap justify-content-between">
                       <div class="position-relative">
@@ -480,15 +140,38 @@
                         <input type="number" placeholder="Income Amount">
                       </div>
                     </div>
-                    <div class="text-center mt-4 add-income">
+                    <div class="text-center mt-4 add-income" >
                       <img src="../../../assets/img/plus-icome.svg" alt="img">
                     </div>
+                  </div> -->
+                  <div class="quick-start-question">
+                    <label for="">What are your other sources of income?</label>
+                    <div class="">
+                    <div formArrayName="incomesrc">
+                      <div *ngFor="let item of incomesrc.controls; index as idx;let last = last;" [formGroupName]="idx" class="d-flex align-items-center flex-wrap flex-lg-nowrap gap-lg-3 justify-content-between">
+                        <div class="income-type-detail">                        
+                          <input type="text" placeholder="Income Type" formControlName="type" class="income-type">
+                        </div>
+                        <div class="position-relative income-type-detail">
+                          <span class="position-absolute">$</span>
+                          <input type="number" formControlName="Amount" placeholder="Income Amount">
+                        </div>
+                      </div>
+                    </div>
                   </div>
+                    <div class="text-center mt-4">
+                      <div class="add-income" >
+                        <img  (click)="addIncomesrcItem()" src="../../../assets/img/plus-icome.svg" alt="img">
+                      </div>
+                    </div>
+                  </div>
+                  
                 </form>
               </div>
+              </div>
               <div *ngIf="steps===4">
-                <form action="">
-                  <div class="quick-start-question">
+                <form action="" [formGroup]="accountForm">
+                  <!-- <div class="quick-start-question">
                     <label for="">What accounts do you use regularly use for day to day transactions?</label>
                     <p>These are accounts that hold a balance and you will track to understand how much of your monthly
                       budget you have consumed. They include checking accounts, credit card accounts, venmo, paypal,
@@ -506,12 +189,33 @@
                     <div class="text-center mt-4 add-income">
                       <img src="../../../assets/img/plus-icome.svg" alt="img">
                     </div>
+                  </div> -->
+                  <div class="quick-start-question">
+                    <label for="">What accounts do you use regularly for day to day transactions?</label>
+                    <p>These are accounts that hold a balance and you will track to understand how much of your monthly budget you have consumed. They include checking accounts, credit card accounts, Venmo, PayPal, etc. Don’t worry if you are unsure whether to include a certain account, you can always edit this later!</p>
+                    <div formArrayName="accounts"  class="account-type-container">
+                      <div  *ngFor="let account of accounts.controls; index as idx;" [formGroupName]="idx" class="d-flex account-type flex-wrap flex-lg-nowrap">
+                        <select formControlName="accountType" class="form-select" aria-label="Default select example">
+                          <option selected>Account Type</option>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                        <input  formControlName="accountName" type="number" placeholder="Account Name" class="income-type ">
+                      </div>
+                    </div>
+                    <div class="text-center mt-4">
+                      <div class="add-account" >
+                        <img (click)="addAccount()" src="../../../assets/img/plus-icome.svg" alt="img">
+                      </div>
+                    </div>
                   </div>
+                  
                 </form>
               </div>
               <div *ngIf="steps===5">
-                <form action="">
-                  <div class="quick-start-question">
+                <form [formGroup]="savingsAccntForm" action="">
+                  <!-- <div class="quick-start-question">
                     <label for="">What accounts do you use to hold your savings?</label>
                     <p>These are accounts that contain money that you don’t use for day to day transactions. They
                       generally include savings accounts, investment accounts, piggy banks, etc. We generally do not
@@ -529,30 +233,56 @@
                     <div class="text-center mt-4 add-income">
                       <img src="../../../assets/img/plus-icome.svg" alt="img">
                     </div>
+                  </div> -->
+                  <div class="quick-start-question">
+                    <label for="">What accounts do you use to hold your savings?</label>
+                    <p>These are accounts that contain money that you don’t use for day-to-day transactions.
+                       They generally include savings accounts, investment accounts, piggy banks, etc. 
+                       We generally do not recommend including retirement accounts in this section. Don’t worry, 
+                       you can update this later!</p>
+                    <div formArrayName="savingsAccounts" class="account-type-container">
+                      <div *ngFor="let savingsAccount of savingsAccounts.controls; index as idx;" [formGroupName]="idx" class="d-flex account-type flex-wrap flex-lg-nowrap">
+                        <select formControlName="accountType" class="form-select" aria-label="Default select example">
+                          <option selected>Account Type</option>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                        <input formControlName="accountName" type="number" placeholder="Account Name" class="income-type">
+                      </div>
+                    </div>
+                    <div class="text-center mt-4">
+                      <div class="add-account" >
+                        <img (click)="addSavingsAccount()" src="../../../assets/img/plus-icome.svg" alt="img">
+                      </div>
+                    </div>
                   </div>
+                  
                 </form>
               </div>
               <div *ngIf="steps===6">
-                <form action="">
+                <form [formGroup]="pretaxForm" action="">
+                
                   <div class="quick-start-question">
-                    <label for="">What pre-tax deductions do you normally take?</label>
-                    <p>These are accounts that contain money that you don’t use for day to day transactions. They
-                      generally include savings accounts, investment accounts, piggy banks, etc. We generally do not
-                      recommend including retirement accounts in this section. Don’t worry, you can update this later!
-                    </p>
-                    <div class="d-flex account-type flex-wrap">
-                      <select class="form-select" aria-label="Default select example">
-                        <option selected>Deduction</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                      </select>
-                      <input type="number" placeholder="$ Amount per paycheck">
+                    <label for="">What pre-tax deductions do you normally take?</label>                    
+                    <div formArrayName="preTaxDeductions" class="deduction-container">
+                      <div  *ngFor="let deduction of preTaxDeductions.controls; index as idx;" [formGroupName]="idx" class="d-flex account-type flex-wrap flex-lg-nowrap">
+                        <select formControlName="deduction" class="form-select" aria-label="Default select example">
+                          <option selected>Deduction</option>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                        <input formControlName="amount" type="number" placeholder="$ Amount per paycheck" class="income-type">
+                      </div>
                     </div>
-                    <div class="text-center mt-4 add-income">
-                      <img src="../../../assets/img/plus-icome.svg" alt="img">
+                    <div class="text-center mt-4">
+                      <div class="add-deduction" >
+                        <img (click)="addPreTaxDeduction()" src="../../../assets/img/plus-icome.svg" alt="img">
+                      </div>
                     </div>
                   </div>
+                  
                 </form>
               </div>
               <div *ngIf="steps===7">
@@ -571,7 +301,7 @@
                       <label class="form-check-label me-5" for="flexRadioDefault2">
                         Itemized Deduction
                       </label>
-                      <div class="account-type position-relative">
+                      <div class="account-type position-relative mt-2 mt-md-0">
                         <span class="position-absolute">$</span>
                         <input type="number" placeholder="Deduction Amount">
                       </div>
@@ -594,47 +324,40 @@
                 </form>
               </div>
               <div *ngIf="steps===8">
-                <form action="">
+                <form [formGroup]="budgetForm" action="">
                   <div class="quick-start-question">
                     <label for="">What other expenses do you budget for?</label>
-                    <div class="">
-                      <div class="rent-price d-flex align-items-center justify-content-between mb-4">
-                        <div class="rent-budget">
-                          <p>Rent</p>
+                    <div formArrayName="expenses" class="expenses-container">
+                      <div *ngFor="let expense of expenses.controls; index as idx;" [formGroupName]="idx" class="rent-price d-flex align-items-center justify-content-lg-between justify-content-around mb-sm-4">
+                        <div class="rent-budget">                          
+                          <input type="text" placeholder="Rent" class="income-type">
                         </div>
                         <div class="rent-budget position-relative">
                           <span>$</span>
-                          <input type="text" name="" id="" placeholder="Amount">
+                          <input formControlName="amount" type="text" name="" id="" placeholder="Amount">
                         </div>
-                        <div class="rent-budget d-flex align-items-end gap-2">
-                          <input #datepicker5 type="text" placeholder="Approx day of month paid" class="start-date">
-                          <img src="../../../assets/img/info-circle-second.svg" alt="img">
-                        </div>
-                      </div>
-                      <div class="rent-price d-flex align-items-center justify-content-between">
-                        <div class="rent-budget position-relative">
-                          <input type="text" name="" id="" placeholder="Expense" class="ps-0">
-                        </div>
-                        <div class="rent-budget position-relative">
-                          <span>$</span>
-                          <input type="text" name="" id="" placeholder="Amount">
-                        </div>
-                        <div class="rent-budget">
-                          <!-- <input type="text" name="" id=""> -->
-                          <input #datepicker4 type="text" placeholder="Approx day of month paid" class="start-date">
+                        <div class="rent-budget d-flex align-items-end gap-2 position-relative">
+                          <input formControlName="paymentDate" #datepicker5 type="text" placeholder="Approx day of month paid" class="start-date">
+                          <img src="../../../assets/img/info-circle-second.svg" alt="img" class="position-absolute ">
                         </div>
                       </div>
-                      <div class="text-center mt-4 add-income">
-                        <img src="../../../assets/img/plus-icome.svg" alt="img">
+                      
+                    
+                    </div>
+                    <div class="text-center mt-4" id="Plus-icon">
+                      <div class="add-income">                        
+                        <img src="../../../assets/img/plus-icome.svg" alt="img" (click)="addExpense()">
                       </div>
                     </div>
                   </div>
+                  
+                  
                 </form>
 
               </div>
               <div *ngIf="steps===9">
                 <form action="">
-                  <div class="quick-start-question">
+                  <div [ngClass]="{'save-stepper':showFinish}" class="quick-start-question">
                     <label for="">How much would you like to save?</label>
                     <p>Now that you have input your constraints, you need to decide how much you want to save vs. spend.
                       The consensus view is that you should aim to save 30% or more of your income to set yourself up
@@ -644,7 +367,7 @@
                       journey. For more on this, check out our <a href="">blog post</a>. Remember, you can change this
                       at any time!</p>
                   </div>
-                  <div class="d-flex align-items-start gap-4 mt-5">
+                  <div class="d-flex align-items-start gap-lg-4 mt-5 flex-wrap flex-lg-nowrap ">
                     <div class="daily-saving">
                       <h5>Savings</h5>
                       <div class="daily-saving-detail d-flex align-items-center justify-content-between mb-1">
@@ -658,7 +381,7 @@
                     </div>
                     <ngx-slider [(value)]="rangeSliderValue" [options]="rangeSliderOptions"
                       customDisplayWith="formatValue"></ngx-slider>
-                    <div class="daily-saving">
+                    <div class="daily-saving mt-lg-0 mt-5 pt-lg-0 pt-4">
                       <h5>Spending</h5>
                       <div class="daily-saving-detail d-flex align-items-center justify-content-between mb-1">
                         <p>Daily:</p>
@@ -675,7 +398,7 @@
               <div class="text-end back-next-btn">
                 <button (click)="back()" *ngIf="steps>=3" class="back-btn">
                   <img src="../../../assets/img/back-arrow.svg" alt="img" />
-                  back
+                  Back
                 </button>
                 <button id="nextButton" *ngIf="!showFinish" class="next-btn" (click)="next()">
                   Next

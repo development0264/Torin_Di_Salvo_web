@@ -8,7 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  
+  airBnBForm: FormGroup;
   constructor(private formBuilder: FormBuilder) {}
 
   @ViewChild('slider') sliderElement: ElementRef;
@@ -80,7 +80,7 @@ export class HomeComponent {
         responsive: true
       } as ChartOptions
     });
-    
+    // create assets/libilities modal form
       this.assetForm = this.formBuilder.group({
         description: ['', Validators.required],
         type: ['', Validators.required],
@@ -88,11 +88,16 @@ export class HomeComponent {
         endDate: ['', Validators.required],
         targetAmount: ['', Validators.required]
       });
-
+      //PRSF mddal form
       this.PRSForm = this.formBuilder.group({
         type: ['', Validators.required],
         startDate: ['', Validators.required],
         endDate: ['', Validators.required],
+        targetAmount: ['', Validators.required]
+      });
+      //AirBnB modal form
+      this.airBnBForm = this.formBuilder.group({
+        type: ['Saver', Validators.required],
         targetAmount: ['', Validators.required]
       });
     
@@ -116,6 +121,22 @@ export class HomeComponent {
       
     }
 
+  }
+  airBnBSubmit(){
+    if (this.airBnBForm.invalid) {
+      // Mark all form controls as touched to trigger validation errors
+      this.airBnBForm.markAllAsTouched();
+      return;
+    }
+    else{
+      var assetmodal = document.getElementById('airbnbmodal');
+      assetmodal.style.display = "none";
+      const backdropElement = document.querySelector(".modal-backdrop.fade.show");
+
+    // Remove the "show" class from the element's class list
+    backdropElement.remove();
+      
+    }
   }
  
   validateStartDate(control: any) {

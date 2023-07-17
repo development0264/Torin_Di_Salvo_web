@@ -531,21 +531,27 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-lg-6 mt-2">
-                        <form>
+                        <form [formGroup]="airBnBForm">
                             <div class="liability-detail">
                                 <label for="">Type</label>
-                                <select class="form-select" aria-label="Default select example">
+                                <select formControlName="type" class="form-select" aria-label="Default select example">
                                     <option selected>Saver</option>
                                     <option value="2">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
                                 </select>
                             </div>
-
+                            <div *ngIf="airBnBForm.get('type').invalid && airBnBForm.get('type').touched" class="error-message">
+                                Type is required.
+                              </div>
                             <div class="liability-detail">
                                 <label for="">Target Savings Amount</label>
-                                <input  type="number" placeholder="$1,500.00">
+                                <input formControlName="targetAmount" type="number" placeholder="$1,500.00">
+                                <div *ngIf="airBnBForm.get('targetAmount').invalid && airBnBForm.get('targetAmount').touched" class="error-message">
+                                    Target Savings Amount is required.
+                                  </div>
                             </div>
+                            
                         </form>
                     </div>
                     <div class="col-lg-5">
@@ -567,7 +573,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="close-btn" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="save-btn">Save</button>
+                <button type="button" class="save-btn" (click)="airBnBSubmit()">Save</button>
             </div>
         </div>
     </div>

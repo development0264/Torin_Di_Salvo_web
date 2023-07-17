@@ -107,6 +107,28 @@
     margin-bottom: 25px;
 }
 
+.summary-box .summary-detail{
+    max-width: 300px;
+    width: 100%;
+    margin: 0 auto 30px ;
+}
+.daily-summary{
+    border-bottom: 1px  solid #CCCCCC;    
+}
+.daily-summary p{
+    margin-bottom: 0px;
+    padding-bottom: 4px;
+}
+.daily-summary p:first-child{
+    color: #000000;
+    font-size: 18px;    
+}
+.daily-summary p:last-child{
+    font-size: 22px;
+    font-weight: 600;
+}
+
+
 .summary-box h3 {
     color: #000000;
     font-size: 26px;
