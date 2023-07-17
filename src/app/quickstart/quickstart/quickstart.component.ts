@@ -1,13 +1,20 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Options } from '@angular-slider/ngx-slider';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import Pikaday from 'pikaday';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-quickstart',
   templateUrl: './quickstart.component.html',
   styleUrls: ['./quickstart.component.css']
 })
 export class QuickstartComponent {
+  constructor(private router:Router){}
   @ViewChild('slider') sliderElement: ElementRef;
-
+  @ViewChild('datepicker1') datepickerInput1: ElementRef<HTMLInputElement>;
+  @ViewChild('datepicker2') datepickerInput2: ElementRef<HTMLInputElement>;
+  @ViewChild('datepicker3') datepickerInput3: ElementRef<HTMLInputElement>;
+  @ViewChild('datepicker4') datepickerInput4: ElementRef<HTMLInputElement>;
+  @ViewChild('datepicker5') datepickerInput5: ElementRef<HTMLInputElement>;
   public rangeSliderOptions: Options = {
     floor: 250,
     ceil: 1500,
@@ -31,48 +38,88 @@ export class QuickstartComponent {
     const percentage = ((value - 250) / (1500 - 250)) * 100;
     return `${percentage.toFixed(2)}%`;
   }
-  progress: number = 1;
-  currentContent: string = "Step 1";
-  steps: any = 1;
-  maxsteps: any = 9
+  ngAfterViewInit(): void {
+    this.pikadayInstance = new Pikaday({
+      field: this.datepickerInput1.nativeElement,
+      onSelect: (date: Date) => {
+        // Handle date selection
+
+      }
+    });
+    this.pikadayInstance = new Pikaday({
+      field: this.datepickerInput2.nativeElement,
+      onSelect: (date: Date) => {
+        // Handle date selection
+        
+      }
+    });
+  }
+  pikadayInstance: Pikaday;
+  selectedDate: Date;
+  dateofbirth;
+  currentStep: number = 0;
+
+  steps:any=1;
+  maxsteps:any=9
   showFinish: boolean;
 
-
+ 
   next() {
     this.steps++;
-    if (this.maxsteps === this.steps) {
-      this.showFinish = true
+    this.currentStep++;
+    if(this.maxsteps===this.steps){
+      this.showFinish=true
     }
-    if (this.progress < 100) {
-      // this.progress += 25;
-      this.progress = Math.floor((this.steps / this.maxsteps) * 100);
-      this.updateContent();
+    if (this.steps === 2) {
+
+      setTimeout(() => {
+        
+        this.pikadayInstance = new Pikaday({
+          field: this.datepickerInput3.nativeElement,
+          onSelect: (date: Date) => {
+            // Handle date selection
+          }
+        });
+      }, 100);
     }
+    if (this.steps === 8) {
+
+      setTimeout(() => {
+        
+        this.pikadayInstance = new Pikaday({
+          field: this.datepickerInput4.nativeElement,
+          onSelect: (date: Date) => {
+            // Handle date selection
+          }
+        });
+        this.pikadayInstance = new Pikaday({
+          field: this.datepickerInput5.nativeElement,
+          onSelect: (date: Date) => {
+            // Handle date selection
+          }
+        });
+      }, 100);
+    }
+  
+    
   }
-  back() {
+  get progress(): number {
+    return Math.floor((this.currentStep / 8) * 100);
+  }
+  back(){
     this.steps--;
+    this.currentStep--;
+    if(this.maxsteps===this.steps){
+      this.showFinish=true
+    }
+    else{
+      this.showFinish=false
+    }
   }
   finish() {
     // Perform any action or navigate to another page after finishing
+    this.router.navigate(['/'])
   }
 
-  updateContent() {
-    switch (this.progress) {
-      case 25:
-        this.currentContent = "Step 2";
-        break;
-      case 50:
-        this.currentContent = "Step 3";
-        break;
-      case 75:
-        this.currentContent = "Step 4";
-        break;
-      case 100:
-        this.currentContent = "All steps completed";
-        break;
-      default:
-        this.currentContent = "Step 1";
-        break;
-    }
-  }
+ 
 }

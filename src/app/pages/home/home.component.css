@@ -725,3 +725,6 @@ ngx-slider ::ng-deep .ngx-slider-pointer {
     font-size: 12px;
     line-height: 40px;
   }
+  .error-message{
+    color: red;
+  }

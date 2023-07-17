@@ -361,37 +361,43 @@
             <div class="modal-body">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
-                        <form>
+                        <form  [formGroup]="assetForm" >
                             <div class="liability-detail">
                                 <label for="">Decription</label>
-                                <input type="text" placeholder="Puerto Rico Saver">
+                                <input  formControlName="description" type="text" placeholder="Puerto Rico Saver">
+                                <div *ngIf="assetForm.get('description').touched && assetForm.get('description').errors?.['required']" class="error-message">Description is required.</div>
                             </div>
                             <div class="liability-detail">
                                 <label for="">Type</label>
-                                <select class="form-select" aria-label="Default select example">
+                                <select formControlName="type" class="form-select" aria-label="Default select example">
                                     <option selected>Saver</option>
                                     <option value="2">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
                                 </select>
+                                <div *ngIf="assetForm.get('type').touched && assetForm.get('type').errors?.['required']" class="error-message">Type is required.</div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="liability-detail">
                                         <label for="">Savings Start Date</label>
-                                        <input type="date" placeholder="Puerto Rico Saver">
+                                        <input formControlName="startDate" type="date" placeholder="Puerto Rico Saver" >
+                                         <div *ngIf="assetForm.get('startDate').touched && assetForm.get('startDate').errors?.['required']" class="error-message">Start Date is required.</div>
+                                        <!-- <div *ngIf="assetForm.get('startDate').touched && assetForm.get('startDate').errors?.['min']" class="error-message" >Start Date cannot be before today.</div>  -->
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="liability-detail">
                                         <label for="">Savings End Date</label>
-                                        <input type="date" placeholder="Puerto Rico Saver">
+                                        <input formControlName="endDate" type="date" placeholder="Puerto Rico Saver" >
+                                        <div *ngIf="assetForm.get('endDate').touched && assetForm.get('endDate').errors?.['required']" class="error-message">End Date is required.</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="liability-detail">
                                 <label for="">Target Savings Amount</label>
-                                <input type="text" placeholder="$1,500.00">
+                                <input  formControlName="targetAmount" type="number" placeholder="$1,500.00">
+                                <div *ngIf="assetForm.get('targetAmount').touched && assetForm.get('targetAmount').errors?.['required']" class="error-message">Target Amount is required.</div>
                             </div>
                         </form>
                     </div>
@@ -414,7 +420,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="close-btn" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="save-btn">Save</button>
+                <button type="submit" (click)="assetFormSubmit()"  class="save-btn" >Save</button>
             </div>
         </div>
     </div>
@@ -437,59 +443,49 @@
             <div class="modal-body">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
-                        <form>
+                        <form [formGroup]="PRSForm">
                             <div class="liability-detail">
                                 <label for="">Type</label>
-                                <select class="form-select" aria-label="Default select example">
+                                <select formControlName="type" class="form-select" aria-label="Default select example">
                                     <option selected>Saver</option>
                                     <option value="2">One</option>
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
                                 </select>
+                                <div *ngIf="PRSForm.get('type').touched && PRSForm.get('type').errors?.['required']" class="error-message">Type is required.</div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="liability-detail">
                                         <label for="">Savings Start Date</label>
-                                        <input type="date" placeholder="Puerto Rico Saver">
+                                        <input formControlName="startDate" type="date" placeholder="Puerto Rico Saver">
+                                        <div *ngIf="PRSForm.get('startDate').touched && PRSForm.get('startDate').errors?.['required']" class="error-message">Start Date is required.</div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="liability-detail">
                                         <label for="">Savings End Date</label>
-                                        <input type="date" placeholder="Puerto Rico Saver">
+                                        <input formControlName="endDate" type="date" placeholder="Puerto Rico Saver">
+                                        <div *ngIf="PRSForm.get('endDate').touched && PRSForm.get('endDate').errors?.['required']" class="error-message">End Date is required.</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="liability-detail">
                                 <label for="">Target Savings Amount</label>
-                                <input type="text" placeholder="$1,500.00">
+                                <input formControlName="targetAmount" type="number" placeholder="$1,500.00">
+                                <div *ngIf="PRSForm.get('targetAmount').touched && PRSForm.get('targetAmount').errors?.['required']" class="error-message">Target Amount is required.</div>
                             </div>
-                            <!-- <div class="liability-detail">
-                                <label for="">Target Savings Amount</label>
-                                <div class="d-flex align-items-center gap-4 mt-4">
-                                    <p class="mb-0">$250.00</p>
-                                    <div class="range-slider">
-                                        <div class="range-slider-inner"></div>
-                                    </div>
-                                    <p class="mb-0">$1,500.00</p>
-                                </div>
-                            </div> -->
+                           
                             <div class="liability-detail">
                                 <label for="">Target Savings Amount</label>
                                 <div class="d-flex align-items-end gap-4 mt-4">
                                   <p class="mb-0">$250.00</p>
-                                  <!-- <ngx-slider [(value)]="rangeSliderValue" [options]="rangeSliderOptions"></ngx-slider> -->
+
                                   <ngx-slider [(value)]="rangeSliderValue" [options]="rangeSliderOptions" customDisplayWith="formatValue"></ngx-slider>
 
                                   <p class="mb-0">$1,500.00</p>
                                 </div>
                               </div>
-                              
-                            
-                            
-                            
-                            
                         </form>
                        
                     </div>
@@ -512,7 +508,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="close-btn" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="save-btn">Save</button>
+                <button type="button" (click)="savePRSForm()" class="save-btn">Save</button>
             </div>
         </div>
     </div>
@@ -548,7 +544,7 @@
 
                             <div class="liability-detail">
                                 <label for="">Target Savings Amount</label>
-                                <input type="text" placeholder="$1,500.00">
+                                <input  type="number" placeholder="$1,500.00">
                             </div>
                         </form>
                     </div>

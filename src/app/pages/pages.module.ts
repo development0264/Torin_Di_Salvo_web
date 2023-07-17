@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { PagesRoutingModule } from './pages-routing.module';
 import { PagesComponent } from './pages/pages.component';
 import { HeaderComponent } from './header/header.component';
@@ -16,6 +15,8 @@ import { SecurityComponent } from './settings/security/security.component';
 import { NgChartsModule } from 'ng2-charts';
 import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     PagesComponent,
@@ -35,7 +36,9 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
     PagesRoutingModule,
     NgChartsModule,
     CanvasJSAngularChartsModule,
-    NgxSliderModule
+    NgxSliderModule,
+    ReactiveFormsModule,
+    FormsModule
     
   ]
 })

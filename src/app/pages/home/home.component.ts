@@ -1,20 +1,21 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Chart,ChartOptions } from 'chart.js';
-import noUiSlider from 'nouislider';
 import { Options } from '@angular-slider/ngx-slider';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  ngAfterViewInit() {
-    setTimeout(() => {
-      this.hideMinMaxValues();
-    }, 0);
-  }
+  
+  constructor(private formBuilder: FormBuilder) {}
+
   @ViewChild('slider') sliderElement: ElementRef;
+  @ViewChild('staticBackdrop') modalContent: ElementRef; 
   Linechart: Chart;
+  assetForm: FormGroup;
+  PRSForm: FormGroup;
   public rangeSliderOptions: Options = {
     floor: 250,
     ceil: 1500,
@@ -79,15 +80,83 @@ export class HomeComponent {
         responsive: true
       } as ChartOptions
     });
+    
+      this.assetForm = this.formBuilder.group({
+        description: ['', Validators.required],
+        type: ['', Validators.required],
+        startDate: ['', Validators.required,this.validateStartDate],
+        endDate: ['', Validators.required],
+        targetAmount: ['', Validators.required]
+      });
+
+      this.PRSForm = this.formBuilder.group({
+        type: ['', Validators.required],
+        startDate: ['', Validators.required],
+        endDate: ['', Validators.required],
+        targetAmount: ['', Validators.required]
+      });
+    
   }
-  
-  hideMinMaxValues() {
-    const sliderElement = this.sliderElement.nativeElement;
-    const minMaxValueElements = sliderElement.querySelectorAll('.ngx-slider-limit');
-  
-    minMaxValueElements.forEach((element: HTMLElement) => {
-      element.style.display = 'none';
-    });
+  get formControls() {
+    return this.assetForm.controls;
   }
-  
+  assetFormSubmit(){
+    if (this.assetForm.invalid) {
+      // Mark all form controls as touched to trigger validation errors
+      this.assetForm.markAllAsTouched();
+      return;
+    }
+    else{
+      var assetmodal = document.getElementById('staticBackdrop');
+      assetmodal.style.display = "none";
+      const backdropElement = document.querySelector(".modal-backdrop.fade.show");
+
+    // Remove the "show" class from the element's class list
+    backdropElement.remove();
+      
+    }
+
+  }
+ 
+  validateStartDate(control: any) {
+    const selectedDate = new Date(control.value);
+    const currentDate = new Date();
+    if (selectedDate < currentDate) {
+      return { min: true };
+    }
+    return null;
+  }
+  todayDate() {
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    let month: string | number = currentDate.getMonth() + 1;
+    let day: string | number = currentDate.getDate();
+
+    // Add leading zero if month or day is a single digit
+    month = month < 10 ? '0' + month : month;
+    day = day < 10 ? '0' + day : day;
+
+    return `${year}-${month}-${day}`;
+  }
+  savePRSForm(){
+    if (this.PRSForm.invalid) {
+      // Mark all form controls as touched to trigger validation errors
+      this.PRSForm.markAllAsTouched();
+      return;
+    }
+    else{
+      var assetmodal = document.getElementById('exampleModal');
+      assetmodal.style.display = "none";
+      const backdropElement = document.querySelector(".modal-backdrop.fade.show");
+
+    // Remove the "show" class from the element's class list
+    backdropElement.remove()
+    }
+
+    // Perform save operation
+    
+
+    console.log(this.PRSForm.value);
+    
+  }
 }

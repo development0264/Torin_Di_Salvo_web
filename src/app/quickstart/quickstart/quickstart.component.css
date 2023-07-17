@@ -371,6 +371,16 @@ ngx-slider ::ng-deep span.ngx-slider-span.ngx-slider-bubble.ngx-slider-model-val
     font-size: 14px;
     margin-bottom: 0px;
 }
+.quick-start-main .progress-bar{
+    background-color: #409FFF;
+    height: 3px;
+    
+}
+.quick-start-main .progress{
+    background-color: transparent;
+    border-radius: 0px;
+    height: 3px;
+}
 
 @media (max-width:1600px) {
     .rent-price .rent-budget {
