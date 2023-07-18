@@ -137,12 +137,20 @@
 }
 
 
+@media (max-width:1440px) {
+    .income-box .income-detail h3,.summary-box h3   {
+        font-size: 22px;
+    }
+    .income-box .income-price .total-price h6,p{
+        font-size: 16px !important;
+    }
+    .income-box{
+        margin-bottom: 20px;
+    }
+}
+
 @media (max-width:991px) {
 
-    .income-box .income-detail h3,
-    .summary-box h3 {
-        font-size: 25px;
-    }
     .income-box .income-price .income-price-detail h6,
     .income-box .income-price .total-price p,.income-box .income-price .total-price h6{
         font-size: 16px;

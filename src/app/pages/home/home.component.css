@@ -36,6 +36,7 @@
     border-radius: 10px;
     padding: 5px 35px;
 }
+
 /* Offer alert Section End */
 
 /* Balance Section Start */
@@ -115,6 +116,7 @@
     padding: 10px;
     border-radius: 18px;
     padding: 25px;
+    overflow-x: auto;
 }
 
 .balance-check input::-webkit-outer-spin-button,
@@ -144,7 +146,8 @@
     width: 100%;
     text-align: center;
 }
-.balance-check:nth-child(2) label{
+
+.balance-check:nth-child(2) label {
     max-width: 75px;
 }
 
@@ -177,7 +180,7 @@
 }
 
 .amazon-card label {
-    max-width: 110px ;
+    max-width: 110px;
     width: 100%;
 }
 
@@ -202,6 +205,9 @@
     font-weight: 600;
     margin-top: 10px;
     margin-bottom: 35px;
+}
+.balance-detail{
+    width: 90%;
 }
 
 .account-detail {
@@ -364,6 +370,17 @@
     font-weight: 400;
 }
 
+.liability-detail input::-webkit-outer-spin-button,
+.liability-detail input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
 .liability-detail select {
     padding: 12px 16px;
     border-radius: 8px;
@@ -464,52 +481,63 @@
     left: -3px;
     border-radius: 10px;
 }
+
 /* Savings Section End */
-.saving-chart{
+.saving-chart {
     margin-top: 100px;
     margin-bottom: 60px;
 }
-.metric-detail{
+
+.metric-detail {
     margin-bottom: 30px;
 }
-.metric-detail:last-child{
+
+.metric-detail:last-child {
     margin-bottom: 0px;
 }
 
-.metric-detail li:first-child{
+.metric-detail li:first-child {
     color: #000000;
-    font-size: 18px;        
+    font-size: 18px;
 }
-.metric-detail li:first-child img{
+
+.metric-detail li:first-child img {
     margin-left: 5px;
 }
 
-.metric-detail li:last-child{
+.metric-detail li:last-child {
     color: #1F7C3E;
-    font-size:20px;
+    font-size: 20px;
     font-weight: 700;
 }
 
-.saving-chart .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+.saving-chart .nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
     border-radius: 100px;
     background-color: #0582CA;
     color: #fff;
 }
-.saving-chart .nav-pills{
+
+.saving-chart .nav-pills {
     justify-content: space-between;
 }
-.saving-chart .nav-pills .nav-link{
+
+.saving-chart .nav-pills .nav-link {
     border-radius: 100px;
     height: 50px;
     width: 50px;
     padding: 0px;
     color: #000000;
 }
-.saving-chart .nav{
+
+.saving-chart .nav {
     background-color: #fff;
     max-width: 400px;
     margin-left: auto;
     border-radius: 100px;
+}
+.user-fees {
+    gap: 5px;
 }
 
 @media (min-width:1920px) {
@@ -518,28 +546,113 @@
     }
 }
 
-@media (max-width:1300px) {
+@media (max-width:1440px) {
     .liabilitie-detail {
         flex-wrap: wrap;
+        margin-bottom: 15px !important;
+    }
+
+    .user-detail h1 {
+        font-size: 35px;
+        margin-bottom: 20px;
+    }
+
+    .user-fees {
+        margin-top: 15px;
+    }
+
+    .user-fees,
+    .total-fees {
+        margin-bottom: 15px;
+    }
+
+    .user-fees h2 {
+        font-size: 50px;
+    }
+
+    .account-balance h2 {
+        font-size: 25px;
+    }
+
+    .user-fees span {
+        font-size: 25px !important;
+    }
+
+    .create-asset-modal .modal-dialog {
+        padding: 0px 20px;
+    }
+
+    .create-asset-modal .modal-body {
+        padding-left: 0px;
+    }
+
+    .liability-type {
+        padding-left: 0px;
+    }
+
+    .saving-section {
+        margin-top: 0px;
+    }
+
+    .liabilitie-detail h3 {
+        font-size: 20px;
+    }
+
+    .asset-detail p:last-child,
+    .liabilitie-price p:last-child {
+        font-size: 20px;
+    }
+    .liabilitie-table table thead tr th{
+        font-size: 16px;
+    }
+    .saving-chart{
+        margin-top: 80px;
+    }
+    .offer-alert-title p,.balance-detail p{
+        font-size: 18px;
+    }    
+    .balance-detail p{
+        margin-top: 18px;
+        margin-bottom: 40px;
+    }
+    .balance-check input{
+        width: 165px;
+    }
+}
+
+@media screen and (min-device-width: 991px) and (max-device-width: 1170px) { 
+    .liabilitie-detail{
+        height: 60px;
+        align-items: baseline !important;
+    }
+    .saving-chart{
+        margin-top: 100px;
+    }
+    .user-detail h1 {
+        font-size: 30px;
+    }
+    .user-fees h2{
+        font-size: 40px;
+    }
+    .user-fees span{
+        font-size: 25px;
+    }
+    .account-detail{
+        margin-right: 15px;
     }
 }
 
 @media (max-width:991px) {
-
-    .offer-alert{
-        margin: 30px 0;
-    }
-    .user-detail h1,
-    .account-balance h2 {
+    .user-detail h1 {
         font-size: 30px;
+    }
+
+    .offer-alert {
+        margin: 30px 0;
     }
 
     .user-fees h2 {
         font-size: 45px;
-    }
-
-    .user-fees span {
-        font-size: 30px;
     }
 
     .user-detail {
@@ -557,21 +670,15 @@
     }
 
     .liabilitie-detail h3 {
-        font-size: 22px;
+        font-size: 18px;
     }
 
     .asset-detail p:last-child,
     .liabilitie-price p:last-child {
-        font-size: 20px;
-    }
-
-    .liabilitie-table table thead tr th {
         font-size: 18px;
     }
-
     .create-asset-modal .modal-dialog {
         max-width: 100%;
-        padding: 0 20px;
         margin: 0 auto;
     }
 
@@ -587,24 +694,41 @@
     .user-detail {
         margin: 0px;
     }
-    .offer-alert{
+
+    .offer-alert {
         padding: 10px 20px;
     }
-    .saving-chart{
-        margin: 30px 0px;    
+
+    .saving-chart {
+        margin: 30px 0px;
     }
-    .metric-detail{
+
+    .metric-detail {
         margin-bottom: 10px;
     }
-    .metric-detail li:last-child{
+
+    .metric-detail li:last-child {
         font-size: 18px;
     }
-    .metric-detail li:first-child{
+
+    .metric-detail li:first-child {
+        font-size: 16px;
+    }
+    .account-balance-box{
+        margin-bottom: 30px;
+    }
+    .offer-alert-title p{
         font-size: 16px;
     }
 }
 
 @media (max-width:575px) {
+    .user-fees h2 {
+        font-size: 35px;
+    }
+    .user-fees span {
+        font-size: 20px !important;
+    }
     .total-fees {
         display: block !important;
         margin-bottom: 20px !important;
@@ -613,6 +737,7 @@
     .total-fees p {
         width: 100%;
     }
+
     .account-balance-box table {
         min-width: 600px;
     }
@@ -635,13 +760,18 @@
 
     .liabilitie-table table {
         min-width: 550px;
-    }    
-    .saving-chart .nav-pills .nav-link{
+    }
+
+    .saving-chart .nav-pills .nav-link {
         width: 30px;
         height: 30px;
         font-size: 14px;
     }
+    .user-detail{
+        height: inherit;
+    }
 }
+
 input[type="range"] {
     -webkit-appearance: none;
     width: 100%;
@@ -685,34 +815,39 @@ input[type="range"]::-moz-range-track {
     background-color: #eaeaea;
     border-radius: 5px;
 }
+
 ngx-slider ::ng-deep .ngx-slider-pointer {
     display: none;
-  }
-  .slider-container .ngx-slider-span.ngx-slider-limit {
+}
+
+.slider-container .ngx-slider-span.ngx-slider-limit {
     visibility: hidden;
-  }
-  
+}
 
 
 
-  ngx-slider ::ng-deep span.ngx-slider-span.ngx-slider-bubble.ngx-slider-limit.ngx-slider-floor{
+
+ngx-slider ::ng-deep span.ngx-slider-span.ngx-slider-bubble.ngx-slider-limit.ngx-slider-floor {
     display: none !important;
-  }
-  ngx-slider ::ng-deep span.ngx-slider-span.ngx-slider-bubble.ngx-slider-limit.ngx-slider-ceil{
+}
+
+ngx-slider ::ng-deep span.ngx-slider-span.ngx-slider-bubble.ngx-slider-limit.ngx-slider-ceil {
     display: none;
-  }
-  ngx-slider ::ng-deep span.ngx-slider-span.ngx-slider-bar.ngx-slider-selection{
+}
+
+ngx-slider ::ng-deep span.ngx-slider-span.ngx-slider-bar.ngx-slider-selection {
     background-color: #142B56 !important;
     border-radius: 10px;
-    height: 15px;   
-  }
-  ngx-slider ::ng-deep span.ngx-slider-span.ngx-slider-bar{
+    height: 15px;
+}
+
+ngx-slider ::ng-deep span.ngx-slider-span.ngx-slider-bar {
     background-color: #F9F5FF;
     border-radius: 10px;
-    height: 15px !important;    
-  }
+    height: 15px !important;
+}
 
-  ngx-slider ::ng-deep span.ngx-slider-span.ngx-slider-bubble.ngx-slider-model-value{    
+ngx-slider ::ng-deep span.ngx-slider-span.ngx-slider-bubble.ngx-slider-model-value {
     box-shadow: 0px 12px 16px -2px #10182814;
     background-color: #fff;
     top: 30px;
@@ -724,7 +859,8 @@ ngx-slider ::ng-deep .ngx-slider-pointer {
     border-radius: 10px;
     font-size: 12px;
     line-height: 40px;
-  }
-  .error-message{
+}
+
+.error-message {
     color: red;
-  }
+}

@@ -416,6 +416,22 @@ ngx-slider ::ng-deep span.ngx-slider-span.ngx-slider-bubble.ngx-slider-model-val
     }
 }
 
+@media (max-width:1440px) {
+    .quick-start-box h3{
+        font-size: 30px;
+    }
+    .quick-start-box{
+        padding: 20px;
+    }
+    .quick-start-question label{
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+    .quick-start-detail{
+        padding: 30px;
+    }
+}
+
 @media (max-width:991px) {
     .quick-start-main {
         height: 100%;
@@ -470,9 +486,12 @@ ngx-slider ::ng-deep span.ngx-slider-span.ngx-slider-bubble.ngx-slider-model-val
         height: auto;
     }
 
-    .quick-start-question input,
-    .form-select {
+    .quick-start-question input {
         max-width: 100% !important;
+    }
+    .quick-start-question .form-select{
+        max-width: 100%;
+        width: 100% !important;
     }
 
     .quick-start-question .start-date {
