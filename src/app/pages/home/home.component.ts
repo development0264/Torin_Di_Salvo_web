@@ -173,11 +173,6 @@ export class HomeComponent {
     // Remove the "show" class from the element's class list
     backdropElement.remove()
     }
-
-    // Perform save operation
-    
-
-    console.log(this.PRSForm.value);
     
   }
 }

@@ -101,7 +101,10 @@
     }
 
     .profile-dropdown .dropdown {
-        padding: 5px 20px;
-        border-radius: 10px;
+        border: none;
+        padding-right: 5px;
+    }
+    .dropdown-toggle span{
+        display: none;
     }
 }

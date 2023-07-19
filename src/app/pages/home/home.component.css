@@ -183,6 +183,9 @@
     max-width: 110px;
     width: 100%;
 }
+.amazon-card-label{
+    left: 20px !important;
+}
 
 .account-balance-box {
     color: #5B5B5B;
@@ -413,6 +416,7 @@ input[type=number] {
 
 .create-asset-modal .modal-footer {
     border-top-color: #B6B6B6;
+    padding-right: 38px;
 }
 
 .liability-type {
@@ -546,7 +550,7 @@ input[type=number] {
     }
 }
 
-@media (max-width:1440px) {
+@media (max-width:1600px) {
     .liabilitie-detail {
         flex-wrap: wrap;
         margin-bottom: 15px !important;
@@ -595,7 +599,7 @@ input[type=number] {
     }
 
     .liabilitie-detail h3 {
-        font-size: 20px;
+        font-size: 25px;
     }
 
     .asset-detail p:last-child,
@@ -669,9 +673,6 @@ input[type=number] {
         margin-bottom: 30px;
     }
 
-    .liabilitie-detail h3 {
-        font-size: 18px;
-    }
 
     .asset-detail p:last-child,
     .liabilitie-price p:last-child {
@@ -737,6 +738,9 @@ input[type=number] {
     .total-fees p {
         width: 100%;
     }
+    .total-fees p:first-child{
+        width: unset;
+    }
 
     .account-balance-box table {
         min-width: 600px;
@@ -770,6 +774,17 @@ input[type=number] {
     .user-detail{
         height: inherit;
     }
+    .balance-change-detail p{
+        margin-top: 20px;
+        margin-bottom: 0px;
+    }
+    .balance-detail p{
+        margin-bottom: 0px; 
+    }
+    .liabilitie-detail h3 {
+        font-size: 20px;
+    }
+
 }
 
 input[type="range"] {

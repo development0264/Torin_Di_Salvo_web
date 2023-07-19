@@ -9,6 +9,7 @@ import Plotly from 'plotly.js-dist-min'
 })
 export class BudgetComponent {
   ngAfterViewInit() {
+    
     const yValues = [
       "Free cash",
       "rent",
@@ -128,7 +129,8 @@ export class BudgetComponent {
               }
             }
           }
-        }
+        },
+        
       } as ChartOptions
     });
   }

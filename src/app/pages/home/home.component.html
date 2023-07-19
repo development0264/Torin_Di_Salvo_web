@@ -19,7 +19,7 @@
 <!-- Balance Section -->
 
 <div class="container-default">
-    <div class="row justify-content-between">
+    <div class="row justify-content-between align-items-center">
         <div class="col-lg-5">
             <div class="user-detail">
                 <h1>Good Evening, Torin!</h1>
@@ -34,7 +34,7 @@
                         <p>Total Free Cash </p>
                         <img src="../../../assets/img/info-circle-second.svg" alt="img">
                     </div>
-                    <div class="d-flex gap-4 ">
+                    <div class="d-flex gap-4 justify-content-between">
                         <p>$1,234.42</p>
                         <span>(+$14.08)</span>
                     </div>
@@ -44,7 +44,7 @@
                         <p>Net Worth</p>
                         <img src="../../../assets/img/info-circle-second.svg" alt="img">
                     </div>
-                    <div class="d-flex gap-4">
+                    <div class="d-flex gap-4 justify-content-between">
                         <p>$12,686.12</p>
                         <span>(+$14.08)</span>
                     </div>
@@ -58,7 +58,9 @@
                     <h2>Account Balances</h2>
                     <img src="../../../assets/img/info-circle-second.svg" alt="img">
                 </div>
-                <button class="offer-alert-btn">Update</button>
+                <div class="text-end text-sm-inherit">
+                    <button class="offer-alert-btn">Update</button>
+                </div>
             </div>
             <div class="account-balance-box">
                 <div class="d-sm-flex justify-content-around">
@@ -86,7 +88,7 @@
                         </div>
                         <div class="d-flex gap-md-3 flex-wrap">
                             <div class="balance-check amazon-card">
-                                <label>Amazon Card</label>
+                                <label class="amazon-card-label">Amazon Card</label>
                                 <span>$</span>
                                 <input type="number" placeholder="Pending Amt">
                             </div>
@@ -131,16 +133,16 @@
                             <img src="../../../assets/img/add-icon.svg" alt="img">
                         </span>
                     </div>
-                    
-                        <div class="asset-detail d-flex align-items-center gap-2">
-                            <p>Assets:</p>
-                            <p>$759.72</p>
-                        </div>
-                        <div class="liabilitie-price d-flex align-items-center gap-2">
-                            <p>Liabilities:</p>
-                            <p>($1,626.15)</p>
-                        </div>
-                        
+
+                    <div class="asset-detail d-flex align-items-center gap-2">
+                        <p>Assets:</p>
+                        <p>$759.72</p>
+                    </div>
+                    <div class="liabilitie-price d-flex align-items-center gap-2">
+                        <p>Liabilities:</p>
+                        <p>($1,626.15)</p>
+                    </div>
+
                 </div>
                 <div class="table-responsive liabilitie-table">
                     <table class="table">
@@ -270,52 +272,52 @@
     </div>
 </div>
 
-    
+
 <!-- Savings Chart Section -->
 
 <div class="saving-chart">
     <div class="container-default">
         <div class="liabilitie-detail d-flex align-items-center mb-4">
-        <h3>Savings</h3>
-        <ul class="nav nav-pills" id="pills-tab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
-                    data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
-                    aria-selected="true">1D</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
-                    data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
-                    aria-selected="false">1W</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
-                    data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
-                    aria-selected="false">1M</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
-                    data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
-                    aria-selected="false">1Q</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
-                    data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
-                    aria-selected="false">YTD</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
-                    data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
-                    aria-selected="false">1Y</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
-                    data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
-                    aria-selected="false">ALL</button>
-            </li>
-        </ul>
-    </div>
-        <div class="row">           
+            <h3>Savings</h3>
+            <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                        aria-selected="true">1D</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
+                        aria-selected="false">1W</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                        aria-selected="false">1M</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                        aria-selected="false">1Q</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                        aria-selected="false">YTD</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                        aria-selected="false">1Y</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                        aria-selected="false">ALL</button>
+                </li>
+            </ul>
+        </div>
+        <div class="row">
             <div class="col-lg-8">
                 <canvas style="background: #142B56;border-radius: 18px; width: 100%; height: 340px;"
                     id="linechart"></canvas>
@@ -351,7 +353,7 @@
 
 
 <!-- Add Liabilities Modal -->
-<div class="create-asset-modal modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+<div class="create-asset-modal modal fade" id="staticBackdrop" 
     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -361,11 +363,12 @@
             <div class="modal-body">
                 <div class="row align-items-center justify-content-lg-evenly">
                     <div class="col-lg-6">
-                        <form  [formGroup]="assetForm" >
+                        <form [formGroup]="assetForm">
                             <div class="liability-detail">
                                 <label for="">Decription</label>
-                                <input  formControlName="description" type="text" placeholder="Puerto Rico Saver">
-                                <div *ngIf="assetForm.get('description').touched && assetForm.get('description').errors?.['required']" class="error-message">Description is required.</div>
+                                <input formControlName="description" type="text" placeholder="Puerto Rico Saver">
+                                <div *ngIf="assetForm.get('description').touched && assetForm.get('description').errors?.['required']"
+                                    class="error-message">Description is required.</div>
                             </div>
                             <div class="liability-detail">
                                 <label for="">Type</label>
@@ -375,29 +378,33 @@
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
                                 </select>
-                                <div *ngIf="assetForm.get('type').touched && assetForm.get('type').errors?.['required']" class="error-message">Type is required.</div>
+                                <div *ngIf="assetForm.get('type').touched && assetForm.get('type').errors?.['required']"
+                                    class="error-message">Type is required.</div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="liability-detail">
                                         <label for="">Savings Start Date</label>
-                                        <input formControlName="startDate" type="date" placeholder="Puerto Rico Saver" >
-                                         <div *ngIf="assetForm.get('startDate').touched && assetForm.get('startDate').errors?.['required']" class="error-message">Start Date is required.</div>
+                                        <input formControlName="startDate" type="date" placeholder="Puerto Rico Saver">
+                                        <div *ngIf="assetForm.get('startDate').touched && assetForm.get('startDate').errors?.['required']"
+                                            class="error-message">Start Date is required.</div>
                                         <!-- <div *ngIf="assetForm.get('startDate').touched && assetForm.get('startDate').errors?.['min']" class="error-message" >Start Date cannot be before today.</div>  -->
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="liability-detail">
                                         <label for="">Savings End Date</label>
-                                        <input formControlName="endDate" type="date" placeholder="Puerto Rico Saver" >
-                                        <div *ngIf="assetForm.get('endDate').touched && assetForm.get('endDate').errors?.['required']" class="error-message">End Date is required.</div>
+                                        <input formControlName="endDate" type="date" placeholder="Puerto Rico Saver">
+                                        <div *ngIf="assetForm.get('endDate').touched && assetForm.get('endDate').errors?.['required']"
+                                            class="error-message">End Date is required.</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="liability-detail">
                                 <label for="">Target Savings Amount</label>
-                                <input  formControlName="targetAmount" type="number" placeholder="$1,500.00">
-                                <div *ngIf="assetForm.get('targetAmount').touched && assetForm.get('targetAmount').errors?.['required']" class="error-message">Target Amount is required.</div>
+                                <input formControlName="targetAmount" type="number" placeholder="$1,500.00">
+                                <div *ngIf="assetForm.get('targetAmount').touched && assetForm.get('targetAmount').errors?.['required']"
+                                    class="error-message">Target Amount is required.</div>
                             </div>
                         </form>
                     </div>
@@ -420,7 +427,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="close-btn" data-bs-dismiss="modal">Close</button>
-                <button type="submit" (click)="assetFormSubmit()"  class="save-btn" >Save</button>
+                <button type="submit" (click)="assetFormSubmit()" class="save-btn">Save</button>
             </div>
         </div>
     </div>
@@ -441,7 +448,7 @@
                 </div>
             </div>
             <div class="modal-body">
-                <div class="row align-items-center">
+                <div class="row align-items-center justify-content-lg-evenly">
                     <div class="col-lg-6">
                         <form [formGroup]="PRSForm">
                             <div class="liability-detail">
@@ -452,42 +459,47 @@
                                     <option value="2">Two</option>
                                     <option value="3">Three</option>
                                 </select>
-                                <div *ngIf="PRSForm.get('type').touched && PRSForm.get('type').errors?.['required']" class="error-message">Type is required.</div>
+                                <div *ngIf="PRSForm.get('type').touched && PRSForm.get('type').errors?.['required']"
+                                    class="error-message">Type is required.</div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="liability-detail">
                                         <label for="">Savings Start Date</label>
                                         <input formControlName="startDate" type="date" placeholder="Puerto Rico Saver">
-                                        <div *ngIf="PRSForm.get('startDate').touched && PRSForm.get('startDate').errors?.['required']" class="error-message">Start Date is required.</div>
+                                        <div *ngIf="PRSForm.get('startDate').touched && PRSForm.get('startDate').errors?.['required']"
+                                            class="error-message">Start Date is required.</div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="liability-detail">
                                         <label for="">Savings End Date</label>
                                         <input formControlName="endDate" type="date" placeholder="Puerto Rico Saver">
-                                        <div *ngIf="PRSForm.get('endDate').touched && PRSForm.get('endDate').errors?.['required']" class="error-message">End Date is required.</div>
+                                        <div *ngIf="PRSForm.get('endDate').touched && PRSForm.get('endDate').errors?.['required']"
+                                            class="error-message">End Date is required.</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="liability-detail">
                                 <label for="">Target Savings Amount</label>
                                 <input formControlName="targetAmount" type="number" placeholder="$1,500.00">
-                                <div *ngIf="PRSForm.get('targetAmount').touched && PRSForm.get('targetAmount').errors?.['required']" class="error-message">Target Amount is required.</div>
+                                <div *ngIf="PRSForm.get('targetAmount').touched && PRSForm.get('targetAmount').errors?.['required']"
+                                    class="error-message">Target Amount is required.</div>
                             </div>
-                           
+
                             <div class="liability-detail">
                                 <label for="">Target Savings Amount</label>
                                 <div class="d-flex align-items-end gap-4 mt-4">
-                                  <p class="mb-0">$250.00</p>
+                                    <p class="mb-0">$250.00</p>
 
-                                  <ngx-slider [(value)]="rangeSliderValue" [options]="rangeSliderOptions" customDisplayWith="formatValue"></ngx-slider>
+                                    <ngx-slider [(value)]="rangeSliderValue" [options]="rangeSliderOptions"
+                                        customDisplayWith="formatValue"></ngx-slider>
 
-                                  <p class="mb-0">$1,500.00</p>
+                                    <p class="mb-0">$1,500.00</p>
                                 </div>
-                              </div>
+                            </div>
                         </form>
-                       
+
                     </div>
                     <div class="col-lg-5">
                         <div class="liability-type">
@@ -529,7 +541,7 @@
                 </div>
             </div>
             <div class="modal-body">
-                <div class="row">
+                <div class="row justify-content-lg-evenly">
                     <div class="col-lg-6 mt-2">
                         <form [formGroup]="airBnBForm">
                             <div class="liability-detail">
@@ -541,17 +553,19 @@
                                     <option value="3">Three</option>
                                 </select>
                             </div>
-                            <div *ngIf="airBnBForm.get('type').invalid && airBnBForm.get('type').touched" class="error-message">
+                            <div *ngIf="airBnBForm.get('type').invalid && airBnBForm.get('type').touched"
+                                class="error-message">
                                 Type is required.
-                              </div>
+                            </div>
                             <div class="liability-detail">
                                 <label for="">Target Savings Amount</label>
                                 <input formControlName="targetAmount" type="number" placeholder="$1,500.00">
-                                <div *ngIf="airBnBForm.get('targetAmount').invalid && airBnBForm.get('targetAmount').touched" class="error-message">
+                                <div *ngIf="airBnBForm.get('targetAmount').invalid && airBnBForm.get('targetAmount').touched"
+                                    class="error-message">
                                     Target Savings Amount is required.
-                                  </div>
+                                </div>
                             </div>
-                            
+
                         </form>
                     </div>
                     <div class="col-lg-5">

@@ -25,9 +25,10 @@
 .chart-box {
     background-color: #E8E8E8;
     padding: 20px;
-    height: 100%;
+    height: 100vw;
     margin-top: -100px;
 }
+
 
 .income-box {
     margin-bottom: 30px;
@@ -137,16 +138,14 @@
 }
 
 
-@media (max-width:1440px) {
+@media (max-width:1600px) {
     .income-box .income-detail h3,.summary-box h3   {
         font-size: 22px;
     }
     .income-box .income-price .total-price h6,p{
         font-size: 16px !important;
     }
-    .income-box{
-        margin-bottom: 20px;
-    }
+ 
 }
 
 @media (max-width:991px) {
@@ -160,6 +159,7 @@
     }
     .chart-box{
         margin-top: 0px;
+        height: 100%;
     }
 }
 
@@ -168,7 +168,7 @@
 
     .income-box .income-detail h3,
     .summary-box h3 {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .income-box .income-price .total-price h6 {
@@ -178,6 +178,9 @@
 
     .income-box .income-price .income-price-detail li:last-child {
         gap: 25px;
+    }
+    .income-box{
+        margin-bottom: 40px;
     }
 
     .summary-box {

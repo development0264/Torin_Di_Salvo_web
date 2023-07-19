@@ -1,5 +1,7 @@
 .quick-start-nav {
     background-color: #142B56;
+    position: relative;
+    z-index: 9;
 }
 
 .profile-dropdown .dropdown {
@@ -70,7 +72,7 @@
 .quick-start-box {
     background-color: #142B56;
     padding: 25px;
-    height: auto;
+    height: 100%;
     text-align: center;
 }
 
@@ -164,7 +166,7 @@
     justify-content: end;
     display: flex;
     align-items: end;
-    height: 100%;   
+    height: 100%;
 }
 
 .back-next-btn .next-btn,
@@ -235,22 +237,23 @@ input::-webkit-inner-spin-button {
 }
 
 .account-type {
-    gap: 24px;
+    gap: 15px;
 }
 
 .account-type select {
-    width: 265px !important;    
+    width: 265px !important;
 }
 
 .account-type input,
 .income-type-detail {
     width: 265px;
-    margin-bottom: 10px !important; 
+    margin-bottom: 10px !important;
 }
 
 .quick-start-question .form-check {
     margin-bottom: 15px;
 }
+
 .income-type {
     padding-left: 0px !important;
 }
@@ -317,7 +320,8 @@ input::-webkit-inner-spin-button {
 .rent-budget span {
     position: absolute;
 }
-.rent-budget img{
+
+.rent-budget img {
     top: auto;
     bottom: 10px;
     right: 0px;
@@ -346,6 +350,7 @@ ngx-slider ::ng-deep span.ngx-slider-span.ngx-slider-bar {
 ngx-slider ::ng-deep span.ngx-slider-span.ngx-slider-pointer.ngx-slider-pointer-min {
     border: 1px solid #142B56 !important;
     background-color: #FFFFFF;
+    top: -9px;
 }
 
 ngx-slider ::ng-deep span.ngx-slider-span.ngx-slider-pointer.ngx-slider-pointer-min.ngx-slider-active::after {
@@ -387,48 +392,75 @@ ngx-slider ::ng-deep span.ngx-slider-span.ngx-slider-bubble.ngx-slider-model-val
     font-size: 14px;
     margin-bottom: 0px;
 }
-.quick-start-main .progress-bar{
+
+.quick-start-main .progress-bar {
     background-color: #409FFF;
     height: 3px;
-    
+
 }
-.quick-start-main .progress{
+
+.quick-start-main .progress {
     background-color: transparent;
     border-radius: 0px;
     height: 3px;
 }
-.stepper-counter p{
+.delete-hide{
+    visibility: hidden;
+}
+.stepper-counter p {
     color: #B6B6B6;
-    font-size: 26px;    
+    font-size: 26px;
 }
 
-.income-type-detail input{
+.income-type-detail input {
     margin-bottom: 10px;
 }
 
+.source-income .delete-icon-box {
+    margin-bottom: 10px;
+}
+
+.delete-icon-box img {
+    cursor: pointer;
+}
+.theme-green .bs-datepicker-head {
+      background-color: #142B56;
+    
+    }
 @media (max-width:1600px) {
     .rent-price .rent-budget {
         max-width: 165px;
         width: 100%;
     }
-    .quick-start-detail{
+
+    .quick-start-detail {
         padding: 50px 60px;
     }
 }
 
-@media (max-width:1440px) {
-    .quick-start-box h3{
+@media (max-width:1600px) {
+    .quick-start-box h3 {
         font-size: 30px;
     }
-    .quick-start-box{
+
+    .quick-start-box {
         padding: 20px;
     }
-    .quick-start-question label{
-        font-size: 22px;
+    
+
+    .quick-start-question label {
+        font-size: 20px;
         margin-bottom: 10px;
     }
-    .quick-start-detail{
+
+    .quick-start-detail {
         padding: 30px;
+    }
+}
+
+@media screen and (min-device-width: 991px) and (max-device-width: 1170px) {
+    .account-type {
+        flex-wrap: wrap !important;
     }
 }
 
@@ -455,32 +487,50 @@ ngx-slider ::ng-deep span.ngx-slider-span.ngx-slider-bubble.ngx-slider-model-val
     .income-table-main {
         margin: 40px auto 40px 0px;
     }
-    .account-type{
-        gap: 15px;
+
+    .account-type {
+        gap: 0px;
         justify-content: space-between;
     }
-    .account-type input{
-        width: 320px;
-    }
-    .quick-start-question .form-select{
+
+    .quick-start-question .form-select {
         width: 320px !important;
     }
-    .account-type select {
+
+    /* .account-type select {
         width: 320px !important;    
-    }
-    
+    } */
+
     .account-type input,
     .income-type-detail {
-        width: 320px;        
+        width: 320px;
     }
-    .stepper-counter p{
+
+    .stepper-counter p {
         font-size: 18px;
     }
-    
 
 }
 
+@media (max-width:767px) {
+    .account-type {
+        width: 100%;
+        position: relative;
+    }
+
+    .account-type input {
+        width: 230px;
+    }
+
+    .quick-start-question .form-select {
+        width: 230px !important;
+    }
+}
+
 @media (max-width:575px) {
+    .account-type{
+        width: 90%;
+    }
     .quick-start-detail {
         padding: 20px;
         height: auto;
@@ -489,7 +539,8 @@ ngx-slider ::ng-deep span.ngx-slider-span.ngx-slider-bubble.ngx-slider-model-val
     .quick-start-question input {
         max-width: 100% !important;
     }
-    .quick-start-question .form-select{
+
+    .quick-start-question .form-select {
         max-width: 100%;
         width: 100% !important;
     }
@@ -507,31 +558,62 @@ ngx-slider ::ng-deep span.ngx-slider-span.ngx-slider-bubble.ngx-slider-model-val
     .quick-start-box {
         padding: 20px;
     }
-    .back-next-btn{
+
+    .back-next-btn {
         margin-top: 30px;
         gap: 10px;
     }
 
     .back-next-btn .back-btn {
-        margin-right: 0px;        
+        margin-right: 0px;
         display: block;
     }
-    .rent-price{
+
+    .rent-price {
         flex-wrap: wrap;
+        width: 90%;
+        position: relative;
     }
-    .rent-budget{        
+    .delete-icon-box{
+        position: absolute;
+        right: -50px;    
+    }
+
+    .rent-budget {
         max-width: 100% !important;
         margin-bottom: 10px;
     }
-    .rent-budget img{
+
+    .rent-budget img {
         bottom: 20px;
     }
+
+
     .account-type select {
         width: 100% !important;
     }
-    
+
     .account-type input {
         width: 100%;
-    }  
-      
+    }
+
 }
+
+
+@media (max-width:340px) {
+    .back-next-btn {
+        flex-wrap: wrap;
+    }
+}
+
+/* Hide the placeholder when there is enough width for the input */
+.budget-expenses input::placeholder {
+    width: 125px;
+    text-overflow: ellipsis;
+    overflow: hidden;         
+    white-space: nowrap;
+}
+input:placeholder-shown {
+    text-overflow: ellipsis;
+  }
+  

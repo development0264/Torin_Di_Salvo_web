@@ -16,6 +16,12 @@ body{
     margin: 0 auto;
     padding: 0px 15px;
 }
+.js-plotly-plot .plotly .modebar {
+    display: none !important;
+}
+.theme-dark-blue .bs-datepicker-head {
+    background-color: #142B56;
+}
 
 @media (max-width:1550px) {
     .container-default{
