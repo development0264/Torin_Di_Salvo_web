@@ -183,7 +183,8 @@
     max-width: 110px;
     width: 100%;
 }
-.amazon-card-label{
+
+.amazon-card-label {
     left: 20px !important;
 }
 
@@ -209,7 +210,8 @@
     margin-top: 10px;
     margin-bottom: 35px;
 }
-.balance-detail{
+
+.balance-detail {
     width: 90%;
 }
 
@@ -312,19 +314,32 @@
 
 .paycheck-price {
     display: flex;
-    max-width: 105px;
-    margin-left: auto;
-    width: 100%;
-    justify-content: space-between;
-    margin-right: 10px;
+    justify-content: end;
+    text-align: end;
+    padding-right: 12px;
+
+}
+
+.paycheck-price img {
+    margin-left: 15px;
 }
 
 .paycheck-detail td:last-child {
     color: #A80000 !important;
+    padding-right: 45px;
+    text-align: end !important;
+}
+
+.paycheck-detail:nth-child(3) td {
+    padding-right: 8px;
 }
 
 .saving-section {
     margin-top: 50px;
+}
+
+.savingmodal h3 {
+    cursor: pointer;
 }
 
 .create-asset-modal .modal-content {
@@ -346,6 +361,17 @@
     font-size: 24px;
     color: #000;
     font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.create-asset-modal .modal-header h5 img {
+    cursor: pointer;
+}
+
+.create-asset-modal .saving-account {
+    height: 580px;
 }
 
 .liability-detail {
@@ -369,7 +395,7 @@
 }
 
 .liability-detail input::placeholder {
-    color: #000000;
+    color: #B6B6B6;
     font-weight: 400;
 }
 
@@ -414,9 +440,29 @@ input[type=number] {
     padding: 10px 35px;
 }
 
+.create-asset-modal form {
+    padding-left: 10px;
+}
+
+.target-amount span {
+    position: absolute;
+    color: #B6B6B6;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 15px;
+}
+
+.target-amount input {
+    padding-left: 27px;
+}
+
 .create-asset-modal .modal-footer {
     border-top-color: #B6B6B6;
     padding-right: 38px;
+}
+
+.saving-modal form {
+    padding-left: 38px;
 }
 
 .liability-type {
@@ -540,6 +586,7 @@ input[type=number] {
     margin-left: auto;
     border-radius: 100px;
 }
+
 .user-fees {
     gap: 5px;
 }
@@ -606,42 +653,53 @@ input[type=number] {
     .liabilitie-price p:last-child {
         font-size: 20px;
     }
-    .liabilitie-table table thead tr th{
+
+    .liabilitie-table table thead tr th {
         font-size: 16px;
     }
-    .saving-chart{
+
+    .saving-chart {
         margin-top: 80px;
     }
-    .offer-alert-title p,.balance-detail p{
+
+    .offer-alert-title p,
+    .balance-detail p {
         font-size: 18px;
-    }    
-    .balance-detail p{
+    }
+
+    .balance-detail p {
         margin-top: 18px;
         margin-bottom: 40px;
     }
-    .balance-check input{
+
+    .balance-check input {
         width: 165px;
     }
 }
 
-@media screen and (min-device-width: 991px) and (max-device-width: 1170px) { 
-    .liabilitie-detail{
+@media screen and (min-device-width: 991px) and (max-device-width: 1170px) {
+    .liabilitie-detail {
         height: 60px;
         align-items: baseline !important;
     }
-    .saving-chart{
+
+    .saving-chart {
         margin-top: 100px;
     }
+
     .user-detail h1 {
         font-size: 30px;
     }
-    .user-fees h2{
+
+    .user-fees h2 {
         font-size: 40px;
     }
-    .user-fees span{
+
+    .user-fees span {
         font-size: 25px;
     }
-    .account-detail{
+
+    .account-detail {
         margin-right: 15px;
     }
 }
@@ -678,6 +736,7 @@ input[type=number] {
     .liabilitie-price p:last-child {
         font-size: 18px;
     }
+
     .create-asset-modal .modal-dialog {
         max-width: 100%;
         margin: 0 auto;
@@ -715,11 +774,35 @@ input[type=number] {
     .metric-detail li:first-child {
         font-size: 16px;
     }
-    .account-balance-box{
+
+    .account-balance-box {
         margin-bottom: 30px;
     }
-    .offer-alert-title p{
+
+    .offer-alert-title p {
         font-size: 16px;
+    }
+}
+
+@media (max-width:767px) {
+    .create-user-detail {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .saving-modal form {
+        padding-left: 0px;
+    }
+
+    .create-asset-modal .modal-header {
+        padding: 16px;
+    }
+
+    .create-asset-modal .modal-header h5 {
+        font-size: 20px;
+    }
+    .create-asset-modal form {
+        padding-left: 0px;
     }
 }
 
@@ -727,9 +810,11 @@ input[type=number] {
     .user-fees h2 {
         font-size: 35px;
     }
+
     .user-fees span {
         font-size: 20px !important;
     }
+
     .total-fees {
         display: block !important;
         margin-bottom: 20px !important;
@@ -738,7 +823,8 @@ input[type=number] {
     .total-fees p {
         width: 100%;
     }
-    .total-fees p:first-child{
+
+    .total-fees p:first-child {
         width: unset;
     }
 
@@ -771,18 +857,26 @@ input[type=number] {
         height: 30px;
         font-size: 14px;
     }
-    .user-detail{
+
+    .user-detail {
         height: inherit;
     }
-    .balance-change-detail p{
+
+    .balance-change-detail p {
         margin-top: 20px;
         margin-bottom: 0px;
     }
-    .balance-detail p{
-        margin-bottom: 0px; 
+
+    .balance-detail p {
+        margin-bottom: 0px;
     }
+
     .liabilitie-detail h3 {
         font-size: 20px;
+    }
+    .asset-detail{
+        width: 100%;
+        margin-bottom: 5px;
     }
 
 }

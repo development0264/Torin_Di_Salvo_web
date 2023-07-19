@@ -34,7 +34,7 @@
                         <p>Total Free Cash </p>
                         <img src="../../../assets/img/info-circle-second.svg" alt="img">
                     </div>
-                    <div class="d-flex gap-4 justify-content-between">
+                    <div class="d-flex gap-sm-4 gap-2 justify-content-sm-between">
                         <p>$1,234.42</p>
                         <span>(+$14.08)</span>
                     </div>
@@ -44,7 +44,7 @@
                         <p>Net Worth</p>
                         <img src="../../../assets/img/info-circle-second.svg" alt="img">
                     </div>
-                    <div class="d-flex gap-4 justify-content-between">
+                    <div class="d-flex gap-sm-4 gap-2 justify-content-sm-between">
                         <p>$12,686.12</p>
                         <span>(+$14.08)</span>
                     </div>
@@ -58,7 +58,7 @@
                     <h2>Account Balances</h2>
                     <img src="../../../assets/img/info-circle-second.svg" alt="img">
                 </div>
-                <div class="text-end text-sm-inherit">
+                <div class="">
                     <button class="offer-alert-btn">Update</button>
                 </div>
             </div>
@@ -142,7 +142,6 @@
                         <p>Liabilities:</p>
                         <p>($1,626.15)</p>
                     </div>
-
                 </div>
                 <div class="table-responsive liabilitie-table">
                     <table class="table">
@@ -177,7 +176,8 @@
                                 <td data-bs-target="#exampleModal" data-bs-toggle="modal">Puerto Rico Saver</td>
                                 <td data-bs-target="#exampleModal" data-bs-toggle="modal">
                                     <div class="paycheck-price">
-                                        ($250.00) <img src="../../../assets/img/right-arrow.svg" alt="img">
+                                        <span>($250.00)</span>
+                                        <img src="../../../assets/img/right-arrow.svg" alt="img">
                                     </div>
                                 </td>
                             </tr>
@@ -188,7 +188,7 @@
                                 <td data-bs-target="#airbnbmodal" data-bs-toggle="modal">AirBnB buy-ins</td>
                                 <td data-bs-target="#airbnbmodal" data-bs-toggle="modal">
                                     <div class="paycheck-price">
-                                        $545.15<img src="../../../assets/img/right-arrow.svg" alt="img">
+                                        <span>$545.15</span><img src="../../../assets/img/right-arrow.svg" alt="img">
                                     </div>
                                 </td>
                             </tr>
@@ -199,7 +199,7 @@
                                 <td>Amazon items to return</td>
                                 <td>
                                     <div class="paycheck-price">
-                                        $93.12<img src="../../../assets/img/right-arrow.svg" alt="img">
+                                        <span>$93.12</span><img src="../../../assets/img/right-arrow.svg" alt="img">
                                     </div>
                                 </td>
                             </tr>
@@ -210,7 +210,7 @@
                                 <td>Sunday night dinner</td>
                                 <td>
                                     <div class="paycheck-price">
-                                        $121.45
+                                        <span>$121.45</span>
                                         <img src="../../../assets/img/right-arrow.svg" alt="img">
                                     </div>
                                 </td>
@@ -220,9 +220,14 @@
                 </div>
             </div>
             <div class="col-lg-6">
-                <div class="liabilitie-detail d-flex align-items-center justify-content-between mb-2 pe-3">
-                    <h3>Savings</h3>
-                    <div class="asset-detail d-flex align-items-center gap-2">
+                <div class="liabilitie-detail flex-nowrap d-flex align-items-center justify-content-between mb-2 pe-3">
+                    <div class="d-flex align-items-center gap-2">
+                        <h3>Savings</h3>
+                        <div type="button" data-bs-toggle="modal" data-bs-target="#savingmodal">
+                            <img src="../../../assets/img/add-icon.svg" alt="img">
+                        </div>
+                    </div>
+                    <div class="asset-detail d-flex align-items-center gap-2 mt-1 mt-sm-0 justify-content-end">
                         <p>Total:</p>
                         <p>$9,245.15</p>
                     </div>
@@ -273,7 +278,7 @@
 </div>
 
 
-<!-- Savings Chart Section -->
+<!-- Savings  Section -->
 
 <div class="saving-chart">
     <div class="container-default">
@@ -353,8 +358,8 @@
 
 
 <!-- Add Liabilities Modal -->
-<div class="create-asset-modal modal fade" id="staticBackdrop" 
-    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="create-asset-modal modal fade" id="staticBackdrop" tabindex="-1" aria-labelledby="staticBackdropLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -402,7 +407,10 @@
                             </div>
                             <div class="liability-detail">
                                 <label for="">Target Savings Amount</label>
-                                <input formControlName="targetAmount" type="number" placeholder="$1,500.00">
+                                <div class="target-amount position-relative">
+                                    <span>$</span>
+                                    <input formControlName="targetAmount" type="number" placeholder="1,500.00">
+                                </div>
                                 <div *ngIf="assetForm.get('targetAmount').touched && assetForm.get('targetAmount').errors?.['required']"
                                     class="error-message">Target Amount is required.</div>
                             </div>
@@ -442,7 +450,7 @@
                 <h5 class="modal-title" id="exampleModalLabel">Puerto Rico Saver
                     <img src="../../../assets/img/edit-icon.svg" alt="img">
                 </h5>
-                <div class="d-flex create-user-detail gap-sm-4 flex-wrap">
+                <div class="d-flex create-user-detail gap-sm-4 flex-wrap justify-content-between">
                     <p><span>Created:</span> Aug 10, 2022</p>
                     <p><span>Last Updated:</span> Dec 12, 2023</p>
                 </div>
@@ -482,7 +490,10 @@
                             </div>
                             <div class="liability-detail">
                                 <label for="">Target Savings Amount</label>
-                                <input formControlName="targetAmount" type="number" placeholder="$1,500.00">
+                                <div class="target-amount position-relative">
+                                    <span>$</span>
+                                    <input formControlName="targetAmount" type="number" placeholder="1,500.00">
+                                </div>
                                 <div *ngIf="PRSForm.get('targetAmount').touched && PRSForm.get('targetAmount').errors?.['required']"
                                     class="error-message">Target Amount is required.</div>
                             </div>
@@ -535,7 +546,7 @@
                 <h5 class="modal-title" id="exampleModalLabel">AirBnb Buy-Ins
                     <img src="../../../assets/img/edit-icon.svg" alt="img">
                 </h5>
-                <div class="d-flex create-user-detail gap-4 flex-wrap">
+                <div class="d-flex create-user-detail gap-sm-4 flex-wrap justify-content-between">
                     <p><span>Created:</span> Aug 10, 2022</p>
                     <p><span>Last Updated:</span> Dec 12, 2023</p>
                 </div>
@@ -559,7 +570,10 @@
                             </div>
                             <div class="liability-detail">
                                 <label for="">Target Savings Amount</label>
-                                <input formControlName="targetAmount" type="number" placeholder="$1,500.00">
+                                <div class="target-amount position-relative">
+                                    <span>$</span>
+                                    <input formControlName="targetAmount" type="number" placeholder="1,500.00">
+                                </div>
                                 <div *ngIf="airBnBForm.get('targetAmount').invalid && airBnBForm.get('targetAmount').touched"
                                     class="error-message">
                                     Target Savings Amount is required.
@@ -588,6 +602,46 @@
             <div class="modal-footer">
                 <button type="button" class="close-btn" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="save-btn" (click)="airBnBSubmit()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Saving Modal -->
+<div class="create-asset-modal modal fade" id="savingmodal" tabindex="-1" aria-labelledby="savingModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content saving-account">
+            <div class="modal-header flex-wrap">
+                <h5 class="modal-title" id="exampleModalLabel">HSBC Savings Account
+                    <img src="../../../assets/img/edit-icon.svg" alt="img">
+                </h5>
+                <div class="d-flex create-user-detail gap-sm-4 flex-wrap justify-content-between">
+                    <p><span>Created:</span> Aug 10, 2022</p>
+                    <p><span>Last Updated:</span> Dec 12, 2023</p>
+                </div>
+            </div>
+            <div class="modal-body saving-modal">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <form [formGroup]="PRSForm">
+                            <div class="liability-detail">
+                                <label for="">Account Balance</label>
+                                <div class="target-amount position-relative">
+                                    <span>$</span>
+                                    <input formControlName="targetAmount" type="number" placeholder="1,500.00">
+                                </div>
+                                <div *ngIf="PRSForm.get('targetAmount').touched && PRSForm.get('targetAmount').errors?.['required']"
+                                    class="error-message">Account Balance is required.</div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="close-btn" data-bs-dismiss="modal">Close</button>
+                <button type="button" (click)="savePRSForm()" class="save-btn">Save</button>
             </div>
         </div>
     </div>
