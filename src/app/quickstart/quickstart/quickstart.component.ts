@@ -1,10 +1,10 @@
 import { Options } from '@angular-slider/ngx-slider';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild , ChangeDetectorRef } from '@angular/core';
 import Pikaday from 'pikaday';
 import { Router } from '@angular/router';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
-
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-quickstart',
   templateUrl: './quickstart.component.html',
@@ -22,21 +22,24 @@ export class QuickstartComponent {
   isAccountSelected: boolean = false;
   issavAccountSelected: boolean = false;
   issdeductionSelected: boolean = false;
-//initialize the forms
+//declare  the forms
   srcIncomeForm: FormGroup;
   accountForm: FormGroup;
   savingsAccntForm: FormGroup;
   pretaxForm: FormGroup;
   budgetForm: FormGroup;
   paycheckForm: FormGroup;
+  bonusForm: FormGroup;
+  taxDeductionForm: FormGroup;
   selectedDate: Date;
   dateofbirth;
   currentStep: number = 0;
   initializationvar:any=1;
-  steps: any = 1;
+  steps: any = null;
   maxsteps: any = 9
   showFinish: boolean;
-  constructor(private router: Router, private formBuilder: FormBuilder) { 
+  constructor(private router: Router, private formBuilder: FormBuilder,private route: ActivatedRoute,
+    private cdr: ChangeDetectorRef) { 
     this.datePickerConfig=Object.assign({},{
       containerClass:'theme-dark-blue',
       adaptivePosition: true ,
@@ -72,6 +75,27 @@ export class QuickstartComponent {
   onPaycheckFrequencyChange() {
     this.isPaycheckFrequencySelected = true;
   }
+  //texdudectionform config 
+  initTaxDeductionForm() {
+    this.taxDeductionForm = this.formBuilder.group({
+      taxDeductionType: ['itemized', Validators.required],
+      deductionAmount: ['', [Validators.required, Validators.pattern(/^[0-9,]+(\.[0-9]{1,2})?$/)]]
+    });
+  }
+  get txform() {
+    return this.taxDeductionForm.controls;
+  }
+  //bonus formconfig
+  initBonusForm() {
+    this.bonusForm = this.formBuilder.group({
+      bonusOption: ['0', Validators.required],
+      bonusDate: ['', Validators.required],
+      bonusAmount: ['', [Validators.required, Validators.pattern(/^[0-9,]+(\.[0-9]{1,2})?$/)]]
+    });
+  }
+  get form() {
+    return this.bonusForm.controls;
+  }
   onBonusOptionChange() {
     this.isBonusOptionSelected = true;
   }
@@ -85,16 +109,28 @@ export class QuickstartComponent {
     this.issdeductionSelected = true;
   }
   ngOnInit() {
+    
+    console.log("called");
+    
     this.initPaycheckForm();
     this.initSrcIncomeForm()
     this.initAccountForm();
     this.initSavingsAccntForm();
     this.initPretaxForm();
     this.initBudgetForm();
+    this.initBonusForm();
+    this.initTaxDeductionForm();
+    this.route.params.subscribe(params => {
+      const id = params['id']; // Access the value of :id parameter
+      this.steps=id
+      console.log(this.steps);
+      this.cdr.detectChanges();
+      // You can use the id parameter as needed in your component logic
+    });
   }
   initPaycheckForm() {
     this.paycheckForm = this.formBuilder.group({
-      annualIncome: ['', Validators.required],
+      annualIncome: ['', [Validators.required, Validators.pattern(/^[0-9,]+(\.[0-9]{1,2})?$/)]],
       paycheckFrequency: ['0', Validators.required],
       firstPaycheckDate: ['', Validators.required],
       secondPaycheckDate: ['', Validators.required]
@@ -113,7 +149,7 @@ export class QuickstartComponent {
   newItem(): FormGroup {
     return this.formBuilder.group({
       type: ['', Validators.required],
-      Amount: ['', Validators.required]
+      Amount: ['', [Validators.required, Validators.pattern(/^[0-9,]+(\.[0-9]{1,2})?$/)]]
     });
     }
     
@@ -193,7 +229,7 @@ export class QuickstartComponent {
   newPreTaxDeduction(): FormGroup {
     return this.formBuilder.group({
       deduction: ['Deduction', Validators.required],
-      amount: ['', Validators.required]
+      amount: ['', [Validators.required, Validators.pattern(/^[0-9,]+(\.[0-9]{1,2})?$/)]]
     });
   }
   removePreTaxDeduction(index: number) {
@@ -216,17 +252,16 @@ export class QuickstartComponent {
     
     return this.formBuilder.group({
       expense: ['', Validators.required],
-      amount: ['', Validators.required],
-      paymentDate: ['']
+      amount: ['', [Validators.required, Validators.pattern(/^[0-9,]+(\.[0-9]{1,2})?$/)]],
+      paymentDate: ['',[Validators.maxLength(2)]]
     });
   }
 
   newExpense(): FormGroup {
       return this.formBuilder.group({
         expense: ['Rent', Validators.required],
-        amount: ['', Validators.required],
-        paymentDate: ['']
-      });
+        amount: ['', [Validators.required, Validators.pattern(/^[0-9,]+(\.[0-9]{1,2})?$/)]],
+        paymentDate: ['',[Validators.max(1)]]      });
   }
   removeExpense(index: number) {
     this.expenses.removeAt(index);
@@ -239,27 +274,60 @@ export class QuickstartComponent {
 //next and back button config
 
   next() {
-    this.steps++;
-    this.currentStep++;
-    if (this.maxsteps === this.steps) {
+    this.steps++
+    // this.currentStep++;
+    console.log("this.step",this.steps);
+
+    const stepsroute=parseInt(this.steps)
+    console.log(this.maxsteps ==stepsroute);
+    
+    if (this.maxsteps === stepsroute) {
       this.showFinish = true
     }
+    this.router.navigate([`quick-start/step/${stepsroute}`])
+    // this.steps++;
   }
   get progress(): number {
-    return Math.floor((this.currentStep / 8) * 100);
+    return Math.floor(((this.steps-1) / 8) * 100);
   }
   back() {
+    // this.steps--;
+    // this.currentStep--;
     this.steps--;
-    this.currentStep--;
-    if (this.maxsteps === this.steps) {
-      this.showFinish = true
+    const stepsrouteback=parseInt(this.steps)
+
+    if(stepsrouteback!=9){
+      this.showFinish=false
     }
-    else {
-      this.showFinish = false
+    else{
+      this.showFinish=true
     }
+    // if (this.maxsteps === this.steps) {
+    //   this.showFinish = true
+    // }
+    // else {
+    //   this.showFinish = false
+    // }
+    this.router.navigate([`quick-start/step/${stepsrouteback}`])
   }
   finish() {
     this.router.navigate(['/'])
+  }
+  onInputEvent(event: Event) {
+    console.log("called");
+    
+    const inputElement = event.target as HTMLInputElement;
+    const inputValue = inputElement.value;
+
+
+    // Use RegExp to enforce the pattern of 1-31
+    const pattern = new RegExp('^([1-9]|[1-2]|3[0-1])$');
+
+
+    if (!pattern.test(inputValue)) {
+      // If the input value doesn't match the pattern, clear the input
+      inputElement.value = '';
+    }
   }
 
 }

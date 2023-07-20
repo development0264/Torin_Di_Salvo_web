@@ -602,6 +602,29 @@ input[type=number] {
 .user-fees {
     gap: 5px;
 }
+.balance-check-inner {
+    margin-bottom: 30px;
+}
+
+.balance-check-inner p {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 0px;
+}
+
+.balance-check-inner p:first-child {
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+}
+
+.balance-check-inner p:last-child {
+    color: #1F7C3E;
+}
+
+.venmo-card p:last-child {
+    color: #A80000;
+}
 
 @media (min-width:1920px) {
     .saving-section .row {
@@ -816,6 +839,25 @@ input[type=number] {
     .create-asset-modal form {
         padding-left: 0px;
     }
+    .balance-change-detail p {
+        margin-top: 40px;
+        margin-bottom: 35px;
+    }
+
+    .balance-change-detail p:nth-child(2) {
+        margin-top: 2px;
+    }
+
+    .balance-detail p {
+        margin-top: 0px;
+        margin-bottom: 38px;
+    }
+
+    .balance-detail p:first-child,
+    .balance-change-detail p:first-child {
+        margin-top: -25px;
+        margin-bottom: 8px;
+    }
 }
 
 @media (max-width:575px) {
@@ -889,6 +931,9 @@ input[type=number] {
     .asset-detail{
         width: 100%;
         margin-bottom: 5px;
+    }
+    .balance-check {
+        margin-bottom: 10px;
     }
 
 }

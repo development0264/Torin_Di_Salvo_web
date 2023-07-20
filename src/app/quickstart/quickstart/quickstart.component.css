@@ -4,17 +4,23 @@
     z-index: 9;
 }
 
-.profile-dropdown .dropdown {
+.profile-dropdown .dropdown .dropdown-toggle {
     border: 2px solid #fff;
-    padding: 4px 22px;
+    padding: 5px 16px;
     border-radius: 20px;
 }
+
+.profile-dropdown .dropdown img {
+    height: 24px;
+    width: 24px;
+}
+
 
 .profile-dropdown .dropdown a {
     text-decoration: none;
     color: #FFFFFF;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 14px;
 }
 
 .profile-dropdown .dropdown-menu {
@@ -70,6 +76,16 @@
     color: red;
     text-align: end;
     margin-right: 40px;
+}
+.income-error{
+    max-width: 500px;
+    width: 100%;    
+}
+.tax-deductions-error{
+    max-width: 300px;
+    width: 100%;
+    margin-left: auto;
+    color: red;
 }
 
 .filled {
@@ -151,6 +167,7 @@
     width: 100%;
     padding-bottom: 7px;
     padding-left: 15px;
+    margin-bottom: 10px;
 }
 
 .quick-start-question input::placeholder {
@@ -264,7 +281,7 @@ input::-webkit-inner-spin-button {
 .account-type input,
 .income-type-detail {
     width: 265px;
-    margin-bottom: 10px !important;
+    /* margin-bottom: 10px !important; */
 }
 
 .quick-start-question .form-check {
@@ -274,7 +291,9 @@ input::-webkit-inner-spin-button {
 .income-type {
     padding-left: 0px !important;
 }
-
+.income-sources{
+    margin-bottom: 10px;
+}
 
 .quick-start-question .form-check input {
     width: 22px;
@@ -557,6 +576,10 @@ ngx-slider ::ng-deep span.ngx-slider-span.ngx-slider-bubble.ngx-slider-model-val
     .rent-budget {
         max-width: 170px !important;
     }
+    .income-error{
+        width: 400px;
+        margin: 0 auto;
+    }
 
 }
 
@@ -655,6 +678,9 @@ ngx-slider ::ng-deep span.ngx-slider-span.ngx-slider-bubble.ngx-slider-model-val
 
     .account-type input {
         width: 100%;
+    }
+    .income-error{
+        text-align: start;
     }
 
 }

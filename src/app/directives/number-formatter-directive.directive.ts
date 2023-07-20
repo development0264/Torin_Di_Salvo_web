@@ -19,9 +19,9 @@ export class NumberFormatterDirectiveDirective implements OnInit, OnDestroy {
     const control = this.ngControl.control;
     this.subscription = control.valueChanges.pipe(
       map(value => {
-        const parts = value.toString().split(".");
-        parts[0] = this.decimal.transform(parts[0].replace(/,/g, ''));
-        return parts.join('.');
+        // Remove commas from the input value
+        const numericValue = value.toString().replace(/,/g, '');
+        return this.formatNumber(numericValue);
       })
     ).subscribe(v => control.setValue(v, { emitEvent: false }));
   }
@@ -30,5 +30,15 @@ export class NumberFormatterDirectiveDirective implements OnInit, OnDestroy {
     if (this.subscription) {
       this.subscription.unsubscribe();
     }
+  }
+
+  private formatNumber(value: string): string {
+    const parts = value.split(".");
+    parts[0] = this.addCommas(parts[0]);
+    return parts.join('.');
+  }
+
+  private addCommas(value: string): string {
+    return value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 }

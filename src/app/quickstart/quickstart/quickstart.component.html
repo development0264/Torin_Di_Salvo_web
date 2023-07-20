@@ -1,9 +1,9 @@
-<div class="quick-start-nav">
+<div *ngIf="steps" class="quick-start-nav">
   <header class="navbar navbar-expand">
     <div class="container-default">
       <div class="d-flex align-items-center justify-content-between">
         <a class="navbar-brand" href="#step1">
-          <img src="../../../assets/img/navbar-logo.svg" alt="logo">
+          <img src="../../../assets/img/navbar-logo.svg" alt="logo" height="32px">
         </a>
         <div class="profile-dropdown">
           <div class="dropdown">
@@ -46,7 +46,7 @@
   </header>
 </div>
 
-<body>
+<body  *ngIf="steps">
   <div class="">
     <div class="quick-start-main">
       <div class="container-default">
@@ -72,15 +72,19 @@
               <div class="stepper-counter">
                 <p>{{steps}}/{{maxsteps}}</p>
               </div>
-              <div *ngIf="steps===1" id="step1">
+              <!-- step -1 -->
+              <div *ngIf="steps==1" id="step1">
                 <form [formGroup]="paycheckForm" action="">
                   <div class="quick-start-question">
                     <label for="">What is your annual paycheck income?</label>
                     <div class="position-relative">
                       <span class="position-absolute" [class.filled]="inputFilled">$</span>
                       <!-- <span class="position-absolute">$</span> -->
-                      <input formControlName="annualIncome" (input)="inputFilled = true" type="number"
-                        placeholder="Annual Salary" >
+                      <input formControlName="annualIncome" (input)="inputFilled = true" type="text"
+                        placeholder="Annual Salary" appNumberFormatterDirective>
+
+                      <div *ngIf="paycheckForm.get('annualIncome').errors?.['pattern']"
+                        class="error-message text-start">Please enter a valid amount</div>
                     </div>
                   </div>
                   <div class="quick-start-question">
@@ -107,13 +111,14 @@
                   </div>
                 </form>
               </div>
-              <div *ngIf="steps===2" id="step2">
-                <form action="">
+              <div *ngIf="steps==2" id="step2">
+                <form [formGroup]="bonusForm" action="">
                   <div class="quick-start-question">
                     <label for="">Do you receive any annual bonuses?</label>
-                    <select class="form-select" aria-label="Default select example"
+                    <select formControlName="bonusOption" class="form-select" aria-label="Default select example"
                       [ngClass]="{ 'selected-option': isBonusOptionSelected }" (change)="onBonusOptionChange()">
-                      <option [ngClass]="{ 'grey-text': isBonusOptionSelected }" selected>Bonus Options</option>
+                      <option [ngClass]="{ 'grey-text': isBonusOptionSelected }" value="0" selected>Bonus Options
+                      </option>
                       <option [ngClass]="{ 'grey-text': isBonusOptionSelected }" value="1">One</option>
                       <option [ngClass]="{ 'grey-text': isBonusOptionSelected }" value="2">Two</option>
                       <option [ngClass]="{ 'grey-text': isBonusOptionSelected }" value="3">Three</option>
@@ -126,14 +131,17 @@
                       extra unexpected savings.</p>
                     <!-- <input type="date" placeholder="Annual Salary" class="start-date"> -->
                     <!-- <input type="text" #datepicker3 placeholder="Bonus Date" class="start-date"> -->
-                    <input type="text" [bsConfig]="datePickerConfig" placeholder="Bonus Date" class="start-date"
-                      bsDatepicker>
-                    <input type="number" placeholder="Bonus Amount" class="start-date">
+                    <input type="text" formControlName="bonusDate" [bsConfig]="datePickerConfig"
+                      placeholder="Bonus Date" class="start-date" bsDatepicker>
+                    <input formControlName="bonusAmount" type="text" placeholder="Bonus Amount" class="start-date"
+                      appNumberFormatterDirective>
+                    <div *ngIf="bonusForm.get('bonusAmount').errors?.['pattern']" class="error-message">Please enter a
+                      valid amount</div>
 
                   </div>
                 </form>
               </div>
-              <div *ngIf="steps===3" id="step3">
+              <div *ngIf="steps==3" id="step3">
                 <div>
 
 
@@ -144,20 +152,29 @@
                       <div class="">
                         <div formArrayName="incomesrc">
                           <div *ngFor="let item of incomesrc.controls; index as idx;let last = last;"
-                            [formGroupName]="idx"
-                            class="account-type d-flex align-items-center flex-wrap flex-sm-nowrap">
-                            <div class="income-type-detail">
-                              <input type="text" placeholder="Income Type" formControlName="type" class="income-type">
+                            [formGroupName]="idx" class="income-sources">
+                            <div class="account-type d-flex align-items-center flex-wrap flex-sm-nowrap">
+                              <div class="income-type-detail">
+                                <input type="text" placeholder="Income Type" formControlName="type" class="income-type">
+                              </div>
+                              <div class="position-relative income-type-detail">
+                                <span class="position-absolute" [class.filled]="inputFilledIncome[idx]">$</span>
+                                <input type="text" (input)="inputFilledIncome[idx] = true" formControlName="Amount"
+                                  placeholder="Income Amount" appNumberFormatterDirective>
+
+                              </div>
+                              <div [ngClass]="{'delete-hide':incomesrc.controls.length==1}" class="delete-icon-box">
+                                <img src="../../../assets/img/delete-icon.svg" (click)="removeIncomesrcItem(idx)"
+                                  alt="img">
+                              </div>
                             </div>
-                            <div class="position-relative income-type-detail">
-                              <span class="position-absolute" [class.filled]="inputFilledIncome[idx]">$</span>
-                              <input type="number" (input)="inputFilledIncome[idx] = true" formControlName="Amount"
-                                placeholder="Income Amount">
+                            <div *ngIf="srcIncomeForm.get('incomesrc.' + idx + '.Amount').errors['pattern']"
+                              class="error-message income-error">
+                              Please enter a valid Amount.
                             </div>
-                            <div [ngClass]="{'delete-hide':incomesrc.controls.length==1}" class="delete-icon-box">
-                              <img src="../../../assets/img/delete-icon.svg" (click)="removeIncomesrcItem(idx)"
-                                alt="img">
-                            </div>
+                            <!-- <div *ngIf="srcIncomeForm.get('incomesrc.' + idx + '.Amount').errors['required']">
+                              Please enter an amount.
+                            </div> -->
                           </div>
                         </div>
                       </div>
@@ -171,7 +188,7 @@
                   </form>
                 </div>
               </div>
-              <div *ngIf="steps===4" id="step4">
+              <div *ngIf="steps==4" id="step4">
                 <form action="" [formGroup]="accountForm">
 
                   <div class="quick-start-question">
@@ -181,7 +198,7 @@
                       etc. Don’t worry if you are unsure whether to include a certain account, you can always edit this
                       later!</p>
                     <div formArrayName="accounts" class="account-type-container">
-                      <div *ngFor="let account of accounts.controls; index as idx;" [formGroupName]="idx">
+                      <div *ngFor="let account of accounts.controls; index as idx;" [formGroupName]="idx" class="income-sources">
                         <div class="d-flex account-type align-items-center flex-wrap flex-lg-nowrap">
                           <select [ngClass]="{ 'selected-option': isAccountSelected }" (change)="onAccountChange()"
                             formControlName="accountType" class="form-select" aria-label="Default select example">
@@ -197,7 +214,7 @@
                           </div>
                         </div>
                         <div
-                          *ngIf="accountForm.get('accounts.' + idx + '.accountName').invalid && accountForm.get('accounts.' + idx + '.accountName').dirty"
+                          *ngIf="accountForm.get('accounts.' + idx + '.accountName').invalid && accountForm.get('accounts.' + idx + '.accountName').errors['pattern']"
                           class="error-message">
                           Please enter a valid account name.
                         </div>
@@ -212,7 +229,7 @@
 
                 </form>
               </div>
-              <div *ngIf="steps===5" id="step5">
+              <div *ngIf="steps==5" id="step5">
                 <form [formGroup]="savingsAccntForm" action="">
 
                   <div class="quick-start-question">
@@ -234,16 +251,16 @@
                           </select>
                           <input formControlName="accountName" type="text" placeholder="Account Name"
                             class="income-type">
-                          
+
                           <div [ngClass]="{'delete-hide':savingsAccounts.controls.length==1}" class="delete-icon-box">
                             <img src="../../../assets/img/delete-icon.svg" (click)="removeSavingsAccount(idx)"
                               alt="img">
                           </div>
                         </div>
                         <div
-                          *ngIf="savingsAccntForm.get('savingsAccounts.' + idx + '.accountName').invalid && savingsAccntForm.get('savingsAccounts.' + idx + '.accountName').dirty"
+                          *ngIf="savingsAccntForm.get('savingsAccounts.' + idx + '.accountName').invalid && savingsAccntForm.get('savingsAccounts.' + idx + '.accountName').errors['pattern']"
                           class="error-message">
-                          Please enter a valid  account name.
+                          Please enter a valid account name.
                         </div>
                       </div>
                     </div>
@@ -256,29 +273,35 @@
 
                 </form>
               </div>
-              <div *ngIf="steps===6" id="step6">
+              <div *ngIf="steps==6" id="step6">
                 <form [formGroup]="pretaxForm" action="">
 
                   <div class="quick-start-question">
                     <label for="">What pre-tax deductions do you normally take?</label>
                     <div formArrayName="preTaxDeductions" class="deduction-container">
-                      <div *ngFor="let deduction of preTaxDeductions.controls; index as idx;" [formGroupName]="idx"
-                        class="d-flex account-type align-items-center flex-wrap flex-sm-nowrap">
-                        <select [ngClass]="{ 'selected-option': issdeductionSelected }" (change)="ondeductionChange()"
-                          formControlName="deduction" class="form-select" aria-label="Default select example">
-                          <option [ngClass]="{ 'grey-text': issdeductionSelected }" selected>Deduction</option>
-                          <option [ngClass]="{ 'grey-text': issdeductionSelected }" value="1">One</option>
-                          <option [ngClass]="{ 'grey-text': issdeductionSelected }" value="2">Two</option>
-                          <option [ngClass]="{ 'grey-text': issdeductionSelected }" value="3">Three</option>
-                        </select>
-                        <div class="position-relative">
-                          <span _ngcontent-smn-c31="" [class.filled]="inputFilledAmtPerPay[idx]"
-                            class="position-absolute">$</span>
-                          <input (input)="inputFilledAmtPerPay[idx] = true" formControlName="amount" type="number"
-                            placeholder="Amount per paycheck" class="">
+                      <div *ngFor="let deduction of preTaxDeductions.controls; index as idx;" [formGroupName]="idx">
+                        <div class="d-flex account-type align-items-center flex-wrap flex-sm-nowrap">
+                          <select [ngClass]="{ 'selected-option': issdeductionSelected }" (change)="ondeductionChange()"
+                            formControlName="deduction" class="form-select" aria-label="Default select example">
+                            <option [ngClass]="{ 'grey-text': issdeductionSelected }" selected>Deduction</option>
+                            <option [ngClass]="{ 'grey-text': issdeductionSelected }" value="1">One</option>
+                            <option [ngClass]="{ 'grey-text': issdeductionSelected }" value="2">Two</option>
+                            <option [ngClass]="{ 'grey-text': issdeductionSelected }" value="3">Three</option>
+                          </select>
+                          <div class="position-relative">
+                            <span _ngcontent-smn-c31="" [class.filled]="inputFilledAmtPerPay[idx]"
+                              class="position-absolute">$</span>
+                            <input (input)="inputFilledAmtPerPay[idx] = true" formControlName="amount" type="text"
+                              placeholder="Amount per paycheck" class="" appNumberFormatterDirective>
+                          </div>
+                          <div [ngClass]="{'delete-hide':preTaxDeductions.controls.length==1}" class="delete-icon-box">
+                            <img src="../../../assets/img/delete-icon.svg" (click)="removePreTaxDeduction(idx)"
+                              alt="img">
+                          </div>
                         </div>
-                        <div [ngClass]="{'delete-hide':preTaxDeductions.controls.length==1}" class="delete-icon-box">
-                          <img src="../../../assets/img/delete-icon.svg" (click)="removePreTaxDeduction(idx)" alt="img">
+                        <div *ngIf="pretaxForm.get('preTaxDeductions.' + idx + '.amount').errors['pattern']"
+                          class="tax-deductions-error">
+                          Please enter a valid Amount.
                         </div>
                       </div>
                     </div>
@@ -292,26 +315,31 @@
 
                 </form>
               </div>
-              <div *ngIf="steps===7" id="step7">
-                <form action="">
+              <div *ngIf="steps==7" id="step7">
+                <form [formGroup]="taxDeductionForm" action="">
                   <div class="quick-start-question">
                     <label for="">How do you normally file your taxes?</label>
                     <div class="form-check d-flex align-items-end">
-                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                      <input formControlName="taxDeductionType" class="form-check-input" type="radio"
+                      name="taxDeductionType" id="flexRadioDefault1">
                       <label class="form-check-label" for="flexRadioDefault1">
                         Standard Deduction
                       </label>
                     </div>
                     <div class="form-check account-type d-flex align-items-center flex-wrap">
-                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
-                        checked>
+                      <input formControlName="taxDeductionType" class="form-check-input" type="radio"
+                      name="taxDeductionType" id="flexRadioDefault2" checked>
                       <label class="form-check-label me-5" for="flexRadioDefault2">
                         Itemized Deduction
                       </label>
                       <div class="account-type position-relative mt-2 mt-md-0">
                         <span class="position-absolute" [class.filled]="inputfilleddeduction">$</span>
-                        <input type="number" [class.filled]="inputfilleddeduction" (input)="inputfilleddeduction = true"
-                          placeholder="Deduction Amount">
+                        <input formControlName="deductionAmount" type="text" [class.filled]="inputfilleddeduction"
+                          (input)="inputfilleddeduction = true" placeholder="Deduction Amount"
+                          appNumberFormatterDirective>
+                        <div *ngIf="taxDeductionForm.get('deductionAmount').errors['pattern']" class="error-message">
+                          Please enter a valid Amount.
+                        </div>
                       </div>
                     </div>
                     <div class="income-table-main">
@@ -331,29 +359,37 @@
                   </div>
                 </form>
               </div>
-              <div *ngIf="steps===8" id="step8">
+              <div *ngIf="steps==8" id="step8">
                 <form [formGroup]="budgetForm" action="">
                   <div class="quick-start-question budget-expenses">
                     <label for="">What other expenses do you budget for?</label>
                     <div formArrayName="expenses" class="expenses-container">
-                      <div *ngFor="let expense of expenses.controls; index as idx;" [formGroupName]="idx"
-                        class="rent-price d-flex align-items-center justify-content-lg-between justify-content-around mb-sm-4">
-                        <div class="rent-budget">
-                          <input formControlName="expense" type="text" placeholder="Expense" class="income-type">
+                      <div *ngFor="let expense of expenses.controls; index as idx;" [formGroupName]="idx">
+                        <div
+                          class="rent-price d-flex align-items-center justify-content-lg-between justify-content-around mb-sm-4">
+                          <div class="rent-budget">
+                            <input formControlName="expense" type="text" placeholder="Expense" class="income-type">
+                          </div>
+                          <div class="rent-budget position-relative">
+                            <span [class.filled]="inputFilledAmount[idx]">$</span>
+                            <input (input)="inputFilledAmount[idx] = true" formControlName="amount" type="text" name=""
+                              id="" placeholder="Amount" appNumberFormatterDirective>
+
+                          </div>
+                          <div class=" approx-day d-flex align-items-end gap-2 position-relative">
+                            <!-- <input formControlName="paymentDate" #datepicker5 type="text" placeholder="Approx day of month paid" class="start-date"> -->
+                            <input type="number" formControlName="paymentDate" class="start-date"
+                              placeholder="Approx day of Month Paid" (input)="onInputEvent($event)" pattern="^([1-9]|[1-2]|3[0-1])$">
+                           
+                            <img src="../../../assets/img/info-circle-second.svg" alt="img" class="position-absolute ">
+                          </div>
+                          <div [ngClass]="{'delete-hide':expenses.controls.length==1}" class="delete-icon-box">
+                            <img src="../../../assets/img/delete-icon.svg" (click)="removeExpense(idx)" alt="img">
+                          </div>
                         </div>
-                        <div class="rent-budget position-relative">
-                          <span [class.filled]="inputFilledAmount[idx]">$</span>
-                          <input (input)="inputFilledAmount[idx] = true" formControlName="amount" type="number" name=""
-                            id="" placeholder="Amount">
-                        </div>
-                        <div class=" approx-day d-flex align-items-end gap-2 position-relative">
-                          <!-- <input formControlName="paymentDate" #datepicker5 type="text" placeholder="Approx day of month paid" class="start-date"> -->
-                          <input type="number"  formControlName="paymentDate"
-                            class="start-date" placeholder="Approx day of Month Paid" >
-                          <img src="../../../assets/img/info-circle-second.svg" alt="img" class="position-absolute ">
-                        </div>
-                        <div [ngClass]="{'delete-hide':expenses.controls.length==1}" class="delete-icon-box">
-                          <img src="../../../assets/img/delete-icon.svg" (click)="removeExpense(idx)" alt="img">
+                        <div *ngIf="budgetForm.get('expenses.' + idx + '.amount').errors['pattern']"
+                          class="error-message">
+                          Please enter a valid Amount.
                         </div>
                       </div>
 
@@ -370,7 +406,7 @@
                 </form>
 
               </div>
-              <div *ngIf="steps===9" id="step9">
+              <div *ngIf="steps==9" id="step9">
                 <form action="">
                   <div [ngClass]="{'save-stepper':showFinish}" class="quick-start-question">
                     <label for="">How much would you like to save?</label>
@@ -411,7 +447,7 @@
                 </form>
               </div>
               <div class="text-end back-next-btn">
-                <button (click)="back()" *ngIf="steps>=3" class="back-btn">
+                <button (click)="back()" *ngIf="steps!=1" class="back-btn">
                   <img src="../../../assets/img/back-arrow.svg" alt="img" />
                   Back
                 </button>

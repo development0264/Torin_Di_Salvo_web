@@ -8,6 +8,9 @@ import Plotly from 'plotly.js-dist-min'
   styleUrls: ['./budget.component.css']
 })
 export class BudgetComponent {
+  AccenturePaycheck: string = '120000.00';
+  AccentureBonus: string = '10000.00';
+  totalIncome:string='130000.00';
   ngAfterViewInit() {
     
     const yValues = [
@@ -135,5 +138,19 @@ export class BudgetComponent {
     });
   }
 
-  
+  monthClicked(){
+this.AccentureBonus='500.00'
+this.AccenturePaycheck='5000.00'
+this.totalIncome='5500.00'
+  }
+  dayClicked(){
+    this.AccentureBonus='10.00'
+    this.AccenturePaycheck='50.00'
+    this.totalIncome='60.00'
+  }
+  yearClicked(){
+    this.AccenturePaycheck = '120000.00';
+  this.AccentureBonus = '10000.00';
+ this.totalIncome='130000.00';
+  }
 }

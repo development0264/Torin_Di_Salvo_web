@@ -4,7 +4,7 @@ import { QuickstartComponent } from './quickstart/quickstart.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'step/:id',
     component: QuickstartComponent,}
 ];
 

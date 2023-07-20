@@ -18,6 +18,7 @@ export class HomeComponent {
   minDatePRS: Date;
   datePickerConfig:Partial<BsDatepickerConfig>
   airBnBForm: FormGroup;
+  PrsFormHeadingTable: any='Puerto Rico Saver';
   constructor(private formBuilder: FormBuilder) {
     this.datePickerConfig=Object.assign({},{
       containerClass:'theme-dark-blue',
@@ -175,7 +176,12 @@ if(newStartDatePRD!=undefined){
     };
   }
   EditHeader(){
+    console.log(this.airBnBHeadervalue);
+    
     this.airBnBHeadervalueTable=this.airBnBHeadervalue
+  }
+  EditPrsHeader(){
+    this.PrsFormHeadingTable=this.PrsFormHeading
   }
   airBnBSubmit(){
     if (this.airBnBForm.invalid) {
