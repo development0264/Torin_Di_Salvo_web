@@ -12,13 +12,23 @@ import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 })
 export class QuickstartComponent {
   datePickerConfig:Partial<BsDatepickerConfig>
-
+  inputFilled: boolean = false;
+  inputFilledIncome: boolean[] = [false];
+  inputFilledAmtPerPay: boolean[] = [false];
+  inputFilledAmount: boolean[] = [false];
+  isPaycheckFrequencySelected: boolean = false;
+  inputfilleddeduction:boolean=false
+  isBonusOptionSelected: boolean = false;
+  isAccountSelected: boolean = false;
+  issavAccountSelected: boolean = false;
+  issdeductionSelected: boolean = false;
 //initialize the forms
   srcIncomeForm: FormGroup;
   accountForm: FormGroup;
   savingsAccntForm: FormGroup;
   pretaxForm: FormGroup;
   budgetForm: FormGroup;
+  paycheckForm: FormGroup;
   selectedDate: Date;
   dateofbirth;
   currentStep: number = 0;
@@ -59,15 +69,37 @@ export class QuickstartComponent {
     return `${percentage.toFixed(2)}%`;
   }
  
-
+  onPaycheckFrequencyChange() {
+    this.isPaycheckFrequencySelected = true;
+  }
+  onBonusOptionChange() {
+    this.isBonusOptionSelected = true;
+  }
+  onAccountChange() {
+    this.isAccountSelected = true;
+  }
+  onsavAccountChange() {
+    this.issavAccountSelected = true;
+  }
+  ondeductionChange() {
+    this.issdeductionSelected = true;
+  }
   ngOnInit() {
+    this.initPaycheckForm();
     this.initSrcIncomeForm()
     this.initAccountForm();
     this.initSavingsAccntForm();
     this.initPretaxForm();
     this.initBudgetForm();
   }
-
+  initPaycheckForm() {
+    this.paycheckForm = this.formBuilder.group({
+      annualIncome: ['', Validators.required],
+      paycheckFrequency: ['0', Validators.required],
+      firstPaycheckDate: ['', Validators.required],
+      secondPaycheckDate: ['', Validators.required]
+    });
+  }
   //income source form config
 
   initSrcIncomeForm() {
@@ -87,6 +119,7 @@ export class QuickstartComponent {
     
   addIncomesrcItem() {
     this.incomesrc.push(this.newItem());
+    this.inputFilledIncome.push(false); 
   }
   removeIncomesrcItem(index: number) {
     this.incomesrc.removeAt(index);
@@ -105,7 +138,7 @@ export class QuickstartComponent {
   newAccount(): FormGroup {
     return this.formBuilder.group({
       accountType: ['Account Type', Validators.required],
-      accountName: ['', Validators.required]
+      accountName: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9]+$')]]
     });
   }
   removeAccount(index: number) {
@@ -134,7 +167,7 @@ export class QuickstartComponent {
   newSavingsAccount(): FormGroup {
     return this.formBuilder.group({
       accountType: ['Account Type', Validators.required],
-      accountName: ['', Validators.required]
+      accountName: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9]+$')]]
     });
   }
   removeSavingsAccount(index: number) {
@@ -155,6 +188,7 @@ export class QuickstartComponent {
 
   addPreTaxDeduction() {
     this.preTaxDeductions.push(this.newPreTaxDeduction());
+    this.inputFilledAmtPerPay.push(false); 
   }
   newPreTaxDeduction(): FormGroup {
     return this.formBuilder.group({
@@ -170,8 +204,7 @@ export class QuickstartComponent {
 
   initBudgetForm() {
       this.budgetForm = this.formBuilder.group({
-        expenses: this.formBuilder.array([this.newExpense(),
-        this.newExpenseWithDefault()])
+        expenses: this.formBuilder.array([this.newExpense(),this.newExpenseWithDefault()])
       });
     
   }
@@ -200,6 +233,7 @@ export class QuickstartComponent {
   }
   addExpense() {
     this.expenses.push(this.newExpenseWithDefault());
+    this.inputFilledAmount.push(false); 
   }
 
 //next and back button config

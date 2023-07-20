@@ -16,7 +16,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { CanvasJSAngularChartsModule } from '@canvasjs/angular-charts';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 @NgModule({
   declarations: [
     PagesComponent,
@@ -38,7 +38,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CanvasJSAngularChartsModule,
     NgxSliderModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    BsDatepickerModule.forRoot(),
     
   ]
 })

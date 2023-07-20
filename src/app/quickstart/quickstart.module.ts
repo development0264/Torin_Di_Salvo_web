@@ -6,10 +6,13 @@ import { QuickstartRoutingModule } from './quickstart-routing.module';
 import { QuickstartComponent } from './quickstart/quickstart.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { NumberFormatterDirectiveDirective } from '../directives/number-formatter-directive.directive';
+import { DollarsignDirective } from '../directives/dollarsign.directive';
 @NgModule({
   declarations: [
-    QuickstartComponent
+    QuickstartComponent,
+    NumberFormatterDirectiveDirective,
+    DollarsignDirective,
   ],
   imports: [
     CommonModule,

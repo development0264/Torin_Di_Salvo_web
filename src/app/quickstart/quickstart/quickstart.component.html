@@ -1,9 +1,8 @@
-
 <div class="quick-start-nav">
   <header class="navbar navbar-expand">
     <div class="container-default">
       <div class="d-flex align-items-center justify-content-between">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="#step1">
           <img src="../../../assets/img/navbar-logo.svg" alt="logo">
         </a>
         <div class="profile-dropdown">
@@ -73,43 +72,51 @@
               <div class="stepper-counter">
                 <p>{{steps}}/{{maxsteps}}</p>
               </div>
-              <div *ngIf="steps===1">
-                <form action="">
+              <div *ngIf="steps===1" id="step1">
+                <form [formGroup]="paycheckForm" action="">
                   <div class="quick-start-question">
                     <label for="">What is your annual paycheck income?</label>
                     <div class="position-relative">
-                      <span class="position-absolute">$</span>
-                      <input type="number" placeholder="Annual Salary">
+                      <span class="position-absolute" [class.filled]="inputFilled">$</span>
+                      <!-- <span class="position-absolute">$</span> -->
+                      <input formControlName="annualIncome" (input)="inputFilled = true" type="number"
+                        placeholder="Annual Salary" >
                     </div>
                   </div>
                   <div class="quick-start-question">
                     <label for="">How often do you receive your paycheck?</label>
-                    <select class="form-select" aria-label="Default select example">
-                      <option selected>Paycheck Frequency</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
+                    <select formControlName="paycheckFrequency" class="form-select" aria-label="Default select example"
+                      [ngClass]="{ 'selected-option': isPaycheckFrequencySelected }"
+                      (change)="onPaycheckFrequencyChange()">
+                      <option [ngClass]="{ 'grey-text': isPaycheckFrequencySelected }" value="0" selected>Paycheck
+                        Frequency</option>
+                      <option [ngClass]="{ 'grey-text': isPaycheckFrequencySelected }" value="1">One</option>
+                      <option [ngClass]="{ 'grey-text': isPaycheckFrequencySelected }" value="2">Two</option>
+                      <option [ngClass]="{ 'grey-text': isPaycheckFrequencySelected }" value="3">Three</option>
                     </select>
                   </div>
                   <div class="quick-start-question">
                     <label for="">What days do you normally receive your paycheck?</label>
-                
-                    <input type="text" formControlName=""  [bsConfig]="datePickerConfig" placeholder="1st Paycheck Date" class="start-date" bsDatepicker>
-                    <input type="text" formControlName=""  [bsConfig]="datePickerConfig"  placeholder="2nd Paycheck Date" class="start-date" bsDatepicker>
+
+                    <input type="text" formControlName="firstPaycheckDate" [bsConfig]="datePickerConfig"
+                      placeholder="1st Paycheck Date" class="start-date" bsDatepicker>
+                    <input type="text" formControlName="secondPaycheckDate" [bsConfig]="datePickerConfig"
+                      placeholder="2nd Paycheck Date" class="start-date" bsDatepicker>
                     <!-- <input #datepicker1 type="text" placeholder="1st Paycheck Date" class="start-date">
                     <input #datepicker2 type="text" placeholder="2st Paycheck Date" class="start-date"> -->
                   </div>
                 </form>
               </div>
-              <div *ngIf="steps===2">
+              <div *ngIf="steps===2" id="step2">
                 <form action="">
                   <div class="quick-start-question">
                     <label for="">Do you receive any annual bonuses?</label>
-                    <select class="form-select" aria-label="Default select example">
-                      <option selected>Bonus Options</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
+                    <select class="form-select" aria-label="Default select example"
+                      [ngClass]="{ 'selected-option': isBonusOptionSelected }" (change)="onBonusOptionChange()">
+                      <option [ngClass]="{ 'grey-text': isBonusOptionSelected }" selected>Bonus Options</option>
+                      <option [ngClass]="{ 'grey-text': isBonusOptionSelected }" value="1">One</option>
+                      <option [ngClass]="{ 'grey-text': isBonusOptionSelected }" value="2">Two</option>
+                      <option [ngClass]="{ 'grey-text': isBonusOptionSelected }" value="3">Three</option>
                     </select>
                   </div>
                   <div class="quick-start-question">
@@ -119,137 +126,173 @@
                       extra unexpected savings.</p>
                     <!-- <input type="date" placeholder="Annual Salary" class="start-date"> -->
                     <!-- <input type="text" #datepicker3 placeholder="Bonus Date" class="start-date"> -->
-                    <input type="text" formControlName=""  [bsConfig]="datePickerConfig" placeholder="Bonus Date" class="start-date" bsDatepicker>
+                    <input type="text" [bsConfig]="datePickerConfig" placeholder="Bonus Date" class="start-date"
+                      bsDatepicker>
                     <input type="number" placeholder="Bonus Amount" class="start-date">
 
                   </div>
                 </form>
               </div>
-              <div *ngIf="steps===3">
+              <div *ngIf="steps===3" id="step3">
                 <div>
 
-               
-                <form [formGroup]="srcIncomeForm">
-                
-                  <div class="quick-start-question source-income">
-                    <label for="">What are your other sources of income?</label>
-                    <div class="">
-                    <div formArrayName="incomesrc">
-                      <div *ngFor="let item of incomesrc.controls; index as idx;let last = last;" [formGroupName]="idx" class="account-type d-flex align-items-center flex-wrap flex-sm-nowrap">
-                        <div class="income-type-detail">                        
-                          <input type="text" placeholder="Income Type" formControlName="type" class="income-type">
+
+                  <form [formGroup]="srcIncomeForm">
+
+                    <div class="quick-start-question source-income">
+                      <label for="">What are your other sources of income?</label>
+                      <div class="">
+                        <div formArrayName="incomesrc">
+                          <div *ngFor="let item of incomesrc.controls; index as idx;let last = last;"
+                            [formGroupName]="idx"
+                            class="account-type d-flex align-items-center flex-wrap flex-sm-nowrap">
+                            <div class="income-type-detail">
+                              <input type="text" placeholder="Income Type" formControlName="type" class="income-type">
+                            </div>
+                            <div class="position-relative income-type-detail">
+                              <span class="position-absolute" [class.filled]="inputFilledIncome[idx]">$</span>
+                              <input type="number" (input)="inputFilledIncome[idx] = true" formControlName="Amount"
+                                placeholder="Income Amount">
+                            </div>
+                            <div [ngClass]="{'delete-hide':incomesrc.controls.length==1}" class="delete-icon-box">
+                              <img src="../../../assets/img/delete-icon.svg" (click)="removeIncomesrcItem(idx)"
+                                alt="img">
+                            </div>
+                          </div>
                         </div>
-                        <div class="position-relative income-type-detail">
-                          <span class="position-absolute">$</span>
-                          <input type="number" formControlName="Amount" placeholder="Income Amount">
-                        </div>
-                        <div [ngClass]="{'delete-hide':incomesrc.controls.length==1}"  class="delete-icon-box" >
-                          <img src="../../../assets/img/delete-icon.svg"  (click)="removeIncomesrcItem(idx)" alt="img">
+                      </div>
+                      <div class="text-center mt-4">
+                        <div class="add-income">
+                          <img (click)="addIncomesrcItem()" src="../../../assets/img/plus-icome.svg" alt="img">
                         </div>
                       </div>
                     </div>
-                  </div>
-                    <div class="text-center mt-4">
-                      <div class="add-income" >
-                        <img  (click)="addIncomesrcItem()" src="../../../assets/img/plus-icome.svg" alt="img">
-                      </div>
-                    </div>
-                  </div>
-                  
-                </form>
+
+                  </form>
+                </div>
               </div>
-              </div>
-              <div *ngIf="steps===4">
+              <div *ngIf="steps===4" id="step4">
                 <form action="" [formGroup]="accountForm">
-                
+
                   <div class="quick-start-question">
                     <label for="">What accounts do you use regularly for day to day transactions?</label>
-                    <p>These are accounts that hold a balance and you will track to understand how much of your monthly budget you have consumed. They include checking accounts, credit card accounts, Venmo, PayPal, etc. Don’t worry if you are unsure whether to include a certain account, you can always edit this later!</p>
-                    <div formArrayName="accounts"  class="account-type-container">
-                      <div  *ngFor="let account of accounts.controls; index as idx;" [formGroupName]="idx" class="d-flex account-type align-items-center flex-wrap flex-lg-nowrap">
-                        <select formControlName="accountType" class="form-select" aria-label="Default select example">
-                          <option selected>Account Type</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
-                        </select>
-                        <input  formControlName="accountName" type="number" placeholder="Account Name" class="income-type ">
-                        <div  [ngClass]="{'delete-hide':accounts.controls.length==1}" class="delete-icon-box">
-                          <img src="../../../assets/img/delete-icon.svg" (click)="removeAccount(idx)" alt="img">
+                    <p>These are accounts that hold a balance and you will track to understand how much of your monthly
+                      budget you have consumed. They include checking accounts, credit card accounts, Venmo, PayPal,
+                      etc. Don’t worry if you are unsure whether to include a certain account, you can always edit this
+                      later!</p>
+                    <div formArrayName="accounts" class="account-type-container">
+                      <div *ngFor="let account of accounts.controls; index as idx;" [formGroupName]="idx">
+                        <div class="d-flex account-type align-items-center flex-wrap flex-lg-nowrap">
+                          <select [ngClass]="{ 'selected-option': isAccountSelected }" (change)="onAccountChange()"
+                            formControlName="accountType" class="form-select" aria-label="Default select example">
+                            <option [ngClass]="{ 'grey-text': isAccountSelected }" selected>Account Type</option>
+                            <option [ngClass]="{ 'grey-text': isAccountSelected }" value="1">One</option>
+                            <option [ngClass]="{ 'grey-text': isAccountSelected }" value="2">Two</option>
+                            <option [ngClass]="{ 'grey-text': isAccountSelected }" value="3">Three</option>
+                          </select>
+                          <input formControlName="accountName" type="text" placeholder="Account Name"
+                            class="income-type ">
+                          <div [ngClass]="{'delete-hide':accounts.controls.length==1}" class="delete-icon-box">
+                            <img src="../../../assets/img/delete-icon.svg" (click)="removeAccount(idx)" alt="img">
+                          </div>
+                        </div>
+                        <div
+                          *ngIf="accountForm.get('accounts.' + idx + '.accountName').invalid && accountForm.get('accounts.' + idx + '.accountName').dirty"
+                          class="error-message">
+                          Please enter a valid account name.
                         </div>
                       </div>
                     </div>
                     <div class="text-center mt-4">
-                      <div class="add-account" >
+                      <div class="add-account">
                         <img (click)="addAccount()" src="../../../assets/img/plus-icome.svg" alt="img">
                       </div>
-                    </div>                
+                    </div>
                   </div>
-                  
+
                 </form>
               </div>
-              <div *ngIf="steps===5">
+              <div *ngIf="steps===5" id="step5">
                 <form [formGroup]="savingsAccntForm" action="">
-           
+
                   <div class="quick-start-question">
                     <label for="">What accounts do you use to hold your savings?</label>
                     <p>These are accounts that contain money that you don’t use for day-to-day transactions.
-                       They generally include savings accounts, investment accounts, piggy banks, etc. 
-                       We generally do not recommend including retirement accounts in this section. Don’t worry, 
-                       you can update this later!</p>
+                      They generally include savings accounts, investment accounts, piggy banks, etc.
+                      We generally do not recommend including retirement accounts in this section. Don’t worry,
+                      you can update this later!</p>
                     <div formArrayName="savingsAccounts" class="account-type-container">
-                      <div *ngFor="let savingsAccount of savingsAccounts.controls; index as idx;" [formGroupName]="idx" class="d-flex account-type align-items-center flex-wrap flex-lg-nowrap">
-                        <select formControlName="accountType" class="form-select" aria-label="Default select example">
-                          <option selected>Account Type</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
-                        </select>
-                        <input formControlName="accountName" type="number" placeholder="Account Name" class="income-type">
-                        <div  [ngClass]="{'delete-hide':savingsAccounts.controls.length==1}" class="delete-icon-box">
-                          <img src="../../../assets/img/delete-icon.svg" (click)="removeSavingsAccount(idx)" alt="img">
+                      <div *ngFor="let savingsAccount of savingsAccounts.controls; index as idx;" [formGroupName]="idx">
+                        <div class="d-flex account-type align-items-center flex-wrap flex-lg-nowrap">
+                          <select [ngClass]="{ 'selected-option': issavAccountSelected }"
+                            (change)="onsavAccountChange()" formControlName="accountType" class="form-select"
+                            aria-label="Default select example">
+                            <option [ngClass]="{ 'grey-text': issavAccountSelected }" selected>Account Type</option>
+                            <option [ngClass]="{ 'grey-text': issavAccountSelected }" value="1">One</option>
+                            <option [ngClass]="{ 'grey-text': issavAccountSelected }" value="2">Two</option>
+                            <option [ngClass]="{ 'grey-text': issavAccountSelected }" value="3">Three</option>
+                          </select>
+                          <input formControlName="accountName" type="text" placeholder="Account Name"
+                            class="income-type">
+                          
+                          <div [ngClass]="{'delete-hide':savingsAccounts.controls.length==1}" class="delete-icon-box">
+                            <img src="../../../assets/img/delete-icon.svg" (click)="removeSavingsAccount(idx)"
+                              alt="img">
+                          </div>
+                        </div>
+                        <div
+                          *ngIf="savingsAccntForm.get('savingsAccounts.' + idx + '.accountName').invalid && savingsAccntForm.get('savingsAccounts.' + idx + '.accountName').dirty"
+                          class="error-message">
+                          Please enter a valid  account name.
                         </div>
                       </div>
                     </div>
                     <div class="text-center mt-4">
-                      <div class="add-account" >
+                      <div class="add-account">
                         <img (click)="addSavingsAccount()" src="../../../assets/img/plus-icome.svg" alt="img">
                       </div>
                     </div>
                   </div>
-                  
+
                 </form>
               </div>
-              <div *ngIf="steps===6">
+              <div *ngIf="steps===6" id="step6">
                 <form [formGroup]="pretaxForm" action="">
-                
+
                   <div class="quick-start-question">
-                    <label for="">What pre-tax deductions do you normally take?</label>                    
+                    <label for="">What pre-tax deductions do you normally take?</label>
                     <div formArrayName="preTaxDeductions" class="deduction-container">
-                      <div  *ngFor="let deduction of preTaxDeductions.controls; index as idx;" [formGroupName]="idx" class="d-flex account-type align-items-center flex-wrap flex-sm-nowrap">
-                        <select formControlName="deduction" class="form-select" aria-label="Default select example">
-                          <option selected>Deduction</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
+                      <div *ngFor="let deduction of preTaxDeductions.controls; index as idx;" [formGroupName]="idx"
+                        class="d-flex account-type align-items-center flex-wrap flex-sm-nowrap">
+                        <select [ngClass]="{ 'selected-option': issdeductionSelected }" (change)="ondeductionChange()"
+                          formControlName="deduction" class="form-select" aria-label="Default select example">
+                          <option [ngClass]="{ 'grey-text': issdeductionSelected }" selected>Deduction</option>
+                          <option [ngClass]="{ 'grey-text': issdeductionSelected }" value="1">One</option>
+                          <option [ngClass]="{ 'grey-text': issdeductionSelected }" value="2">Two</option>
+                          <option [ngClass]="{ 'grey-text': issdeductionSelected }" value="3">Three</option>
                         </select>
-                        <input formControlName="amount" type="number" placeholder="$ Amount per paycheck" class="income-type">
-                        <div  [ngClass]="{'delete-hide':preTaxDeductions.controls.length==1}"  class="delete-icon-box">
+                        <div class="position-relative">
+                          <span _ngcontent-smn-c31="" [class.filled]="inputFilledAmtPerPay[idx]"
+                            class="position-absolute">$</span>
+                          <input (input)="inputFilledAmtPerPay[idx] = true" formControlName="amount" type="number"
+                            placeholder="Amount per paycheck" class="">
+                        </div>
+                        <div [ngClass]="{'delete-hide':preTaxDeductions.controls.length==1}" class="delete-icon-box">
                           <img src="../../../assets/img/delete-icon.svg" (click)="removePreTaxDeduction(idx)" alt="img">
                         </div>
                       </div>
                     </div>
                     <div class="text-center mt-4">
-                      <div class="add-deduction" >
+                      <div class="add-deduction">
                         <img (click)="addPreTaxDeduction()" src="../../../assets/img/plus-icome.svg" alt="img">
                       </div>
                     </div>
-                   
+
                   </div>
-                  
+
                 </form>
               </div>
-              <div *ngIf="steps===7">
+              <div *ngIf="steps===7" id="step7">
                 <form action="">
                   <div class="quick-start-question">
                     <label for="">How do you normally file your taxes?</label>
@@ -259,15 +302,16 @@
                         Standard Deduction
                       </label>
                     </div>
-                    <div class="form-check d-flex align-items-center flex-wrap">
+                    <div class="form-check account-type d-flex align-items-center flex-wrap">
                       <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
                         checked>
                       <label class="form-check-label me-5" for="flexRadioDefault2">
                         Itemized Deduction
                       </label>
-                      <div class="account-type  position-relative mt-2 mt-md-0">
-                        <span class="position-absolute">$</span>
-                        <input type="number" placeholder="Deduction Amount">
+                      <div class="account-type position-relative mt-2 mt-md-0">
+                        <span class="position-absolute" [class.filled]="inputfilleddeduction">$</span>
+                        <input type="number" [class.filled]="inputfilleddeduction" (input)="inputfilleddeduction = true"
+                          placeholder="Deduction Amount">
                       </div>
                     </div>
                     <div class="income-table-main">
@@ -287,43 +331,46 @@
                   </div>
                 </form>
               </div>
-              <div *ngIf="steps===8">
+              <div *ngIf="steps===8" id="step8">
                 <form [formGroup]="budgetForm" action="">
                   <div class="quick-start-question budget-expenses">
                     <label for="">What other expenses do you budget for?</label>
                     <div formArrayName="expenses" class="expenses-container">
-                      <div *ngFor="let expense of expenses.controls; index as idx;" [formGroupName]="idx" class="rent-price d-flex align-items-center justify-content-lg-between justify-content-around mb-sm-4">
-                        <div class="rent-budget">                          
+                      <div *ngFor="let expense of expenses.controls; index as idx;" [formGroupName]="idx"
+                        class="rent-price d-flex align-items-center justify-content-lg-between justify-content-around mb-sm-4">
+                        <div class="rent-budget">
                           <input formControlName="expense" type="text" placeholder="Expense" class="income-type">
                         </div>
                         <div class="rent-budget position-relative">
-                          <span>$</span>
-                          <input formControlName="amount" type="number" name="" id="" placeholder="Amount">
+                          <span [class.filled]="inputFilledAmount[idx]">$</span>
+                          <input (input)="inputFilledAmount[idx] = true" formControlName="amount" type="number" name=""
+                            id="" placeholder="Amount">
                         </div>
                         <div class=" approx-day d-flex align-items-end gap-2 position-relative">
                           <!-- <input formControlName="paymentDate" #datepicker5 type="text" placeholder="Approx day of month paid" class="start-date"> -->
-                         <input type="number" [bsConfig]="datePickerConfig" formControlName="paymentDate"  class="start-date" placeholder="Approx day of Month Paid" bsDatepicker>
+                          <input type="number"  formControlName="paymentDate"
+                            class="start-date" placeholder="Approx day of Month Paid" >
                           <img src="../../../assets/img/info-circle-second.svg" alt="img" class="position-absolute ">
                         </div>
-                        <div  [ngClass]="{'delete-hide':expenses.controls.length==1}"  class="delete-icon-box">
+                        <div [ngClass]="{'delete-hide':expenses.controls.length==1}" class="delete-icon-box">
                           <img src="../../../assets/img/delete-icon.svg" (click)="removeExpense(idx)" alt="img">
                         </div>
                       </div>
-                      
-                    
+
+
                     </div>
                     <div class="text-center mt-4" id="Plus-icon">
-                      <div class="add-income">                        
+                      <div class="add-income">
                         <img src="../../../assets/img/plus-icome.svg" alt="img" (click)="addExpense()">
                       </div>
                     </div>
                   </div>
-                  
-                  
+
+
                 </form>
 
               </div>
-              <div *ngIf="steps===9">
+              <div *ngIf="steps===9" id="step9">
                 <form action="">
                   <div [ngClass]="{'save-stepper':showFinish}" class="quick-start-question">
                     <label for="">How much would you like to save?</label>
@@ -372,7 +419,7 @@
                   Next
                   <img src="../../../assets/img/start-right-arrow.svg" alt="img">
                 </button>
-                <button id="nextButton" class="next-btn" *ngIf="showFinish"(click)="finish()">
+                <button id="nextButton" class="next-btn" *ngIf="showFinish" (click)="finish()">
                   Finish
                   <img src="../../../assets/img/start-right-arrow.svg" alt="img">
                 </button>

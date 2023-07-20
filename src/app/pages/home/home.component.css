@@ -373,6 +373,18 @@
 .create-asset-modal .saving-account {
     height: 580px;
 }
+.create-asset-modal .modal-header input{
+    border: none;
+    font-size: 24px;
+    color: #000;
+    font-weight: 600;    
+    outline: none;  
+    max-width: 230px;
+    width: 100%;  
+}
+.create-asset-modal .modal-header input::placeholder{
+    color: #000;
+}
 
 .liability-detail {
     margin-bottom: 20px;

@@ -66,8 +66,19 @@
     font-weight: 400;
     font-size: 14px;
 }
+.error-message{
+    color: red;
+    text-align: end;
+    margin-right: 40px;
+}
 
-
+.filled {
+  color: #000 !important;
+  }
+  .grey-text{
+    color: #B6B6B6 !important;
+  }
+  
 
 .quick-start-box {
     background-color: #142B56;
@@ -421,6 +432,17 @@ ngx-slider ::ng-deep span.ngx-slider-span.ngx-slider-bubble.ngx-slider-model-val
     font-size: 26px;
 }
 
+/* Add any additional styling you want for the selected option */
+.selected-option {
+    color: black !important;
+  }
+  
+  /* Add any additional styling you want for the input field after the option is selected */
+  .selected-input {
+    color: black;
+  }
+  
+  
 .income-type-detail input {
     margin-bottom: 10px;
 }

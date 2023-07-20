@@ -7,8 +7,9 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
   constructor(private router:Router){}
+  isDropdownOpen: boolean = false;
   navigateToUserProfile(){
-    console.log("called");
+
     this.router.navigate(['/settings/profile'])
     
   }

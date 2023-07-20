@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-lg">
       <div class="container-default">
         <a class="navbar-brand" href="#">
-          <img src="../../../assets/img/navbar-logo.svg" alt="logo">
+          <img src="../../../assets/img/navbar-logo.svg" alt="logo" height="32px">
         </a>
         <div class="collapse navbar-collapse justify-content-between" id="">
           <ul class="navbar-nav">
@@ -35,7 +35,7 @@
                 <img src="../../../assets/img/profile.svg" alt="img">
                 <span>Torin</span>
               </a>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <ul id="Dropdownlist" [class.showDropdoan]="isDropdownOpen" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <div class="d-flex align-items-center p-3">
                   <img src="../../../assets/img/user-profile.png" alt="img">
                   <div class="user-detail">
